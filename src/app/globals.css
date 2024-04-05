@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+h2 {
+  @apply py-2 font-proximaBold text-2xl;
+}
+
+h4 {
+  @apply py-1 font-proximaBold text-lg;
+}
+
+main.blog {
+  @apply transition-all duration-500 sm:w-[80%] md:w-[70%] lg:w-[60%] xl+:w-[45%] max-w-full px-8;
+}
+
+h1.header {
+  @apply py-4 mt-2 text-center font-proximaSemiBold sm:text-4xl text-3xl leading-10 text-seaBlue-700;
+}
+
+h2.header {
+  @apply text-xl text-seaBlue-700;
+}
+
+span.text {
+  @apply py-1;
+}
+
+p.text {
+ @apply py-2
+}
+
+span.description {
+  @apply font-proximaItalic;
+}
+
+section.image {
+  @apply flex flex-col items-center justify-center text-center;
+}
+
+section.paragraph {
+  @apply py-2 my-2
+}
+
+span.reference {
+  @apply my-2 break-normal
+}
+
+a.ref {
+  @apply underline text-seaBlue-700
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeUp {
+  animation: fadeUp 1s ease-in-out;
+}

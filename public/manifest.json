@@ -1,0 +1,39 @@
+{
+  "name": "PoSciDonDAO | Personalized Medicine Funding Revolutionized",
+  "short_name": "PoSciDonDAO Website",
+  "description": "PoSciDonDAO is a decentralized science DAO that aims to streamline the funding process of personalized medicine research. Join the revolution!",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "https://www.poscidondao.com/favicon.ico",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://www.poscidondao.com/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.poscidondao.com/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.poscidondao.com/apple-touch-icon.png",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.poscidondao.com/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.poscidondao.com/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "fullscreen",
+  "theme_color": "#0b1dee",
+  "background_color": "#FDFDFD"
+}
