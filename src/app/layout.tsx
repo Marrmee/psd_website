@@ -73,11 +73,12 @@ export default function RootLayout({
         crossOrigin="anonymous"
       />
       <Script
+        id="google-analytics-tag"
         strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-      />      
-      <Script strategy="lazyOnload">
-      {`
+        src={`https://www.googletagmanager.com/gtag/js?id=${GMT_ID}`}
+      />
+      <Script id="google-analytics-code" strategy="lazyOnload">
+        {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -85,7 +86,7 @@ export default function RootLayout({
         page_path: window.location.pathname,
         });
       `}
-    </Script>
+      </Script>
       <body
         className={`
             flex

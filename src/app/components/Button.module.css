@@ -1,6 +1,6 @@
 .tertiary {
   @apply 
-  inline-block 
+  flex
   font-proximaSemiBold 
   justify-center 
   items-center 
@@ -11,9 +11,9 @@
   underline 
   px-4 
   py-2 
-  md:text-base 
+  text-base 
   md:leading-8 
-  lg:text-2xl 
+  lg:text-lg 
   lg:leading-9 
   hover:cursor-pointer;
 }

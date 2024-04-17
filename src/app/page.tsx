@@ -79,10 +79,20 @@ export default function Home() {
             type={'button'}
             onClick={null}
             target={'_blank'}
+            text={`Donate`}
+            href={'https://protocol.poscidondao.com/donate'}
+            icon={''}
+            style={styles.primary}
+          />
+          <Button
+            link={true}
+            type={'button'}
+            onClick={null}
+            target={'_blank'}
             text={`Join the DAO`}
             href={'https://discord.gg/75SrHpcNSZ'}
             icon={''}
-            style={styles.primary}
+            style={styles.tertiary}
           />
           {/* <Button
             link={true}
