@@ -49,58 +49,111 @@ const items = [
 ];
 
 export default function SciTokenPage() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisibleHeader, setIsVisibleHeader] = useState(false);
+  const [isVisibleSection, setIsVisibleSection] = useState(false);
+  const [isVisibleEcosystem, setIsVisibleEcosystem] = useState(false);
+  const [isVisibleTokenomics, setIsVisibleTokenomics] = useState(false);
+  const [isVisibleFaq, setIsVisibleFaq] = useState(false);
+  const headerRef = useRef(null);
   const sectionRef = useRef(null);
-
+  const ecosystemRef = useRef(null);
+  const tokenomicsRef = useRef(null);
+  const faqRef = useRef(null);
+  const visbilityThreshold = 0.05
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setIsVisible(true);
-      }
-    });
+    const observerHeader = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisibleHeader(true);
+        }
+      },
+      { threshold: visbilityThreshold }
+    );
+
+    const observerSection = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisibleSection(true);
+        }
+      },
+      { threshold: visbilityThreshold }
+    );
+
+    const observerEcosystem = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisibleEcosystem(true);
+        }
+      },
+      { threshold: visbilityThreshold }
+    );
+
+    const observerTokenomics = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisibleTokenomics(true);
+        }
+      },
+      { threshold: visbilityThreshold }
+    );
+
+    const observerFaq = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisibleFaq(true);
+        }
+      },
+      { threshold: visbilityThreshold }
+    );
+
+    if (headerRef.current) {
+      observerHeader.observe(headerRef.current);
+    }
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      observerSection.observe(sectionRef.current);
+    }
+
+    if (ecosystemRef.current) {
+      observerEcosystem.observe(ecosystemRef.current);
+    }
+
+    if (tokenomicsRef.current) {
+      observerTokenomics.observe(tokenomicsRef.current);
+    }
+
+    if (faqRef.current) {
+      observerFaq.observe(faqRef.current);
     }
 
     return () => {
+      if (headerRef.current) {
+        observerHeader.unobserve(headerRef.current);
+      }
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+        observerSection.unobserve(sectionRef.current);
+      }
+      if (ecosystemRef.current) {
+        observerEcosystem.unobserve(ecosystemRef.current);
+      }
+      if (tokenomicsRef.current) {
+        observerTokenomics.unobserve(tokenomicsRef.current);
+      }
+      if (faqRef.current) {
+        observerTokenomics.unobserve(faqRef.current);
       }
     };
   }, []);
 
   return (
-    <main
-      className="
-        flex
-        w-full
-        flex-col 
-        items-center
-        justify-center
-        "
-    >
+    <main className="flex w-full flex-col items-center justify-center">
       <header
-        className="
-        animate-fadeUp 
-        flex 
-        min-h-[300px] 
-        w-full 
-        flex-col 
-        items-center 
-        justify-center
-        gap-8 
-        p-8
-        text-sm
-        sm:min-h-[400px] 
-        sm:text-base
-        md:min-h-[700px] md:flex-row md:items-center
-  "
+        ref={headerRef}
+        className={`${
+          isVisibleHeader ? 'animate-fadeUp' : ''
+        } flex min-h-[300px] w-full flex-col items-center justify-center gap-8 p-8 text-sm sm:min-h-[400px] sm:text-base md:min-h-[700px] md:flex-row md:items-center`}
       >
-        <div
-          className="
-          my-16 flex w-full max-w-[300px] justify-center md:my-0 md:w-1/2 lg:max-w-[400px]"
-        >
+        <div className="my-16 flex w-full max-w-[300px] justify-center md:my-0 md:w-1/2 lg:max-w-[400px]">
           <Image
             alt="Representation of SCI, PoSciDonDAO's tradable governance token"
             width={1000}
@@ -109,46 +162,11 @@ export default function SciTokenPage() {
             src="/sci.webp"
           />
         </div>
-        <div
-          className="
-      flex 
-      w-full 
-      flex-col 
-      items-center 
-      justify-center 
-      text-center 
-      sm:items-center 
-      sm:justify-center 
-      md:w-1/2
-    "
-        >
-          <h1
-            className="
-        text-center 
-        font-proximaSemiBold 
-        text-3xl 
-        text-seaBlue-700 
-        sm:text-5xl 
-        lg:text-6xl
-      "
-          >
+        <div className="flex w-full flex-col items-center justify-center text-center sm:items-center sm:justify-center md:w-1/2">
+          <h1 className="text-center font-proximaSemiBold text-3xl text-seaBlue-700 sm:text-5xl lg:text-6xl">
             Explore SCI
           </h1>
-          <p
-            className="
-        flex 
-        w-full 
-        items-center 
-        justify-center 
-        py-4
-        text-center 
-        text-base 
-        sm:max-w-[70%] 
-        sm:py-8 
-        sm:text-xl 
-        md:max-w-none
-      "
-          >
+          <p className="flex w-full items-center justify-center py-4 text-center text-base sm:max-w-[70%] sm:py-8 sm:text-xl md:max-w-none">
             The SCI token is the backbone of the PoSciDonDAO ecosystem, allowing
             holders to vote on proposals regarding DAO operations and the
             election of scientific experts that review personalized medicine
@@ -174,27 +192,12 @@ export default function SciTokenPage() {
           />
         </div>
       </header>
-      <hr className="border-b-1 w-full border-gray-200"></hr>
+      <hr className="border-b-[1px] w-full border-gray-200"></hr>
       <section
         ref={sectionRef}
-        className={`
-        animate-fadeUp
-        flex 
-        min-h-[300px] 
-        w-full 
-        flex-col
-        items-center 
-        justify-center
-        p-4
-        text-center 
-        text-sm 
-        sm:min-h-[500px]
-        sm:p-8
-        sm:text-base
-        md:min-h-[700px]
-        md:items-center
-        ${isVisible ? 'animate-fadeUp' : ''}
-      `}
+        className={`${
+          isVisibleSection ? 'animate-fadeUp' : ''
+        } flex min-h-[300px] w-full flex-col items-center justify-center p-4 text-center text-sm sm:min-h-[500px] sm:p-8 sm:text-base md:min-h-[700px] md:items-center`}
       >
         <h2 className="mb-4 text-center text-4xl text-seaBlue-700">
           SCI Utility
@@ -218,39 +221,40 @@ export default function SciTokenPage() {
           ))}
         </div>
       </section>
-      <hr className="border-b-1 w-full border-gray-200"></hr>
+      <hr className="border-b-[1px] w-full border-gray-200"></hr>
       <section
-        ref={sectionRef}
+        ref={ecosystemRef}
         className={`
-    animate-fadeUp
-    flex 
-    min-h-[300px] 
-    w-full 
-    flex-col
-    items-center
-    justify-center 
-    gap-8
-    p-8
-    text-center 
-    text-sm 
-    sm:min-h-[400px]
-    sm:text-base
-    md:min-h-[500px]
-    md:items-center
-    lg:flex-row
-    ${isVisible ? 'animate-fadeUp' : ''}
-  `}
+        flex 
+        min-h-[300px] 
+        w-full 
+        flex-col
+        items-center
+        justify-center 
+        gap-8
+        p-8
+        text-center 
+        text-sm 
+        sm:min-h-[400px]
+        sm:text-base
+        md:min-h-[500px]
+        md:items-center
+        lg:flex-row
+        ${isVisibleEcosystem ? 'animate-fadeUp' : ''}
+      `}
       >
         <div className="min-h-[34rem] flex-auto text-gray-300 lg:w-2/5">
           <div
             className="
-        flex min-h-[34rem]
+        flex 
+        min-h-[34rem]
         w-full
         flex-col
-        justify-between rounded-3xl
-         bg-seaBlue-900
+        justify-between 
+        rounded-3xl
+        bg-seaBlue-900
         p-12
-      "
+        "
           >
             <h2 className="mb-4 text-center text-4xl">Our Ecosystem</h2>
             <Tabs startingIndex={0}>
@@ -386,9 +390,8 @@ export default function SciTokenPage() {
         </div>
       </section>
       <section
-        ref={sectionRef}
+        ref={tokenomicsRef}
         className={`
-        animate-fadeUp
         flex 
         min-h-[300px] 
         w-full 
@@ -403,16 +406,18 @@ export default function SciTokenPage() {
         sm:text-base
         md:min-h-[700px]
         md:items-center
-        ${isVisible ? 'animate-fadeUp' : ''}
+        ${isVisibleTokenomics ? 'animate-fadeUp' : ''}
       `}
       >
         <h2 className="mb-4 text-center text-4xl text-seaBlue-700">
           Token Allocation
         </h2>
-        <div className="
+        <div
+          className="
         gird-cols-1
         grid
-        ">
+        "
+        >
           <div className="flex flex-col">
             {/* <h3 className="mb-4 text-center font-proximaSemiBold text-3xl text-seaBlue-700">
               Allocation
@@ -436,9 +441,8 @@ export default function SciTokenPage() {
         </div>
       </section>
       <section
-        ref={sectionRef}
+        ref={faqRef}
         className={`
-        animate-fadeUp
         flex 
         min-h-[300px] 
         w-full 
@@ -454,146 +458,13 @@ export default function SciTokenPage() {
         sm:text-base
         md:min-h-[700px]
         md:items-center
-        ${isVisible ? 'animate-fadeUp' : ''}
+        ${isVisibleFaq ? 'animate-fadeUp' : ''}
       `}
       >
         <div className="my-8 w-full p-4 lg:w-2/3">
           <TokenFaq />
         </div>
       </section>
-      {/* <Image
-          className="
-            hidden 
-            items-center
-            justify-center
-            md:flex
-            "
-          src={'/staking.webp'}
-          alt="Staking $SCI and $PO tokens"
-          width={270}
-          height={100}
-        />
-        <div className="flex w-full flex-col items-center justify-start">
-          <h2
-            className="
-                flex
-                py-4
-                font-proximaSemiBold
-                text-4xl
-                text-seaBlue-700
-                sm:text-5xl
-                lg:text-6xl
-                "
-          >
-            Staking
-          </h2>
-          <p
-            className="
-            w-full
-            text-center
-            lg:text-lg
-            xl:text-xl
-            "
-          >
-            Your $SCI can be staked through{' '}
-            <a
-              className="text-seaBlue-700 underline"
-              target="_blank"
-              href={'https://test.poscidon.com/staking'}
-            >
-              PoSciDonDAO's Protocol
-            </a>
-            . Once staked, you will gain voting power, allowing you to vote on
-            DAO proposals. After on-chain voting on proposals, you will receive
-            the untradable $PO token. When $PO is staked together with $SCI, you
-            will receive more $SCI tokens on a daily basis.
-          </p>
-        </div>
-        <div
-          className="
-          flex 
-          w-full
-          items-start 
-          justify-center                     
-          p-4
-          md:hidden
-          md:pt-4
-          "
-        >
-          <Image
-            className="pt-8"
-            src={'/staking-line.webp'}
-            alt="Staking $SCI and $PO tokens"
-            width={600}
-            height={300}
-          />
-        </div> */}
-
-      {/* <hr className="border-b-1 w-full border-gray-200"></hr>
-      <section
-        ref={sectionRef}
-        className={`
-        my-2
-        flex
-        max-h-full
-        flex-col
-        items-center
-        justify-between
-        p-4
-        md:h-1/3
-        md:flex-row
-        md:gap-16
-        md:p-16
-        ${isVisible ? 'animate-fadeUp' : ''}
-      `}
-      >
-        <div className="flex w-full flex-col items-center justify-center">
-          <h2
-            className="
-            flex
-            py-4
-            font-proximaSemiBold
-            text-4xl
-            text-seaBlue-700
-            sm:text-5xl
-            lg:text-6xl
-            "
-          >
-            Burning
-          </h2>
-          <p
-            className="
-            w-full
-            text-center
-            lg:text-lg
-            xl:text-xl
-            "
-          >
-            Of the generated revenue, 30% will be used to buy $SCI from the
-            market. Those $SCI tokens will then be burned. Lower token supply
-            leads to higher value per $SCI token, given the total market
-            capitalization stays the same. The DAO can also decide through a
-            proposal to receive a dividend instead of executing buy-backs.
-          </p>
-        </div>
-        <div
-          className="
-          flex
-          h-full 
-          w-full  
-          items-center
-          justify-center                   
-          "
-        >
-          <Image
-            className="max-h-full w-full pt-8"
-            src={'/burn.webp'}
-            alt="Burning $SCI tokens"
-            width={300}
-            height={300}
-          />
-        </div>
-      </section> */}
     </main>
   );
 }

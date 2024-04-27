@@ -91,7 +91,7 @@ export default function ProjectFunding() {
           icon={''}
         />
       </header>
-      <hr className="border-b-1 w-full border-gray-200"></hr>
+      <hr className="border-b-[1px] w-full border-gray-200"></hr>
       <section className="flex items-center justify-center my-16 animate-fadeUp">
         <FAQ />
       </section>

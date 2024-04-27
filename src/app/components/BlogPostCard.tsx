@@ -89,7 +89,7 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
           icon={
             <FontAwesomeIcon
               icon={faReadme}
-              className="pl-2"
+              className="pr-2"
               style={{ color: '#0b1dee' }}
             />
           }

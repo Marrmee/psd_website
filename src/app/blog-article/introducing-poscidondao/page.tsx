@@ -140,8 +140,8 @@ export default function IntroBlog() {
             funding"
             className="w-[30rem] py-4"
             src="/blog-images/ecosystem.webp"
-            width={300}
-            height={300}
+            width={1000}
+            height={1000}
           />
           <span className="description">PoSciDonDAO’s ecosystem overview</span>
         </section>

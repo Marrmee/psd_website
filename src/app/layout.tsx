@@ -107,10 +107,10 @@ export default function RootLayout({
       >
         <NavBar />
         {children}
-        <hr className="border-b-1 w-full border-gray-200"></hr>
+        <hr className="border-b-[1px] w-full border-gray-200"></hr>
         <Footer />
         <div className="flex w-full flex-col pt-2">
-          <hr className="border-b-1 w-full border-gray-200"></hr>
+          <hr className="border-b-[1px] w-full border-gray-200"></hr>
           <div
             className=" 
                   flex 

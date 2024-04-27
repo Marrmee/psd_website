@@ -229,7 +229,7 @@ export default function ProjectForm() {
           property.
         </p>
       </header>
-      <hr className="border-b-1 w-full border-gray-200"></hr>
+      <hr className="border-b-[1px] w-full border-gray-200"></hr>
       <section
         className="        
             w-[90%]

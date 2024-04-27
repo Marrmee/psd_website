@@ -112,7 +112,8 @@ export default function ContactUs() {
         rounded-3xl
         bg-seaBlue-700
         p-8
-        shadow-xl"
+        shadow-xl
+        "
     >
       <h1 className="text-4xl font-bold text-[#FDFDFD]">Stay up to date</h1>
       <p className="py-4 text-[#FDFDFD]">

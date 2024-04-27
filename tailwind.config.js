@@ -45,6 +45,7 @@ module.exports = {
         forestGreen: '#004832',
         fieryRed: '#fe3303',
       },
+      translate: ['responsive', 'hover', 'group-hover'],
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

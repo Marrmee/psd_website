@@ -81,7 +81,7 @@ a.ref {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -89,6 +89,6 @@ a.ref {
   }
 }
 .animate-fadeUp {
-  animation: fadeUp 1s ease-in-out;
+  animation: fadeUp 1.5s ease-out;
 }
 

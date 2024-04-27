@@ -7,75 +7,61 @@ import styles from './components/Button.module.css';
 import Cards from './components/Cards';
 import Hero from './components/Hero';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faUsers
-} from '@fortawesome/free-solid-svg-icons';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+  const [isVisibleCards, setIsVisibleCards] = useState(false);
+  const [isVisibleContact, setIsVisibleContact] = useState(false);
+  const sectionRefCards = useRef(null);
+  const sectionRefContact = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setIsVisible(true);
-      }
-    });
+    // Adjust the threshold to trigger when 10% of the element is visible
+    const observerOptions = {
+      threshold: 0.1,
+    };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const observerCards = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setIsVisibleCards(true);
+      }
+    }, observerOptions);
+
+    const observerContact = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setIsVisibleContact(true);
+      }
+    }, observerOptions);
+
+    if (sectionRefCards.current) {
+      observerCards.observe(sectionRefCards.current);
+    }
+
+    if (sectionRefContact.current) {
+      observerContact.observe(sectionRefContact.current);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (sectionRefCards.current) {
+        observerCards.unobserve(sectionRefCards.current);
+      }
+      if (sectionRefContact.current) {
+        observerContact.unobserve(sectionRefContact.current);
       }
     };
   }, []);
 
   return (
-    <main
-      className="
-        flex
-        w-full
-        max-w-full
-        flex-col 
-        items-center
-        justify-center
-        px-8
-        xl+:w-[85%] 
-        "
-    >
-      <header
-        className={`
-        animate-fadeUp 
-        flex 
-        flex-col 
-        items-center 
-        justify-center
-        w-full
-        py-16
-        `}
-      >
+    <main className="flex w-full max-w-full flex-col items-center justify-center px-4 sm:px-8 xl+:w-[85%]">
+      <header className="animate-fadeUp flex w-full flex-col items-center justify-center py-16">
         <Hero />
-        <p
-          className={`
-          w-[80%]
-          py-8 
-          text-center
-          font-proxima
-          text-base 
-          transition-all
-          duration-500
-          md:text-lg
-          lg:text-2xl
-          `}
-        >
+        <p className="w-full py-8 text-center font-proxima text-base transition-all duration-500 sm:w-[80%] md:text-lg lg:text-2xl">
           PoSciDonDAO is a Decentralized Autonomous Organisation (DAO) that
           funds personalized medicine research for{' '}
           <span className="font-proximaBold">life-altering diseases</span>{' '}
-          (incl. cancer and Alzheimer's disease). Together with your help we can{' '}
-          <span className="font-proximaBold">change the lives of people </span>{' '}
+          (incl. cancer and Alzheimer's disease). Together with your help, we
+          can{' '}
+          <span className="font-proximaBold">change the lives of people</span>{' '}
           affected by these diseases.
         </p>
         <div className="flex gap-4">
@@ -97,27 +83,21 @@ export default function Home() {
           />
         </div>
       </header>
-      <hr className="border-b-1 w-full border-gray-200"></hr>
+      <hr className="w-full border-b-[1px] border-gray-200"></hr>
       <section
-        className={`
-        animate-fadeUp 
-        my-16 
-        flex 
-        w-full
-        items-center
-        justify-center
-        `}
+        ref={sectionRefCards}
+        className={`${
+          isVisibleCards ? 'animate-fadeUp' : ''
+        } my-8 flex w-full items-center justify-center`}
       >
         <Cards />
       </section>
-      <hr className="border-b-1 w-full border-gray-200"></hr>
+      <hr className="w-full border-b-[1px] border-gray-200"></hr>
       <section
-        ref={sectionRef}
-        className={`
-        my-16
-        w-full  
-        ${isVisible ? 'animate-fadeUp' : ''}
-        `}
+        ref={sectionRefContact}
+        className={`${
+          isVisibleContact ? 'animate-fadeUp' : ''
+        } my-8 flex min-h-[300px] w-full items-center justify-center sm:min-h-[400px] md:min-h-[600px]`}
       >
         <ContactUs />
       </section>
