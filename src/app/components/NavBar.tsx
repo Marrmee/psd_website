@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Footer from './Footer';
@@ -10,10 +10,33 @@ import { usePathname } from 'next/navigation';
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const genericHamburgerLine = `h-[0.25rem] w-8 my-[0.2rem] rounded-full bg-black transition ease transform duration-300`;
-  const [src, setSrc] = useState('/black-logo.webp');
+  const [src, setSrc] = useState('/logo-black.webp');
+  const [darkSrc, setDarkSrc] = useState('/logo-white.webp');
   const dropdown = useRef<any>();
   const pathName = usePathname();
+  const [darkMode, setDarkMode] = useState(false);
 
+  useEffect(() => {
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      setDarkMode(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setDarkMode(false);
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add('dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove('dark');
+    }
+  };
   const isActive = (path) => {
     return pathName === path;
   };
@@ -34,10 +57,10 @@ export default function NavBar() {
         "
     >
       <Link
-        onMouseEnter={() => setSrc('/blue-logo.webp')}
-        onMouseLeave={() => setSrc('/black-logo.webp')}
+        onMouseEnter={() => setSrc('/logo-blue.webp')}
+        onMouseLeave={() => setSrc('/logo-black.webp')}
         href="/"
-        className=""
+        className="dark:hidden"
       >
         <Image
           width={300}
@@ -47,10 +70,30 @@ export default function NavBar() {
           alt="PoSciDonDAO's Logo: a trident attached to a DNA helix"
         />
       </Link>
-      <div className="hidden w-full items-center justify-end gap-12 lg:flex text-lg">
+      <Link
+        onMouseEnter={() => setDarkSrc('/logo-blue.webp')}
+        onMouseLeave={() => setDarkSrc('/logo-white.webp')}
+        href="/"
+        className="hidden dark:flex"
+      >
+        <Image
+          width={300}
+          height={200}
+          className="w-full hover:cursor-pointer"
+          src={`${darkSrc}`}
+          alt="PoSciDonDAO's Logo: a trident attached to a DNA helix"
+        />
+      </Link>
+      <div className="hidden w-full items-center justify-end gap-12 text-lg lg:flex">
+        <button
+          onClick={toggleDarkMode}
+          className="rounded-full bg-gray-200 p-2 dark:bg-gray-700"
+        >
+          {darkMode ? '🌞' : '🌜'} {/* Using emojis for simplicity */}
+        </button>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/research') ? 'text-seaBlue-400  ' : ''
+            isActive('/research') ? 'text-seaBlue-400' : ''
           }`}
           href={'/research'}
         >
@@ -74,7 +117,7 @@ export default function NavBar() {
         </Link>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/sci-token') ? 'text-seaBlue-400  ' : ''
+            isActive('/sci-token') ? 'text-seaBlue-400' : ''
           }`}
           href="/sci-token"
         >
@@ -92,21 +135,21 @@ export default function NavBar() {
               className={`${genericHamburgerLine} ${
                 isOpen
                   ? 'mb-[0.35rem] translate-y-3 rotate-45 group-hover:bg-seaBlue-900 group-hover:opacity-100'
-                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100'
+                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100 dark:bg-gray-100'
               }`}
             />
             <div
               className={`${genericHamburgerLine} ${
                 isOpen
                   ? 'opacity-0'
-                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100'
+                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100 dark:bg-gray-100'
               }`}
             />
             <div
               className={`${genericHamburgerLine} ${
                 isOpen
                   ? '-translate-y-3 -rotate-45 group-hover:bg-seaBlue-900 group-hover:opacity-100'
-                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100'
+                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100 dark:bg-gray-100'
               }`}
             />
           </button>
@@ -123,9 +166,11 @@ export default function NavBar() {
             flex-col 
             items-center
             justify-center
-            gap-8 border-b-2 border-seaBlue-900
+            gap-8 border-b-2 
+            border-seaBlue-900
             bg-gray-100
             p-4
+            dark:bg-seaBlue-1050
             sm:items-center
             "
           >

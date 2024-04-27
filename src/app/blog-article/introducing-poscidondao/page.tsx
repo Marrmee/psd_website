@@ -39,11 +39,11 @@ export default function IntroBlog() {
 
   return (
     <>
-      <div className="pt-4 text-seaBlue-700">
+      <div className="pt-4 text-seaBlue-700 dark:text-gray-300">
         {'< '}
         <Link
           href={'/blog'}
-          className="text-seaBlue-700 underline hover:text-seaBlue-800"
+          className="text-seaBlue-700 dark:text-gray-300 underline hover:text-seaBlue-800"
         >
           Return to blogs
         </Link>
@@ -344,11 +344,11 @@ export default function IntroBlog() {
           <br></br>
         </section>
       </main>
-      <div className="pb-4 text-seaBlue-700">
+      <div className="pb-4 text-seaBlue-700 dark:text-gray-300">
         {'< '}
         <Link
           href={'/blog'}
-          className="text-seaBlue-700 underline hover:text-seaBlue-800"
+          className="text-seaBlue-700 dark:text-gray-300 underline hover:text-seaBlue-800"
         >
           Return to blogs
         </Link>

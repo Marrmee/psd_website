@@ -23,28 +23,28 @@ const items = [
     content:
       "After staking SCI tokens, members receive governance rights over PoSciDonDAO's treasury, its operations, the election of scientific experts, and over the management of the personalized medicine IP portfolio.",
     icon: faBalanceScale,
-    iconColor: 'text-seaBlue-400',
+    iconColor: 'text-seaBlue-400 text-seaBlue-900',
   },
   {
     title: 'Stake in IP',
     content:
       'A portion of the revenue generated from commercialized IP will be used to buy back SCI from the market followed by a token burn, ensuring token holders benefit from scientific innovation and a growing IP portfolio.',
     icon: faHandshakeAlt,
-    iconColor: 'text-seaBlue-600',
+    iconColor: 'text-seaBlue-600 dark:text-seaBlue-950',
   },
   {
     title: 'Incentives',
     content:
       "SCI is used to attract and incentivise talent and experts to support the development of PoSciDonDAO's funded personalized medicine research projects.",
     icon: faCoins,
-    iconColor: 'text-seaBlue-800',
+    iconColor: 'text-seaBlue-800 dark:text-seaBlue-1000',
   },
   {
     title: 'Rewards',
     content:
       'Voting on governance proposals will give you PO, a non-tradable non-fungible token. PO can be exchanged for SCI tokens and in the future for other rewards including conference tickets and merch.',
     icon: faGift,
-    iconColor: 'text-seaBlue-1000',
+    iconColor: 'text-seaBlue-1050',
   },
 ];
 
@@ -163,7 +163,7 @@ export default function SciTokenPage() {
           />
         </div>
         <div className="flex w-full flex-col items-center justify-center text-center sm:items-center sm:justify-center md:w-1/2">
-          <h1 className="text-center font-proximaSemiBold text-3xl text-seaBlue-700 sm:text-5xl lg:text-6xl">
+          <h1 className="text-center font-proximaSemiBold text-3xl text-seaBlue-700 dark:text-gray-300 sm:text-5xl lg:text-6xl">
             Explore SCI
           </h1>
           <p className="flex w-full items-center justify-center py-4 text-center text-base sm:max-w-[70%] sm:py-8 sm:text-xl md:max-w-none">
@@ -192,19 +192,19 @@ export default function SciTokenPage() {
           />
         </div>
       </header>
-      <hr className="border-b-[1px] w-full border-gray-200"></hr>
+      <hr className="w-full border-b-[1px] border-gray-200"></hr>
       <section
         ref={sectionRef}
         className={`${
           isVisibleSection ? 'animate-fadeUp' : ''
         } flex min-h-[300px] w-full flex-col items-center justify-center p-4 text-center text-sm sm:min-h-[500px] sm:p-8 sm:text-base md:min-h-[700px] md:items-center`}
       >
-        <h2 className="mb-4 text-center text-4xl text-seaBlue-700">
+        <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
           SCI Utility
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:mx-6 md:grid-cols-2 xl:grid-cols-4">
           {items.map((item) => (
-            <div className="flex flex-col items-center justify-center rounded-lg bg-seaBlue-50 p-8 text-center">
+            <div className="flex flex-col items-center justify-center rounded-lg bg-seaBlue-50 p-8 text-center dark:bg-seaBlue-700">
               <div className="flex items-center justify-center rounded">
                 <FontAwesomeIcon
                   icon={item.icon}
@@ -221,7 +221,7 @@ export default function SciTokenPage() {
           ))}
         </div>
       </section>
-      <hr className="border-b-[1px] w-full border-gray-200"></hr>
+      <hr className="w-full border-b-[1px] border-gray-200"></hr>
       <section
         ref={ecosystemRef}
         className={`
@@ -252,13 +252,18 @@ export default function SciTokenPage() {
         flex-col
         justify-between 
         rounded-3xl
+
         bg-seaBlue-900
         p-12
+        dark:bg-seaBlue-700
         "
           >
             <h2 className="mb-4 text-center text-4xl">Our Ecosystem</h2>
             <Tabs startingIndex={0}>
-              <Tab title="Operations" size="">
+              <Tab
+                title="Operations"
+                size="dark:bg-seaBlue-900 dark:focus:bg-seaBlue-1050"
+              >
                 <div>
                   <p className="my-4 text-left font-proximaSemiBold">
                     The SCI token allows the PoSciDonDAO community to have a
@@ -323,7 +328,10 @@ export default function SciTokenPage() {
                   </div>
                 </div>
               </Tab>
-              <Tab title="Research Funding" size="">
+              <Tab
+                title="Research Funding"
+                size="dark:bg-seaBlue-900 dark:focus:bg-seaBlue-1050"
+              >
                 <div>
                   <p className="my-4 text-left font-proximaSemiBold">
                     The SCI token allows elected scientific experts to have a
@@ -380,7 +388,7 @@ export default function SciTokenPage() {
         </div>
         <div className="flex h-full w-full max-w-[1000px] items-start justify-start lg:w-3/5">
           <Image
-            alt="Representation of SCI, PoSciDonDAO's tradable governance token"
+            alt="Overview of PoSciDonDAO's ecosystem"
             width={1000}
             height={1000}
             layout="responsive"
@@ -409,7 +417,7 @@ export default function SciTokenPage() {
         ${isVisibleTokenomics ? 'animate-fadeUp' : ''}
       `}
       >
-        <h2 className="mb-4 text-center text-4xl text-seaBlue-700">
+        <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
           Token Allocation
         </h2>
         <div
@@ -419,12 +427,12 @@ export default function SciTokenPage() {
         "
         >
           <div className="flex flex-col">
-            {/* <h3 className="mb-4 text-center font-proximaSemiBold text-3xl text-seaBlue-700">
+            {/* <h3 className="mb-4 text-center font-proximaSemiBold text-3xl text-seaBlue-700 dark:text-gray-300">
               Allocation
             </h3> */}
             <div className="flex h-full w-full items-start justify-start sm:min-w-full lg:max-w-[1000px]">
               <Image
-                alt="Representation of SCI, PoSciDonDAO's tradable governance token"
+                alt="Overview of SCI token allocation"
                 width={1000}
                 height={1000}
                 layout="responsive"
@@ -434,7 +442,7 @@ export default function SciTokenPage() {
             </div>
           </div>
           {/* <div className="flex flex-col">
-            <h3 className="mb-4 text-center text-3xl text-seaBlue-700">
+            <h3 className="mb-4 text-center text-3xl text-seaBlue-700 dark:text-gray-300">
               Vesting
             </h3>
           </div> */}

@@ -63,7 +63,7 @@ export const Hero = () => {
         font-proximaSemiBold
         text-4xl
         uppercase 
-        text-seaBlue-700 
+        text-seaBlue-700 dark:text-gray-300 
         text-transparent
         sm:text-5xl 
         md:text-6xl 
@@ -71,6 +71,7 @@ export const Hero = () => {
         xl:text-8xl
         transition-all
         duration-500
+        px-8
         "
     >
       <div className="">{text}</div>

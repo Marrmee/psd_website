@@ -33,7 +33,7 @@ export default function Policy() {
           font-proximaSemiBold
           text-3xl
           uppercase
-          text-seaBlue-700 
+          text-seaBlue-700 dark:text-gray-300 
           md:text-4xl
           xl:text-6xl
           ">

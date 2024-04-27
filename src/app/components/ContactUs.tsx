@@ -115,13 +115,13 @@ export default function ContactUs() {
         shadow-xl
         "
     >
-      <h1 className="text-4xl font-bold text-[#FDFDFD]">Stay up to date</h1>
-      <p className="py-4 text-[#FDFDFD]">
+      <h1 className="text-4xl font-bold">Stay up to date</h1>
+      <p className="py-4">
         Want to know more about what PoSciDonDAO 🔱 is doing? Sign up
         for our monthly newsletter for DAO news, personalized
         medicine updates and more!
       </p>
-      <label htmlFor="name" className="mt-4 font-light text-[#FDFDFD]">
+      <label htmlFor="name" className="mt-4 font-light">
         Name<span className="text-red-500">*</span>
       </label>
       <input
@@ -133,11 +133,11 @@ export default function ContactUs() {
         onChange={(e) => {
           setName(e.target.value);
         }}
-        className="border-b bg-transparent py-2 text-[#FDFDFD] ring-tropicalBlue focus:rounded-md focus:outline-none focus:ring-1"
+        className="border-b bg-transparent py-2 ring-tropicalBlue focus:rounded-md focus:outline-none focus:ring-1"
       />
       {errors?.name && <p className="text-red-500">Name cannot be empty.</p>}
 
-      <label htmlFor="email" className="mt-4 font-light text-[#FDFDFD]">
+      <label htmlFor="email" className="mt-4 font-light">
         E-mail<span className="text-red-500">*</span>
       </label>
       <input
@@ -173,7 +173,7 @@ export default function ContactUs() {
           icon={
             <FontAwesomeIcon
               icon={faEnvelope}
-              className="pl-2"
+              className="pr-2"
               style={{ color: '#0b1dee' }}
             />
           }

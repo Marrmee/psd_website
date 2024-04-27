@@ -34,8 +34,7 @@ export default function Cards() {
         justify-center
         px-2
         text-sm 
-        sm:min-h-[400px]
-        sm:w-[90%] 
+        sm:min-h-[400px] 
         sm:px-8
         sm:text-base 
         md:min-h-[600px]
@@ -48,7 +47,7 @@ export default function Cards() {
         flex 
         flex-col 
         justify-start 
-        gap-8
+        gap-12
         md:w-full
         md:flex-row 
       "
@@ -123,7 +122,7 @@ export default function Cards() {
               funding for your project.
             </p>
             <Link
-              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 sm:pb-0"
+              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 dark:text-steelBlue sm:pb-0"
               href="/research"
             >
               Get your project funded{' '}
@@ -205,7 +204,7 @@ export default function Cards() {
               medicine research. PoSciDonDAO is built by people like you.
             </p>
             <Link
-              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 sm:pb-0"
+              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 dark:text-steelBlue sm:pb-0"
               href="https://forms.gle/hY52XW7inek4ynrR6"
               target="_blank"
             >
@@ -288,7 +287,7 @@ export default function Cards() {
             </p>
             <Link
               href="/sci-token"
-              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 sm:pb-0"
+              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 dark:text-steelBlue sm:pb-0"
             >
               Explore our tokens
               <span className="ml-1 transform transition-transform duration-300 ease-out group-hover:translate-x-[10px]">

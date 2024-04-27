@@ -16,7 +16,7 @@ export default function FAQ() {
       text-center 
       font-proximaSemiBold
       text-3xl
-      text-seaBlue-700
+      text-seaBlue-700 dark:text-gray-300
       sm:text-4xl
       "
       >

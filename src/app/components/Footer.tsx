@@ -29,7 +29,10 @@ export default function Footer() {
           justify-between
           "
         >
-          <Link href="/" className="flex w-[5rem] sm:w-[10rem] transition-all ease-in duration-500">
+          <Link
+            href="/"
+            className="flex w-[5rem] transition-all duration-500 ease-in sm:w-[10rem]"
+          >
             <Image
               width={1000}
               height={1000}
@@ -40,19 +43,21 @@ export default function Footer() {
         </div>
         <div
           className="
+        md:gap-18 
+        xl:gap-22 
         grid 
         w-full 
         max-w-full 
         grid-cols-2 
         items-start 
         justify-start 
-        gap-6 
+        gap-6
+        transition-all
+        duration-500
+        ease-in
         sm:px-4 
-        md:grid-cols-3
-        md:gap-18
+        md:grid-cols-3 
         lg:gap-20
-        xl:gap-22
-        transition-all ease-in duration-500
         "
         >
           <div className="flex flex-col gap-2 pt-2">
@@ -60,19 +65,20 @@ export default function Footer() {
               className="
             font-proximaSemiBold 
             text-sm
-            text-seaBlue-700
+            text-seaBlue-700 dark:text-gray-300
+            dark:text-seaBlue-700
             "
             >
               ABOUT POSCIDONDAO
             </p>
-            <Link 
-              className="hover:text-seaBlue-700" 
+            <Link
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/research"
             >
               For scientists
             </Link>
-            <Link 
-              className="hover:text-seaBlue-700" 
+            <Link
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/sci-token"
             >
               SCI token
@@ -81,14 +87,15 @@ export default function Footer() {
               rel="noopener"
               target="_blank"
               locale={false}
-              className="hover:text-seaBlue-700"
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/Whitepaper.pdf"
             >
               Whitepaper
             </Link>
             <Link
-              className="hover:text-seaBlue-700" 
-              href="/blog">
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              href="/blog"
+            >
               Blog
             </Link>
           </div>
@@ -97,34 +104,35 @@ export default function Footer() {
               className="
             font-proximaSemiBold 
             text-sm
-            text-seaBlue-700
+            text-seaBlue-700 dark:text-gray-300
+            dark:text-seaBlue-700
             "
             >
               GET INVOLVED
             </p>
             {/* <Link
-              className="hover:text-seaBlue-700"
+              className="hover:text-seaBlue-700 dark:text-gray-300"
               href="https://test.poscidon.com/donation"
               target="_blank"
             >
               Become a donor
             </Link> */}
             <Link
-              className="hover:text-seaBlue-700"
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="https://forms.gle/g52VVJTXCnz7b8LU7"
               target="_blank"
             >
               Contribute
             </Link>
-            <Link 
-              className="hover:text-seaBlue-700" 
+            <Link
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/submit-project"
             >
               Submit project
             </Link>
             <Link
               rel="noopener"
-              className="hover:text-seaBlue-700"
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="https://discord.gg/75SrHpcNSZ"
               target="_blank"
             >
@@ -132,7 +140,7 @@ export default function Footer() {
             </Link>
             <Link
               rel="noopener"
-              className="hover:text-seaBlue-700"
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="https://twitter.com/poscidondao"
               target="_blank"
             >
@@ -144,20 +152,26 @@ export default function Footer() {
               className="
             font-proximaSemiBold 
             text-sm
-            text-seaBlue-700"
+            text-seaBlue-700 
+            dark:text-gray-300
+            dark:text-seaBlue-700
+            "
             >
               OTHER
             </p>
             <Link
               rel="noopener"
               locale={false}
-              className="hover:text-seaBlue-700"
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               target="_blank"
-              href={"/brand-guidelines.pdf"}
+              href={'/brand-guidelines.pdf'}
             >
               Brand guidelines
             </Link>
-            <Link className="hover:text-seaBlue-700" href="/privacy-policy">
+            <Link
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              href="/privacy-policy"
+            >
               Privacy policy
             </Link>
           </div>

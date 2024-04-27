@@ -52,7 +52,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex w-full max-w-full flex-col items-center justify-center px-4 sm:px-8 xl+:w-[85%]">
+    <main className="flex w-full max-w-full flex-col items-center justify-center xl+:w-[85%]">
       <header className="animate-fadeUp flex w-full flex-col items-center justify-center py-16">
         <Hero />
         <p className="w-full py-8 text-center font-proxima text-base transition-all duration-500 sm:w-[80%] md:text-lg lg:text-2xl">
@@ -88,18 +88,28 @@ export default function Home() {
         ref={sectionRefCards}
         className={`${
           isVisibleCards ? 'animate-fadeUp' : ''
-        } my-8 flex w-full items-center justify-center`}
+        } my-16 flex w-full items-center justify-center px-8`}
       >
         <Cards />
       </section>
       <hr className="w-full border-b-[1px] border-gray-200"></hr>
       <section
         ref={sectionRefContact}
-        className={`${
-          isVisibleContact ? 'animate-fadeUp' : ''
-        } my-8 flex min-h-[300px] w-full items-center justify-center sm:min-h-[400px] md:min-h-[600px]`}
+        className={`${isVisibleContact ? 'animate-fadeUp' : ''} 
+        my-16
+        flex
+        min-h-[300px]
+        w-full
+        items-center
+        justify-center
+        px-8
+        sm:min-h-[400px]
+        md:min-h-[600px]
+        `}
       >
-        <ContactUs />
+        <div>
+          <ContactUs />
+        </div>
       </section>
     </main>
   );

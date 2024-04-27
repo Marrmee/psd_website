@@ -90,6 +90,7 @@ export default function RootLayout({
       </Script>
       <body
         className={`
+            dark:bg-seaBlue-1050
             flex
             w-full
             max-w-full
@@ -98,6 +99,7 @@ export default function RootLayout({
             justify-center
             bg-gray-100
             text-slate-700
+            dark:text-gray-300
             ${proximaNova.variable}  
             ${proximaNovaExtraBold.variable}  
             ${proximaNovaSemiBold.variable}  
@@ -107,20 +109,24 @@ export default function RootLayout({
       >
         <NavBar />
         {children}
-        <hr className="border-b-[1px] w-full border-gray-200"></hr>
-        <Footer />
-        <div className="flex w-full flex-col pt-2">
-          <hr className="border-b-[1px] w-full border-gray-200"></hr>
-          <div
-            className=" 
+        <div className="w-full">
+          <hr className="w-full border-b-[1px] border-gray-200"></hr>
+
+          <Footer />
+
+          <div className="flex w-full flex-col pt-2">
+            <hr className="w-full border-b-[1px] border-gray-200"></hr>
+            <div
+              className=" 
                   flex 
                   h-20
                   items-center
                   justify-center
-                  text-gray-400
+                  text-gray-300
                   "
-          >
-            © PoSciDonDAO Foundation. All rights reserved.
+            >
+              © PoSciDonDAO Foundation. All rights reserved.
+            </div>
           </div>
         </div>
       </body>

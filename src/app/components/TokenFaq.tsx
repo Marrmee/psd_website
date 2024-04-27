@@ -41,7 +41,7 @@ const TokenFaq = () => {
         {faqs.map((faq, index) => (
           <div key={index} className="rounded-lg bg-gray-200 shadow">
             <button
-              className={`flex w-full items-center justify-between px-6 py-4 text-left font-proximaSemiBold text-lg text-seaBlue-700 focus:outline-none ${
+              className={`dark:text-seaBlue-700 flex w-full items-center justify-between px-6 py-4 text-left font-proximaSemiBold text-lg text-seaBlue-700 dark:text-gray-300 focus:outline-none ${
                 activeIndex === index ? 'rounded-t-lg' : 'rounded-lg'
               }`}
               onClick={() => toggleFAQ(index)}
