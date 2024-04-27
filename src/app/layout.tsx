@@ -68,10 +68,11 @@ export default function RootLayout({
     justify-center
     "
     >
-      <Script
+      {/* <Script
+        id="font-awesome"
         src="https://kit.fontawesome.com/bfd0659090.js"
         crossOrigin="anonymous"
-      />
+      /> */}
       <Script
         id="google-analytics-tag"
         strategy="lazyOnload"
@@ -95,7 +96,8 @@ export default function RootLayout({
             flex-col
             items-center
             justify-center
-            bg-[#FDFDFD]
+            bg-gray-100
+            text-slate-700
             ${proximaNova.variable}  
             ${proximaNovaExtraBold.variable}  
             ${proximaNovaSemiBold.variable}  
@@ -118,7 +120,7 @@ export default function RootLayout({
                   text-gray-400
                   "
           >
-            © PoSciDonDAO. All rights reserved.
+            © PoSciDonDAO Foundation. All rights reserved.
           </div>
         </div>
       </body>

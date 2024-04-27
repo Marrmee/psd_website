@@ -152,7 +152,7 @@ export default function ContactUs() {
           border-b 
           bg-transparent 
           py-2 
-          text-white 
+          text-slate-200 
           ring-tropicalBlue 
           focus:rounded-md 
           focus:outline-none 

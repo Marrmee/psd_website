@@ -6,6 +6,10 @@ import Button from './components/Button';
 import styles from './components/Button.module.css';
 import Cards from './components/Cards';
 import Hero from './components/Hero';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faUsers
+} from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +43,7 @@ export default function Home() {
         items-center
         justify-center
         px-8
-        xl+:w-[75%] 
+        xl+:w-[85%] 
         "
     >
       <header
@@ -49,6 +53,7 @@ export default function Home() {
         flex-col 
         items-center 
         justify-center
+        w-full
         py-16
         `}
       >
@@ -79,42 +84,28 @@ export default function Home() {
             type={'button'}
             onClick={null}
             target={'_blank'}
-            text={`Donate`}
-            href={'https://protocol.poscidondao.com/donate'}
-            icon={''}
+            text={`Join our community`}
+            href={'https://discord.gg/75SrHpcNSZ'}
+            icon={
+              <FontAwesomeIcon
+                icon={faUsers}
+                className="pr-2"
+                style={{ color: '#FDFDFD' }}
+              />
+            }
             style={styles.primary}
           />
-          <Button
-            link={true}
-            type={'button'}
-            onClick={null}
-            target={'_blank'}
-            text={`Join the DAO`}
-            href={'https://discord.gg/75SrHpcNSZ'}
-            icon={''}
-            style={styles.tertiary}
-          />
-          {/* <Button
-            link={true}
-            type={'button'}
-            target={'_blank'}
-            onClick={null}
-            text={`Become a donor`}
-            href={'https://test.poscidon.com/donation'}
-            icon={''}
-            style={styles.secondary}
-          /> */}
         </div>
       </header>
       <hr className="border-b-1 w-full border-gray-200"></hr>
       <section
         className={`
+        animate-fadeUp 
         my-16 
         flex 
-        w-full 
+        w-full
         items-center
         justify-center
-        animate-fadeUp
         `}
       >
         <Cards />

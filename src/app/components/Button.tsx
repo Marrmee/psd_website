@@ -15,15 +15,15 @@ export default function Button({
       {link ? (
         <Link href={href} target={target} className={style}>
           <span>
-            <slot>{text}</slot>
             <slot>{icon}</slot>
+            <slot>{text}</slot>
           </span>
         </Link>
       ) : (
         <button type={type} onClick={onClick} className={style}>
           <span>
-            <slot>{text}</slot>
             <slot>{icon}</slot>
+            <slot>{text}</slot>
           </span>
         </button>
       )}

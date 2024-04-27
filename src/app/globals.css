@@ -39,11 +39,11 @@ h4 {
 }
 
 main.blog {
-  @apply transition-all duration-500 sm:w-[80%] md:w-[70%] lg:w-[60%] xl+:w-[45%] max-w-full px-8;
+  @apply max-w-full px-8 transition-all duration-500 sm:w-[80%] md:w-[70%] lg:w-[60%] xl+:w-[45%];
 }
 
 h1.header {
-  @apply py-4 mt-2 text-center font-proximaSemiBold sm:text-4xl text-3xl leading-10 text-seaBlue-700;
+  @apply mt-2 py-4 text-center font-proximaSemiBold text-3xl leading-10 text-seaBlue-700 sm:text-4xl;
 }
 
 h2.header {
@@ -55,7 +55,7 @@ span.text {
 }
 
 p.text {
- @apply py-2
+  @apply py-2;
 }
 
 span.description {
@@ -67,15 +67,15 @@ section.image {
 }
 
 section.paragraph {
-  @apply py-2 my-2
+  @apply my-2 py-2;
 }
 
 span.reference {
-  @apply my-2 break-normal
+  @apply my-2 break-normal;
 }
 
 a.ref {
-  @apply underline text-seaBlue-700
+  @apply text-seaBlue-700 underline;
 }
 
 @keyframes fadeUp {
@@ -91,3 +91,4 @@ a.ref {
 .animate-fadeUp {
   animation: fadeUp 1s ease-in-out;
 }
+

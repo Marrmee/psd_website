@@ -5,12 +5,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Footer from './Footer';
 import { useClickOutside } from './ClickOutside';
+import { usePathname } from 'next/navigation';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const genericHamburgerLine = `h-[0.25rem] w-8 my-[0.2rem] rounded-full bg-black transition ease transform duration-300`;
   const [src, setSrc] = useState('/black-logo.webp');
   const dropdown = useRef<any>();
+  const pathName = usePathname();
+
+  const isActive = (path) => {
+    return pathName === path;
+  };
+
   useClickOutside(dropdown, () => setIsOpen(false));
 
   return (
@@ -23,9 +30,6 @@ export default function NavBar() {
       min-w-full
       items-center
       justify-between
-      border-b-2
-      border-seaBlue-700
-      bg-[#FDFDFD]
       px-4
         "
     >
@@ -33,35 +37,47 @@ export default function NavBar() {
         onMouseEnter={() => setSrc('/blue-logo.webp')}
         onMouseLeave={() => setSrc('/black-logo.webp')}
         href="/"
-        className=''
+        className=""
       >
         <Image
           width={300}
           height={200}
-          className="hover:cursor-pointer w-full"
+          className="w-full hover:cursor-pointer"
           src={`${src}`}
           alt="PoSciDonDAO's Logo: a trident attached to a DNA helix"
         />
       </Link>
-      <div className="hidden w-full items-center justify-end gap-12 lg:flex">
-        <Link className="hover:text-seaBlue-700" href={'/research'}>
+      <div className="hidden w-full items-center justify-end gap-12 lg:flex text-lg">
+        <Link
+          className={`hover:text-seaBlue-900 ${
+            isActive('/research') ? 'text-seaBlue-400  ' : ''
+          }`}
+          href={'/research'}
+        >
           For scientists
         </Link>
         {/* <Link
-          className="hover:text-seaBlue-700"
+          className="hover:text-seaBlue-900"
           href="https://test.poscidondao.com/donation"
           target="_blank"
         >
           Become a donor
         </Link> */}
         <Link
-          className="hover:text-seaBlue-700"
+          className={`hover:text-seaBlue-900 ${
+            isActive('/admin') ? 'text-seaBlue-400' : ''
+          }`}
           href="https://forms.gle/g52VVJTXCnz7b8LU7"
           target="_blank"
         >
           Contribute
         </Link>
-        <Link className="hover:text-seaBlue-700" href="/sci-token">
+        <Link
+          className={`hover:text-seaBlue-900 ${
+            isActive('/sci-token') ? 'text-seaBlue-400  ' : ''
+          }`}
+          href="/sci-token"
+        >
           SCI token
         </Link>
       </div>
@@ -75,22 +91,22 @@ export default function NavBar() {
             <div
               className={`${genericHamburgerLine} ${
                 isOpen
-                  ? 'mb-[0.35rem] translate-y-3 rotate-45 group-hover:bg-seaBlue-700 group-hover:opacity-100'
-                  : 'group-hover:bg-seaBlue-700 group-hover:opacity-100'
+                  ? 'mb-[0.35rem] translate-y-3 rotate-45 group-hover:bg-seaBlue-900 group-hover:opacity-100'
+                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100'
               }`}
             />
             <div
               className={`${genericHamburgerLine} ${
                 isOpen
                   ? 'opacity-0'
-                  : 'group-hover:bg-seaBlue-700 group-hover:opacity-100'
+                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100'
               }`}
             />
             <div
               className={`${genericHamburgerLine} ${
                 isOpen
-                  ? '-translate-y-3 -rotate-45 group-hover:bg-seaBlue-700 group-hover:opacity-100'
-                  : 'group-hover:bg-seaBlue-700 group-hover:opacity-100'
+                  ? '-translate-y-3 -rotate-45 group-hover:bg-seaBlue-900 group-hover:opacity-100'
+                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100'
               }`}
             />
           </button>
@@ -107,7 +123,8 @@ export default function NavBar() {
             flex-col 
             items-center
             justify-center
-            gap-8 border-b-2 border-seaBlue-700 bg-white
+            gap-8 border-b-2 border-seaBlue-900
+            bg-gray-100
             p-4
             sm:items-center
             "
