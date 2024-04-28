@@ -60,6 +60,7 @@ export default function NavBar() {
       className="
       dark:bg-seaBlue-1050
       top-0
+      mx-8
       flex
       h-20
       w-full
@@ -67,7 +68,6 @@ export default function NavBar() {
       items-center
       justify-between
       bg-gray-100
-      mx-8
       px-6
       py-4
         "
@@ -76,7 +76,7 @@ export default function NavBar() {
         onMouseEnter={() => setSrc('/logo-blue.webp')}
         onMouseLeave={() => setSrc('/logo-black.webp')}
         href="/"
-        className="flex w-[20rem] lg:w-[25rem] dark:hidden"
+        className="flex w-[20rem] dark:hidden lg:w-[25rem]"
       >
         <Image
           width={1000}
@@ -91,7 +91,7 @@ export default function NavBar() {
         onMouseEnter={() => setDarkSrc('/logo-blue.webp')}
         onMouseLeave={() => setDarkSrc('/logo-white.webp')}
         href="/"
-        className="hidden w-[20rem] lg:w-[25rem] dark:flex"
+        className="hidden w-[20rem] dark:flex lg:w-[25rem]"
       >
         <Image
           width={1000}
@@ -111,7 +111,7 @@ export default function NavBar() {
           }`}
           href={'/research'}
         >
-          For scientists
+          For Scientists
         </Link>
         <Link
           className="hover:text-seaBlue-900"
@@ -122,12 +122,14 @@ export default function NavBar() {
         </Link>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/admin') ? 'text-seaBlue-400 dark:text-seaBlue-500' : ''
+            isActive('/get-involved')
+              ? 'text-seaBlue-400 dark:text-seaBlue-500'
+              : ''
           }`}
-          href="https://forms.gle/g52VVJTXCnz7b8LU7"
-          target="_blank"
+          href="get-involved"
+          // href="https://forms.gle/g52VVJTXCnz7b8LU7"
         >
-          Contribute
+          Get Involved
         </Link>
         <Link
           className={`hover:text-seaBlue-900 ${
@@ -137,7 +139,7 @@ export default function NavBar() {
           }`}
           href="/sci-token"
         >
-          SCI token
+          SCI Token
         </Link>
       </div>
 
@@ -158,17 +160,17 @@ export default function NavBar() {
             >
               <motion.span
                 variants={VARIANTS.top}
-                className="absolute h-1 w-10 bg-seaBlue-700 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
+                className="absolute h-1 w-10 bg-seaBlue-700 group-hover:bg-seaBlue-500 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
                 style={{ y: '-50%', left: '50%', x: '-50%', top: '35%' }}
               />
               <motion.span
                 variants={VARIANTS.middle}
-                className="absolute h-1 w-10 bg-seaBlue-700 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
+                className="absolute h-1 w-10 bg-seaBlue-700 group-hover:bg-seaBlue-500 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
                 style={{ left: '50%', x: '-50%', top: '50%', y: '-50%' }}
               />
               <motion.span
                 variants={VARIANTS.bottom}
-                className="absolute h-1 w-5 bg-seaBlue-700 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
+                className="absolute h-1 w-5 bg-seaBlue-700 group-hover:bg-seaBlue-500 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
                 style={{
                   x: '-50%',
                   y: '50%',

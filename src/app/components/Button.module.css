@@ -28,20 +28,14 @@
   duration-300 
   shadow-xl 
   leading-[1.55rem] 
-  text-[#0b1dee] 
-  bg-[#FDFDFD] 
   px-4 
   py-2 
   rounded-lg 
-  border-2 
-  border-solid 
-  border-seaBlue-700 
   lg:text-lg 
   lg:leading-7 
   lg:px-10 
   lg:py-3 
-  hover:cursor-pointer 
-  hover:bg-seaBlue-100;
+  hover:cursor-pointer;
 }
 .primary {
   @apply 

@@ -23,7 +23,7 @@ const TokenFaq = () => {
       question: 'Is there a hard cap for the SCI token supply?',
       answer:
         'There is no hard cap for the token supply. The DAO can decide to mint tokens, but only when it is really necessary. For example, when more funds are needed to bring novel therapies into clinical trials or to establish next-level partnerships.',
-    }
+    },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -37,19 +37,32 @@ const TokenFaq = () => {
       <h2 className="mb-8 text-center text-4xl font-semibold text-gray-200">
         FAQ
       </h2>
-      <div className="space-y-4">
+      <div className="mx-auto space-y-8">
         {faqs.map((faq, index) => (
-          <div key={index} className="rounded-lg bg-gray-300 shadow">
+          <div key={index} className="dark:bg-seaBlue-1000 bg-gray-300 rounded-lg shadow">
             <button
-              className={`dark:text-seaBlue-700 flex w-full items-center justify-between px-6 py-4 text-left font-proximaSemiBold text-lg text-seaBlue-700 dark:text-gray-300 focus:outline-none ${
-                activeIndex === index ? 'rounded-t-lg' : 'rounded-lg'
-              }`}
+              className={`
+              flex 
+              w-full 
+              items-center 
+              justify-between 
+              p-8 
+              text-left 
+              font-proximaSemiBold 
+              text-base 
+              text-seaBlue-700
+              focus:outline-none  
+              dark:text-gray-300 
+              sm:text-xl 
+              ${activeIndex === index ? 'rounded-t-lg' : 'rounded-lg'}`}
               onClick={() => toggleFAQ(index)}
             >
               {faq.question}
               <FontAwesomeIcon
                 icon={activeIndex === index ? faMinus : faPlus}
-                className="text-lg"
+                className="             
+                 text-base
+                 sm:text-xl"
               />
             </button>
             <div
@@ -59,7 +72,9 @@ const TokenFaq = () => {
               style={{ transitionProperty: 'max-height' }}
             >
               <div className="px-6 pb-4">
-                <p className="text-left">{faq.answer}</p>
+                <p className="text-left text-sm dark:text-gray-400 text-gray-700 sm:text-base lg:text-xl">
+                  {faq.answer}
+                </p>
               </div>
             </div>
           </div>

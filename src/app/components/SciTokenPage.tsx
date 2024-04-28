@@ -23,28 +23,28 @@ const items = [
     content:
       "After staking SCI tokens, members receive governance rights over PoSciDonDAO's treasury, its operations, the election of scientific experts, and over the management of the personalized medicine IP portfolio.",
     icon: faBalanceScale,
-    iconColor: 'text-seaBlue-400 text-seaBlue-900',
+    iconColor: 'text-seaBlue-400 text-seaBlue-600',
   },
   {
     title: 'Stake in IP',
     content:
       'A portion of the revenue generated from commercialized IP will be used to buy back SCI from the market followed by a token burn, ensuring token holders benefit from scientific innovation and a growing IP portfolio.',
     icon: faHandshakeAlt,
-    iconColor: 'text-seaBlue-600 dark:text-seaBlue-950',
+    iconColor: 'text-seaBlue-600 dark:text-seaBlue-700',
   },
   {
     title: 'Incentives',
     content:
       "SCI is used to attract and incentivise talent and experts to support the development of PoSciDonDAO's funded personalized medicine research projects.",
     icon: faCoins,
-    iconColor: 'text-seaBlue-800 dark:text-seaBlue-1000',
+    iconColor: 'text-seaBlue-800 dark:text-seaBlue-800',
   },
   {
     title: 'Rewards',
     content:
       'Voting on governance proposals will give you PO, a non-tradable non-fungible token. PO can be exchanged for SCI tokens and in the future for other rewards including conference tickets and merch.',
     icon: faGift,
-    iconColor: 'text-seaBlue-1050',
+    iconColor: 'text-seaBlue-900',
   },
 ];
 
@@ -151,9 +151,9 @@ export default function SciTokenPage() {
         ref={headerRef}
         className={`${
           isVisibleHeader ? 'animate-fadeUp' : ''
-        } flex min-h-[300px] w-full flex-col items-center justify-center gap-8 p-8 text-sm sm:min-h-[400px] sm:text-base md:min-h-[700px] md:flex-row md:items-center`}
+        } flex min-h-[300px] w-full flex-col items-center justify-center gap-8 p-8 text-sm sm:min-h-[400px] sm:text-base md:min-h-[700px] md:flex-row md:items-center my-4`}
       >
-        <div className="my-16 flex w-full max-w-[300px] justify-center md:my-0 md:w-1/2 lg:max-w-[400px]">
+        <div className="my-8 flex w-full max-w-[300px] justify-center md:my-0 md:w-1/2 lg:max-w-[400px]">
           <Image
             alt="Representation of SCI, PoSciDonDAO's tradable governance token"
             width={1000}
@@ -202,9 +202,9 @@ export default function SciTokenPage() {
         <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
           SCI Utility
         </h2>
-        <div className="grid grid-cols-1 gap-4 sm:mx-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:mx-4 md:grid-cols-2 xl:grid-cols-4">
           {items.map((item) => (
-            <div className="flex flex-col items-center justify-center rounded-lg bg-seaBlue-50 p-8 text-center dark:bg-seaBlue-700">
+            <div className="flex flex-col items-center justify-center rounded-lg bg-seaBlue-100 p-8 text-center dark:bg-seaBlue-1000">
               <div className="flex items-center justify-center rounded">
                 <FontAwesomeIcon
                   icon={item.icon}
@@ -231,8 +231,11 @@ export default function SciTokenPage() {
         flex-col
         items-center
         justify-center 
-        gap-8
-        p-8
+        sm:gap-8
+        gap-4
+        sm:px-8
+        px-4
+        my-8
         text-center 
         text-sm 
         sm:min-h-[400px]
@@ -243,26 +246,24 @@ export default function SciTokenPage() {
         ${isVisibleEcosystem ? 'animate-fadeUp' : ''}
       `}
       >
-        <div className="min-h-[34rem] flex-auto text-gray-300 lg:w-2/5">
+        <div className="min-h-[34rem] flex-auto text-gray-300 w-full lg:w-2/5 px-4">
           <div
             className="
         flex 
         min-h-[34rem]
-        w-full
         flex-col
         justify-between 
-        rounded-3xl
-
-        bg-seaBlue-900
+        rounded-lg
         p-12
-        dark:bg-seaBlue-700
+        bg-seaBlue-800
+        dark:bg-seaBlue-1000
         "
           >
             <h2 className="mb-4 text-center text-4xl">Our Ecosystem</h2>
             <Tabs startingIndex={0}>
               <Tab
                 title="Operations"
-                size="dark:bg-seaBlue-900 dark:focus:bg-seaBlue-1050 text-sm lg:text-base xl:text-lg"
+                size="text-sm lg:text-base xl:text-lg"
               >
                 <div>
                   <p className="my-4 text-left font-proximaSemiBold">
@@ -330,7 +331,7 @@ export default function SciTokenPage() {
               </Tab>
               <Tab
                 title="Research Funding"
-                size="dark:bg-seaBlue-900 dark:focus:bg-seaBlue-1050 text-sm lg:text-base xl:text-lg"
+                size="text-sm lg:text-base xl:text-lg"
               >
                 <div>
                   <p className="my-4 text-left font-proximaSemiBold">
@@ -386,14 +387,14 @@ export default function SciTokenPage() {
             </Tabs>
           </div>
         </div>
-        <div className="flex max-h-[800px] max-w-[800px] items-start justify-start lg:w-3/5">
+        <div className="px-4 flex h-full w-full items-center justify-center lg:w-3/5">
           <Image
             alt="Overview of PoSciDonDAO's ecosystem"
             width={1000}
             height={1000}
             layout="responsive"
             src="/blog-images/ecosystem.webp"
-            className="rounded-3xl"
+            className="rounded-lg"
           />
         </div>
       </section>
@@ -427,11 +428,11 @@ export default function SciTokenPage() {
         grid
         "
         >
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-center items-center">
             {/* <h3 className="mb-4 text-center font-proximaSemiBold text-3xl text-seaBlue-700 dark:text-gray-300">
               Allocation
             </h3> */}
-            <div className="flex h-full w-full items-start justify-start sm:min-w-full lg:max-w-[1000px]">
+            <div className="flex items-center justify-center sm:w-full lg:max-w-[1000px]">
               <Image
                 alt="Overview of SCI token allocation"
                 width={1000}
@@ -457,20 +458,18 @@ export default function SciTokenPage() {
         w-full 
         flex-col
         items-center 
-        justify-center
-        bg-seaBlue-900
-        p-4 
+        justify-center 
         text-center 
-        text-sm
+        bg-seaBlue-700
+        p-4
         sm:min-h-[500px]
         sm:p-8
-        sm:text-base
         md:min-h-[700px]
         md:items-center
         ${isVisibleFaq ? 'animate-fadeUp' : ''}
       `}
       >
-        <div className="my-8 w-full p-4 lg:w-2/3">
+        <div className="my-8 md:w-2/3 lg:w-1/2">
           <TokenFaq />
         </div>
       </section>

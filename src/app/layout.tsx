@@ -1,5 +1,5 @@
 import './globals.css';
-import localFont from '@next/font/local';
+import localFont from "next/font/local";
 import { Metadata } from 'next';
 import Script from 'next/script';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -120,7 +120,7 @@ export default function RootLayout({
                   h-20
                   items-center
                   justify-center
-                  text-gray-300
+                  dark:text-gray-300
                   text-sm sm:text-base
                   "
           >

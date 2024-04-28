@@ -32,7 +32,6 @@ export default function ProjectFunding() {
     >
       <header
         className="
-          animate-fadeUp 
           my-16 
           flex 
           flex-col 
@@ -50,7 +49,6 @@ export default function ProjectFunding() {
             text-center
             font-proximaSemiBold
             text-4xl
-            uppercase
             text-seaBlue-700 dark:text-gray-300 
             sm:text-5xl
             lg:text-6xl

@@ -72,13 +72,7 @@ export default function Home() {
             target={'_blank'}
             text={`Join our community`}
             href={'https://discord.gg/75SrHpcNSZ'}
-            icon={
-              <FontAwesomeIcon
-                icon={faUsers}
-                className="pr-2"
-                style={{ color: '#FDFDFD' }}
-              />
-            }
+            icon={<FontAwesomeIcon icon={faUsers} className="pr-2" />}
             style={styles.primary}
           />
         </div>
@@ -102,14 +96,12 @@ export default function Home() {
         w-full
         items-center
         justify-center
-        px-8
+        px-16
         sm:min-h-[400px]
         md:min-h-[600px]
         `}
       >
-        <div>
-          <ContactUs />
-        </div>
+        <ContactUs />
       </section>
     </main>
   );

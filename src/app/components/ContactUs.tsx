@@ -111,9 +111,10 @@ export default function ContactUs() {
         flex-col 
         rounded-3xl
         bg-seaBlue-700
+        dark:bg-seaBlue-1000
         p-8
         shadow-xl
-        text-gray-300
+        text-gray-200
         "
     >
       <h1 className="text-4xl font-bold">Stay up to date</h1>
@@ -170,12 +171,11 @@ export default function ContactUs() {
           onClick={null}
           text={buttonText}
           href={''}
-          style={styles.secondary}
+          style={`${styles.secondary} bg-seaBlue-100 text-seaBlue-700 hover:bg-seaBlue-300 hover:dark:bg-seaBlue-500 dark:bg-seaBlue-700 dark:text-gray-300`}
           icon={
             <FontAwesomeIcon
               icon={faEnvelope}
               className="pr-2"
-              style={{ color: '#0b1dee' }}
             />
           }
         />

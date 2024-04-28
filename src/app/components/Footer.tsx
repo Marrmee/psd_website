@@ -75,13 +75,13 @@ export default function Footer() {
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/research"
             >
-              For scientists
+              For Scientists
             </Link>
             <Link
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/sci-token"
             >
-              SCI token
+              SCI Token
             </Link>
             <Link
               rel="noopener"
@@ -112,10 +112,9 @@ export default function Footer() {
             </p>
             <Link
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
-              href="https://forms.gle/g52VVJTXCnz7b8LU7"
-              target="_blank"
+              href="/get-involved"
             >
-              Contribute
+              Get Involved
             </Link>
             <Link
               className="hover:text-seaBlue-900"
@@ -128,7 +127,7 @@ export default function Footer() {
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/submit-project"
             >
-              Submit project
+              Submit Project
             </Link>
             <Link
               rel="noopener"
@@ -136,7 +135,7 @@ export default function Footer() {
               href="https://discord.gg/75SrHpcNSZ"
               target="_blank"
             >
-              Join our discord
+              Join our Discord
             </Link>
             <Link
               rel="noopener"
@@ -144,7 +143,7 @@ export default function Footer() {
               href="https://twitter.com/poscidondao"
               target="_blank"
             >
-              Join our twitter
+              Join our Twitter
             </Link>
           </div>
           <div className="flex flex-col gap-2 pt-2">
@@ -166,13 +165,13 @@ export default function Footer() {
               target="_blank"
               href={'/brand-guidelines.pdf'}
             >
-              Brand guidelines
+              Brand Guidelines
             </Link>
             <Link
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/privacy-policy"
             >
-              Privacy policy
+              Privacy Policy
             </Link>
           </div>
         </div>

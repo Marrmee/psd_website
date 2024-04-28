@@ -50,7 +50,6 @@ export default function Blogs() {
           text-center
           font-proximaSemiBold
           text-3xl
-          uppercase
           text-seaBlue-700 dark:text-gray-300
           sm:text-5xl
           lg:text-6xl
