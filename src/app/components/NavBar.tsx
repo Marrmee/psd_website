@@ -6,37 +6,49 @@ import Image from 'next/image';
 import Footer from './Footer';
 import { useClickOutside } from './ClickOutside';
 import { usePathname } from 'next/navigation';
+import { MotionConfig, motion } from 'framer-motion';
+import DarkModeToggle from './DarkModeToggle';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const genericHamburgerLine = `h-[0.25rem] w-8 my-[0.2rem] rounded-full bg-black transition ease transform duration-300`;
   const [src, setSrc] = useState('/logo-black.webp');
   const [darkSrc, setDarkSrc] = useState('/logo-white.webp');
   const dropdown = useRef<any>();
   const pathName = usePathname();
-  const [darkMode, setDarkMode] = useState(false);
 
-  useEffect(() => {
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-      setDarkMode(true);
-    } else {
-      document.documentElement.classList.remove('dark');
-      setDarkMode(false);
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    if (!darkMode) {
-      localStorage.setItem('theme', 'dark');
-      document.documentElement.classList.add('dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-      document.documentElement.classList.remove('dark');
-    }
+  const VARIANTS = {
+    top: {
+      open: {
+        rotate: ['0deg', '0deg', '45deg'],
+        top: ['35%', '50%', '50%'],
+      },
+      closed: {
+        rotate: ['45deg', '0deg', '0deg'],
+        top: ['50%', '50%', '35%'],
+      },
+    },
+    middle: {
+      open: {
+        rotate: ['0deg', '0deg', '-45deg'],
+      },
+      closed: {
+        rotate: ['-45deg', '0deg', '0deg'],
+      },
+    },
+    bottom: {
+      open: {
+        rotate: ['0deg', '0deg', '45deg'],
+        bottom: ['35%', '50%', '50%'],
+        left: '50%',
+      },
+      closed: {
+        rotate: ['45deg', '0deg', '0deg'],
+        bottom: ['50%', '50%', '35%'],
+        left: 'calc(50% + 10px)',
+      },
+    },
   };
+
   const isActive = (path) => {
     return pathName === path;
   };
@@ -46,26 +58,31 @@ export default function NavBar() {
   return (
     <nav
       className="
+      dark:bg-seaBlue-1050
       top-0
       flex
       h-20
       w-full
-      min-w-full
+      max-w-full
       items-center
       justify-between
-      px-4
+      bg-gray-100
+      mx-8
+      px-6
+      py-4
         "
     >
       <Link
         onMouseEnter={() => setSrc('/logo-blue.webp')}
         onMouseLeave={() => setSrc('/logo-black.webp')}
         href="/"
-        className="dark:hidden"
+        className="flex w-[20rem] lg:w-[25rem] dark:hidden"
       >
         <Image
-          width={300}
-          height={200}
-          className="w-full hover:cursor-pointer"
+          width={1000}
+          height={1000}
+          className="hover:cursor-pointer"
+          layout="responsive"
           src={`${src}`}
           alt="PoSciDonDAO's Logo: a trident attached to a DNA helix"
         />
@@ -74,41 +91,38 @@ export default function NavBar() {
         onMouseEnter={() => setDarkSrc('/logo-blue.webp')}
         onMouseLeave={() => setDarkSrc('/logo-white.webp')}
         href="/"
-        className="hidden dark:flex"
+        className="hidden w-[20rem] lg:w-[25rem] dark:flex"
       >
         <Image
-          width={300}
-          height={200}
-          className="w-full hover:cursor-pointer"
+          width={1000}
+          height={1000}
+          className="hover:cursor-pointer"
+          layout="responsive"
           src={`${darkSrc}`}
           alt="PoSciDonDAO's Logo: a trident attached to a DNA helix"
         />
       </Link>
       <div className="hidden w-full items-center justify-end gap-12 text-lg lg:flex">
-        <button
-          onClick={toggleDarkMode}
-          className="rounded-full bg-gray-200 p-2 dark:bg-gray-700"
-        >
-          {darkMode ? '🌞' : '🌜'} {/* Using emojis for simplicity */}
-        </button>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/research') ? 'text-seaBlue-400' : ''
+            isActive('/research')
+              ? 'text-seaBlue-400 dark:text-seaBlue-500'
+              : ''
           }`}
           href={'/research'}
         >
           For scientists
         </Link>
-        {/* <Link
+        <Link
           className="hover:text-seaBlue-900"
-          href="https://test.poscidondao.com/donation"
+          href="https://protocol.poscidondao.com/donate"
           target="_blank"
         >
-          Become a donor
-        </Link> */}
+          Donate
+        </Link>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/admin') ? 'text-seaBlue-400' : ''
+            isActive('/admin') ? 'text-seaBlue-400 dark:text-seaBlue-500' : ''
           }`}
           href="https://forms.gle/g52VVJTXCnz7b8LU7"
           target="_blank"
@@ -117,72 +131,75 @@ export default function NavBar() {
         </Link>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/sci-token') ? 'text-seaBlue-400' : ''
+            isActive('/sci-token')
+              ? 'text-seaBlue-400 dark:text-seaBlue-500'
+              : ''
           }`}
           href="/sci-token"
         >
           SCI token
         </Link>
       </div>
+
       <div ref={dropdown} className="flex items-center">
-        <div className="ml-10 flex">
-          <button
-            aria-label="Navbar button"
-            className="group flex h-9 w-6 flex-col items-center justify-center rounded"
-            onClick={() => setIsOpen(!isOpen)}
+        <DarkModeToggle />
+        <div className="ml-2 flex">
+          <MotionConfig
+            transition={{
+              duration: 0.5,
+              ease: 'easeInOut',
+            }}
           >
-            <div
-              className={`${genericHamburgerLine} ${
-                isOpen
-                  ? 'mb-[0.35rem] translate-y-3 rotate-45 group-hover:bg-seaBlue-900 group-hover:opacity-100'
-                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100 dark:bg-gray-100'
-              }`}
-            />
-            <div
-              className={`${genericHamburgerLine} ${
-                isOpen
-                  ? 'opacity-0'
-                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100 dark:bg-gray-100'
-              }`}
-            />
-            <div
-              className={`${genericHamburgerLine} ${
-                isOpen
-                  ? '-translate-y-3 -rotate-45 group-hover:bg-seaBlue-900 group-hover:opacity-100'
-                  : 'group-hover:bg-seaBlue-900 group-hover:opacity-100 dark:bg-gray-100'
-              }`}
-            />
-          </button>
+            <motion.button
+              initial={false}
+              animate={isOpen ? 'open' : 'closed'}
+              onClick={() => setIsOpen(!isOpen)}
+              className="group relative h-14 w-10 rounded-full transition-colors"
+            >
+              <motion.span
+                variants={VARIANTS.top}
+                className="absolute h-1 w-10 bg-seaBlue-700 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
+                style={{ y: '-50%', left: '50%', x: '-50%', top: '35%' }}
+              />
+              <motion.span
+                variants={VARIANTS.middle}
+                className="absolute h-1 w-10 bg-seaBlue-700 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
+                style={{ left: '50%', x: '-50%', top: '50%', y: '-50%' }}
+              />
+              <motion.span
+                variants={VARIANTS.bottom}
+                className="absolute h-1 w-5 bg-seaBlue-700 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
+                style={{
+                  x: '-50%',
+                  y: '50%',
+                  bottom: '35%',
+                  left: 'calc(50% + 10px)',
+                }}
+              />
+            </motion.button>
+          </MotionConfig>
         </div>
         {isOpen && (
           <div
             className="
-            absolute 
+            dark:bg-seaBlue-1050 
+            absolute
             right-0
             top-20
-            z-10
-            flex 
-            w-full
-            flex-col 
+            z-10 
+            flex
+            w-full 
+            flex-col
             items-center
-            justify-center
-            gap-8 border-b-2 
+            justify-center gap-8 
+            border-b-2
             border-seaBlue-900
             bg-gray-100
             p-4
-            dark:bg-seaBlue-1050
             sm:items-center
             "
           >
-            <div
-              className="
-            md:w-[100%]
-            lg:w-[85%]
-            xl:w-[65%]
-          "
-            >
-              <Footer />
-            </div>
+            <Footer />
           </div>
         )}
       </div>

@@ -59,7 +59,7 @@ export default function SciTokenPage() {
   const ecosystemRef = useRef(null);
   const tokenomicsRef = useRef(null);
   const faqRef = useRef(null);
-  const visbilityThreshold = 0.05
+  const visbilityThreshold = 0.05;
   useEffect(() => {
     const observerHeader = new IntersectionObserver(
       (entries) => {
@@ -192,7 +192,7 @@ export default function SciTokenPage() {
           />
         </div>
       </header>
-      <hr className="w-full border-b-[1px] border-gray-200"></hr>
+      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
       <section
         ref={sectionRef}
         className={`${
@@ -221,7 +221,7 @@ export default function SciTokenPage() {
           ))}
         </div>
       </section>
-      <hr className="w-full border-b-[1px] border-gray-200"></hr>
+      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
       <section
         ref={ecosystemRef}
         className={`
@@ -262,7 +262,7 @@ export default function SciTokenPage() {
             <Tabs startingIndex={0}>
               <Tab
                 title="Operations"
-                size="dark:bg-seaBlue-900 dark:focus:bg-seaBlue-1050"
+                size="dark:bg-seaBlue-900 dark:focus:bg-seaBlue-1050 text-sm lg:text-base xl:text-lg"
               >
                 <div>
                   <p className="my-4 text-left font-proximaSemiBold">
@@ -330,7 +330,7 @@ export default function SciTokenPage() {
               </Tab>
               <Tab
                 title="Research Funding"
-                size="dark:bg-seaBlue-900 dark:focus:bg-seaBlue-1050"
+                size="dark:bg-seaBlue-900 dark:focus:bg-seaBlue-1050 text-sm lg:text-base xl:text-lg"
               >
                 <div>
                   <p className="my-4 text-left font-proximaSemiBold">
@@ -386,7 +386,7 @@ export default function SciTokenPage() {
             </Tabs>
           </div>
         </div>
-        <div className="flex h-full w-full max-w-[1000px] items-start justify-start lg:w-3/5">
+        <div className="flex max-h-[800px] max-w-[800px] items-start justify-start lg:w-3/5">
           <Image
             alt="Overview of PoSciDonDAO's ecosystem"
             width={1000}
@@ -397,6 +397,7 @@ export default function SciTokenPage() {
           />
         </div>
       </section>
+      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
       <section
         ref={tokenomicsRef}
         className={`

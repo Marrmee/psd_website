@@ -55,7 +55,7 @@ export default function Home() {
     <main className="flex w-full max-w-full flex-col items-center justify-center xl+:w-[85%]">
       <header className="animate-fadeUp flex w-full flex-col items-center justify-center py-16">
         <Hero />
-        <p className="w-full py-8 text-center font-proxima text-base transition-all duration-500 sm:w-[80%] md:text-lg lg:text-2xl">
+        <p className="w-full p-8 text-center font-proxima text-base transition-all duration-500 sm:w-[80%] md:text-lg lg:text-2xl">
           PoSciDonDAO is a Decentralized Autonomous Organisation (DAO) that
           funds personalized medicine research for{' '}
           <span className="font-proximaBold">life-altering diseases</span>{' '}
@@ -83,7 +83,7 @@ export default function Home() {
           />
         </div>
       </header>
-      <hr className="w-full border-b-[1px] border-gray-200"></hr>
+      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
       <section
         ref={sectionRefCards}
         className={`${
@@ -92,7 +92,7 @@ export default function Home() {
       >
         <Cards />
       </section>
-      <hr className="w-full border-b-[1px] border-gray-200"></hr>
+      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
       <section
         ref={sectionRefContact}
         className={`${isVisibleContact ? 'animate-fadeUp' : ''} 

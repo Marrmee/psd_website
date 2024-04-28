@@ -32,12 +32,12 @@ export default function ProjectFunding() {
     >
       <header
         className="
+          animate-fadeUp 
+          my-16 
           flex 
           flex-col 
-          items-center 
-          justify-center 
-          my-16
-          animate-fadeUp
+          items-center
+          justify-center
           "
       >
         <h1
@@ -91,8 +91,7 @@ export default function ProjectFunding() {
           icon={''}
         />
       </header>
-      <hr className="border-b-[1px] w-full border-gray-200"></hr>
-      <section className="flex items-center justify-center my-16 animate-fadeUp">
+      <section className="my-16 flex items-center justify-center">
         <FAQ />
       </section>
     </main>

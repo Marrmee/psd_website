@@ -1,14 +1,42 @@
+'use client';
+
+import { useRef, useEffect, useState } from 'react';
+
 export default function FAQ() {
+  const [isVisibleFaq, setIsVisibleFaq] = useState(false);
+  const faqRef = useRef(null);
+  const visbilityThreshold = 0.05;
+  useEffect(() => {
+    const observerFaq = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisibleFaq(true);
+        }
+      },
+      { threshold: visbilityThreshold }
+    );
+    if (faqRef.current) {
+      observerFaq.observe(faqRef.current);
+    }
+
+    return () => {
+      if (faqRef.current) {
+        observerFaq.unobserve(faqRef.current);
+      }
+    };
+  }, []);
   return (
     <div
-      className="
+      ref={faqRef}
+      className={`
+      ${isVisibleFaq ? 'animate-fadeUp' : ''}
     flex
     w-[85%]
-    lg:w-[80%]
     flex-col
     items-center
-    text-center  
-    "
+    text-center
+    lg:w-[80%]  
+    `}
     >
       <div
         className="
@@ -152,15 +180,16 @@ export default function FAQ() {
             The power of a collective of experts
           </div>
           <p className="text-center text-lg">
-            PoSciDonDAO is a purpose-driven global collective of expert personalized
-            medicine researchers, investors, donors and contributors. Joining
-            our DAO gives you access to our large and diverse community
-            dedicated to advancing personalized medicine research in an open and
-            collaborative manner. Through these collaborative efforts,
-            PoSciDonDAO aims to accelerate the development and commercialization
-            of groundbreaking innovations that can improve people's lives
-            affected by life-altering diseases, including, but not limited to,
-            various cancer types and Alzheimer's disease.
+            PoSciDonDAO is a purpose-driven global collective of expert
+            personalized medicine researchers, investors, donors and
+            contributors. Joining our DAO gives you access to our large and
+            diverse community dedicated to advancing personalized medicine
+            research in an open and collaborative manner. Through these
+            collaborative efforts, PoSciDonDAO aims to accelerate the
+            development and commercialization of groundbreaking innovations that
+            can improve people's lives affected by life-altering diseases,
+            including, but not limited to, various cancer types and Alzheimer's
+            disease.
           </p>
         </div>
       </section>

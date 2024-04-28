@@ -113,6 +113,7 @@ export default function ContactUs() {
         bg-seaBlue-700
         p-8
         shadow-xl
+        text-gray-300
         "
     >
       <h1 className="text-4xl font-bold">Stay up to date</h1>

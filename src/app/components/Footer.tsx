@@ -110,19 +110,19 @@ export default function Footer() {
             >
               GET INVOLVED
             </p>
-            {/* <Link
-              className="hover:text-seaBlue-700 dark:text-gray-300"
-              href="https://test.poscidon.com/donation"
-              target="_blank"
-            >
-              Become a donor
-            </Link> */}
             <Link
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="https://forms.gle/g52VVJTXCnz7b8LU7"
               target="_blank"
             >
               Contribute
+            </Link>
+            <Link
+              className="hover:text-seaBlue-900"
+              href="https://protocol.poscidondao.com/donate"
+              target="_blank"
+            >
+              Donate
             </Link>
             <Link
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"

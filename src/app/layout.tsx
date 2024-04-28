@@ -110,23 +110,21 @@ export default function RootLayout({
         <NavBar />
         {children}
         <div className="w-full">
-          <hr className="w-full border-b-[1px] border-gray-200"></hr>
+          <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
 
           <Footer />
 
-          <div className="flex w-full flex-col pt-2">
-            <hr className="w-full border-b-[1px] border-gray-200"></hr>
-            <div
-              className=" 
+          <div
+            className=" 
                   flex 
                   h-20
                   items-center
                   justify-center
                   text-gray-300
+                  text-sm sm:text-base
                   "
-            >
-              © PoSciDonDAO Foundation. All rights reserved.
-            </div>
+          >
+            © PoSciDonDAO Foundation. All rights reserved.
           </div>
         </div>
       </body>

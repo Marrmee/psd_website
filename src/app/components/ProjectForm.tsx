@@ -179,7 +179,7 @@ export default function ProjectForm() {
         flex-col
         items-center
         justify-center
-        sm:pt-12 
+        pt-12 
         xl:w-[65%] 
         "
     >
@@ -189,13 +189,12 @@ export default function ProjectForm() {
         flex-col 
         items-center 
         justify-center 
-        py-8
+        px-8
         "
       >
         <h1
           className={`
           flex 
-          w-[90%] 
           max-w-full
           items-center
           justify-center
@@ -205,7 +204,6 @@ export default function ProjectForm() {
           uppercase
           text-seaBlue-700 dark:text-gray-300 
           sm:text-5xl
-          lg:w-[80%]
           lg:text-6xl
           `}
         >
@@ -214,13 +212,11 @@ export default function ProjectForm() {
         <p
           className="
             flex
-            w-[70%] 
             items-center 
             justify-center 
-            py-8 
+            pt-8 
             text-center 
             text-base
-            sm:w-[60%]
             sm:text-lg
           "
         >
@@ -229,12 +225,10 @@ export default function ProjectForm() {
           property.
         </p>
       </header>
-      {/* <hr className="border-b-[1px] w-full border-gray-200"></hr> */}
+      {/* <hr className="border-b-[1px] w-full border-gray-200 dark:border-slate-700"></hr> */}
       <section
         className="        
-            my-8
-            w-[90%]
-            sm:w-[80%]
+            my-4 w-full px-8
             "
       >
         <form onSubmit={upload} className="flex flex-col">
