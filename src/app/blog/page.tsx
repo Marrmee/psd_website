@@ -78,10 +78,11 @@ export default function Blogs() {
         place-items-center
         w-[80%]
         sm:w-[70%]
+        mx-auto
         "
       >
         <BlogPostCard
-          src={'/blue-logo.webp'}
+          src={'/blog-banner.png'}
           alt={''}
           date={'November 4, 2023'}
           title={

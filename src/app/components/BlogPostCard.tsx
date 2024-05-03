@@ -27,23 +27,25 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
     >
       <div
         className="
-        flex
-        h-30 
-        sm:h-40
-        w-full 
+        h-30
+        flex 
+        w-full
         items-center 
         justify-center 
-        rounded-xl
+        rounded-xl 
+        sm:h-40
+        my-8
         "
       >
         <Image
           className="
+          flex
           w-full
           cursor-pointer
-          transition
-          duration-500
+          items-center
+          justify-center
+          rounded-t-3xl transition duration-500
           hover:scale-110
-          flex justify-center items-center
           "
           src={`${src}`}
           alt={`${alt}`}
@@ -79,7 +81,7 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
       "
       >
         <Button
-          style={styles.secondary}
+          style={styles.primary}
           link={true}
           text="Read more"
           href={href}
@@ -90,7 +92,6 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
             <FontAwesomeIcon
               icon={faReadme}
               className="pr-2"
-              style={{ color: '#0b1dee' }}
             />
           }
         />
