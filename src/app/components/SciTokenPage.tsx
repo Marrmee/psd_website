@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef } from 'react';
 import Button from '../components/Button';
 import styles from '../components/Button.module.css';
 import Image from 'next/image';
@@ -12,10 +12,35 @@ import {
   faHandshakeAlt,
   faCoins,
 } from '@fortawesome/free-solid-svg-icons';
-import TokenFaq from './TokenFaq';
+import Faq from './Faq';
 import Tabs from './Tabs';
 import Tab from './Tab';
 import Link from 'next/link';
+import useMultipleIntersectionObserver from '../hooks/useMultipleIntersectionObserver';
+import Divider from './Divider';
+
+const faqs = [
+  {
+    question: 'What are the official addresses of the SCI token?',
+    answer:
+      'The SCI token has not been launched yet. Join our discord or telegram group to stay up to date with its release.',
+  },
+  {
+    question: 'How will the foundation funds be used?',
+    answer:
+      'They will be used for ecosystem development, partnerships, legal, grants, bounties, logistical costs and hiring future employees/contributors beyond team allocation.',
+  },
+  {
+    question: 'How will the community funds be used?',
+    answer:
+      'They will be used for the creation of liquidity pools, PO to SCI exchange program, and to expand and strengthen our community through marketing and outreach efforts.',
+  },
+  {
+    question: 'Is there a hard cap for the SCI token supply?',
+    answer:
+      'There is no hard cap for the token supply. The DAO can decide to mint tokens, but only when it is really necessary. For example, when more funds are needed to bring novel therapies into clinical trials or to establish next-level partnerships.',
+  },
+];
 
 const items = [
   {
@@ -49,101 +74,22 @@ const items = [
 ];
 
 export default function SciTokenPage() {
-  const [isVisibleHeader, setIsVisibleHeader] = useState(false);
-  const [isVisibleSection, setIsVisibleSection] = useState(false);
-  const [isVisibleEcosystem, setIsVisibleEcosystem] = useState(false);
-  const [isVisibleTokenomics, setIsVisibleTokenomics] = useState(false);
-  const [isVisibleFaq, setIsVisibleFaq] = useState(false);
   const headerRef = useRef(null);
   const sectionRef = useRef(null);
   const ecosystemRef = useRef(null);
   const tokenomicsRef = useRef(null);
   const faqRef = useRef(null);
   const visbilityThreshold = 0.05;
-  useEffect(() => {
-    const observerHeader = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisibleHeader(true);
-        }
-      },
-      { threshold: visbilityThreshold }
-    );
-
-    const observerSection = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisibleSection(true);
-        }
-      },
-      { threshold: visbilityThreshold }
-    );
-
-    const observerEcosystem = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisibleEcosystem(true);
-        }
-      },
-      { threshold: visbilityThreshold }
-    );
-
-    const observerTokenomics = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisibleTokenomics(true);
-        }
-      },
-      { threshold: visbilityThreshold }
-    );
-
-    const observerFaq = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisibleFaq(true);
-        }
-      },
-      { threshold: visbilityThreshold }
-    );
-
-    if (headerRef.current) {
-      observerHeader.observe(headerRef.current);
-    }
-
-    if (sectionRef.current) {
-      observerSection.observe(sectionRef.current);
-    }
-
-    if (ecosystemRef.current) {
-      observerEcosystem.observe(ecosystemRef.current);
-    }
-
-    if (tokenomicsRef.current) {
-      observerTokenomics.observe(tokenomicsRef.current);
-    }
-
-    if (faqRef.current) {
-      observerFaq.observe(faqRef.current);
-    }
-
-    return () => {
-      if (headerRef.current) {
-        observerHeader.unobserve(headerRef.current);
-      }
-      if (sectionRef.current) {
-        observerSection.unobserve(sectionRef.current);
-      }
-      if (ecosystemRef.current) {
-        observerEcosystem.unobserve(ecosystemRef.current);
-      }
-      if (tokenomicsRef.current) {
-        observerTokenomics.unobserve(tokenomicsRef.current);
-      }
-      if (faqRef.current) {
-        observerTokenomics.unobserve(faqRef.current);
-      }
-    };
-  }, []);
+  const [
+    isVisibleHeader,
+    isVisibleSection,
+    isVisibleEcosystem,
+    isVisibleTokenomics,
+    isVisibleFaq,
+  ] = useMultipleIntersectionObserver(
+    [headerRef, sectionRef, ecosystemRef, tokenomicsRef, faqRef],
+    { threshold: visbilityThreshold }
+  );
 
   return (
     <main className="flex w-full flex-col items-center justify-center">
@@ -151,7 +97,7 @@ export default function SciTokenPage() {
         ref={headerRef}
         className={`${
           isVisibleHeader ? 'animate-fadeUp' : ''
-        } flex min-h-[300px] w-full flex-col items-center justify-center gap-8 p-8 text-sm sm:min-h-[400px] sm:text-base md:min-h-[700px] md:flex-row md:items-center my-4`}
+        } my-4 flex min-h-[300px] w-full flex-col items-center justify-center gap-8 p-8 text-sm sm:min-h-[400px] sm:text-base md:min-h-[700px] md:flex-row md:items-center`}
       >
         <div className="my-8 flex w-full max-w-[300px] justify-center md:my-0 md:w-1/2 lg:max-w-[400px]">
           <Image
@@ -192,7 +138,7 @@ export default function SciTokenPage() {
           />
         </div>
       </header>
-      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
+      <Divider />
       <section
         ref={sectionRef}
         className={`${
@@ -203,8 +149,11 @@ export default function SciTokenPage() {
           SCI Utility
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:mx-4 md:grid-cols-2 xl:grid-cols-4">
-          {items.map((item) => (
-            <div className="flex flex-col items-center justify-center rounded-lg bg-seaBlue-100 p-8 text-center dark:bg-seaBlue-1000">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="dark:bg-seaBlue-1000 flex flex-col items-center justify-center rounded-lg bg-seaBlue-100 p-8 text-center"
+            >
               <div className="flex items-center justify-center rounded">
                 <FontAwesomeIcon
                   icon={item.icon}
@@ -221,24 +170,24 @@ export default function SciTokenPage() {
           ))}
         </div>
       </section>
-      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
+      <Divider />
       <section
         ref={ecosystemRef}
         className={`
+        my-8 
         flex 
         min-h-[300px] 
-        w-full 
+        w-full
         flex-col
-        items-center
-        justify-center 
-        sm:gap-8
+        items-center 
+        justify-center
         gap-4
-        sm:px-8
         px-4
-        my-8
-        text-center 
-        text-sm 
-        sm:min-h-[400px]
+        text-center
+        text-sm
+        sm:min-h-[400px] 
+        sm:gap-8 
+        sm:px-8
         sm:text-base
         md:min-h-[500px]
         md:items-center
@@ -246,25 +195,22 @@ export default function SciTokenPage() {
         ${isVisibleEcosystem ? 'animate-fadeUp' : ''}
       `}
       >
-        <div className="min-h-[34rem] flex-auto text-gray-300 w-full lg:w-2/5 px-4">
+        <div className="min-h-[34rem] w-full flex-auto px-4 text-gray-300 lg:w-2/5">
           <div
             className="
-        flex 
+        dark:bg-seaBlue-1000 
+        flex
         min-h-[34rem]
-        flex-col
-        justify-between 
+        flex-col 
+        justify-between
         rounded-lg
-        p-12
         bg-seaBlue-800
-        dark:bg-seaBlue-1000
+        p-12
         "
           >
             <h2 className="mb-4 text-center text-4xl">Our Ecosystem</h2>
             <Tabs startingIndex={0}>
-              <Tab
-                title="Operations"
-                size="text-sm lg:text-base xl:text-lg"
-              >
+              <Tab title="Operations" size="text-sm lg:text-base xl:text-lg">
                 <div>
                   <p className="my-4 text-left font-proximaSemiBold">
                     The SCI token allows the PoSciDonDAO community to have a
@@ -387,7 +333,7 @@ export default function SciTokenPage() {
             </Tabs>
           </div>
         </div>
-        <div className="px-4 flex h-full w-full items-center justify-center lg:w-3/5">
+        <div className="flex h-full w-full items-center justify-center px-4 lg:w-3/5">
           <Image
             alt="Overview of PoSciDonDAO's ecosystem"
             width={1000}
@@ -398,7 +344,7 @@ export default function SciTokenPage() {
           />
         </div>
       </section>
-      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
+      <Divider />
       <section
         ref={tokenomicsRef}
         className={`
@@ -428,7 +374,7 @@ export default function SciTokenPage() {
         grid
         "
         >
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col items-center justify-center">
             {/* <h3 className="mb-4 text-center font-proximaSemiBold text-3xl text-seaBlue-700 dark:text-gray-300">
               Allocation
             </h3> */}
@@ -450,6 +396,7 @@ export default function SciTokenPage() {
           </div> */}
         </div>
       </section>
+      <Divider />
       <section
         ref={faqRef}
         className={`
@@ -459,9 +406,8 @@ export default function SciTokenPage() {
         flex-col
         items-center 
         justify-center 
-        text-center 
-        bg-seaBlue-700
         p-4
+        text-center
         sm:min-h-[500px]
         sm:p-8
         md:min-h-[700px]
@@ -469,9 +415,7 @@ export default function SciTokenPage() {
         ${isVisibleFaq ? 'animate-fadeUp' : ''}
       `}
       >
-        <div className="my-8 md:w-2/3 lg:w-1/2">
-          <TokenFaq />
-        </div>
+        <Faq faqs={faqs} />
       </section>
     </main>
   );

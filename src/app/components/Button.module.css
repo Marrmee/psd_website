@@ -37,6 +37,29 @@
   lg:py-3 
   hover:cursor-pointer;
 }
+.secondaryLightBlue {
+  @apply 
+  flex 
+  font-proximaSemiBold 
+  justify-center 
+  items-center 
+  transition-all 
+  ease-in-out 
+  duration-300 
+  shadow-xl 
+  leading-[1.55rem] 
+  px-4 
+  py-2 
+  rounded-lg 
+  lg:text-lg 
+  lg:leading-7 
+  lg:px-10 
+  lg:py-3
+  text-gray-300 
+  hover:cursor-pointer
+  bg-steelBlue
+  hover:bg-seaBlue-400
+}
 .primary {
   @apply 
   flex 

@@ -45,6 +45,8 @@ module.exports = {
         pineGreen: '#1b9574',
         forestGreen: '#004832',
         fieryRed: '#fe3303',
+        mellowYellow: '#ffff66',
+        powderBlue: '#c3ebf0'
       },
       translate: ['responsive', 'hover', 'group-hover'],
       backgroundImage: {

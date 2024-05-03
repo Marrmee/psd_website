@@ -8,19 +8,9 @@ export default function Cards() {
   const [resSrc, setResSrc] = useState('/research-white.webp');
   const [comSrc, setComSrc] = useState('/community-white.webp');
   const [tokSrc, setTokSrc] = useState('/tokens-white.webp');
-  const handleMouseEnter = (
-    event: React.MouseEvent<HTMLSpanElement, MouseEvent>
-  ) => {
-    const target = event.target as HTMLSpanElement; // Type assertion here
-    target.style.transform = 'translateX(8px)';
-  };
-
-  const handleMouseLeave = (
-    event: React.MouseEvent<HTMLSpanElement, MouseEvent>
-  ) => {
-    const target = event.target as HTMLSpanElement; // Type assertion here
-    target.style.transform = 'translateX(0)';
-  };
+  const [darkResSrc, setDarkResSrc] = useState('/research-blue.webp');
+  const [darkComSrc, setDarkComSrc] = useState('/community-blue.webp');
+  const [darkTokSrc, setDarkTokSrc] = useState('/tokens-blue.webp');
 
   return (
     <div
@@ -32,10 +22,8 @@ export default function Cards() {
         flex-col
         items-center
         justify-center
-        px-2
         text-sm 
         sm:min-h-[400px] 
-        sm:px-8
         sm:text-base 
         md:min-h-[600px]
         md:items-center 
@@ -65,6 +53,7 @@ export default function Cards() {
           <Link
             href="/research"
             className="
+            dark:hidden
           flex
           items-center
           justify-center
@@ -95,6 +84,42 @@ export default function Cards() {
               layout="responsive"
               alt="Genetic code surrounding the word 'research'"
               src={`${resSrc}`}
+            />
+          </Link>
+          <Link
+            href="/research"
+            className="
+            hidden
+          dark:flex
+          items-center
+          justify-center
+          rounded-3xl
+          md:w-full
+          "
+          >
+            <Image
+              onMouseEnter={() => {
+                setDarkResSrc('/research-white.webp');
+              }}
+              onMouseLeave={() => {
+                setDarkResSrc('/research-blue.webp');
+              }}
+              className="
+            flex
+            w-full
+            max-w-full
+            items-start
+            justify-start 
+            rounded-3xl
+            border-2
+            border-seaBlue-700
+              "
+              loading="eager"
+              width={300}
+              height={300}
+              layout="responsive"
+              alt="Genetic code surrounding the word 'research'"
+              src={`${darkResSrc}`}
             />
           </Link>
           <div
@@ -146,6 +171,8 @@ export default function Cards() {
             href="https://forms.gle/hY52XW7inek4ynrR6"
             target="_blank"
             className="
+
+            dark:hidden
               flex
               items-center
               justify-center
@@ -171,11 +198,48 @@ export default function Cards() {
               border-seaBlue-700
               "
               loading="eager"
-              width={600}
-              height={600}
+              width={300}
+              height={300}
               layout="responsive"
               alt="Genetic code surrounding the word 'community'"
               src={`${comSrc}`}
+            />
+          </Link>
+          <Link
+            href="https://forms.gle/hY52XW7inek4ynrR6"
+            target="_blank"
+            className="
+            hidden
+              dark:flex
+              items-center
+              justify-center
+              rounded-3xl
+              md:w-full
+              "
+          >
+            <Image
+              onMouseEnter={() => {
+                setDarkComSrc('/community-white.webp');
+              }}
+              onMouseLeave={() => {
+                setDarkComSrc('/community-blue.webp');
+              }}
+              className="
+              flex
+              w-full
+              max-w-full
+              items-start
+              justify-start 
+              rounded-3xl
+              border-2
+              border-seaBlue-700
+              "
+              loading="eager"
+              width={300}
+              height={300}
+              layout="responsive"
+              alt="Genetic code surrounding the word 'community'"
+              src={`${darkComSrc}`}
             />
           </Link>
           <div
@@ -252,13 +316,50 @@ export default function Cards() {
             rounded-3xl
             border-2
             border-seaBlue-700
+            dark:hidden
               "
               loading="eager"
-              width={600}
-              height={600}
+              width={300}
+              height={300}
               layout="responsive"
               alt="Genetic code surrounding the word 'tokens'"
               src={`${tokSrc}`}
+            />
+          </Link>
+          <Link
+            href="/sci-token"
+            className="
+            hidden
+            dark:flex
+            items-center
+            justify-center
+            rounded-3xl
+            md:w-full
+              "
+          >
+            <Image
+              onMouseEnter={() => {
+                setDarkTokSrc('/tokens-white.webp');
+              }}
+              onMouseLeave={() => {
+                setDarkTokSrc('/tokens-blue.webp');
+              }}
+              className="
+            flex
+            w-full
+            max-w-full
+            items-start
+            justify-start 
+            rounded-3xl
+            border-2
+            border-seaBlue-700
+              "
+              loading="eager"
+              width={300}
+              height={300}
+              layout="responsive"
+              alt="Genetic code surrounding the word 'tokens'"
+              src={`${darkTokSrc}`}
             />
           </Link>
           <div

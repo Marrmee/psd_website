@@ -86,3 +86,10 @@ a.ref {
 .animate-fadeUp {
   animation: fadeUp 1.5s ease-out;
 }
+
+.modern-hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #ccc, transparent);
+  width: 100%;
+}

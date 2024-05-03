@@ -112,9 +112,9 @@ export default function Footer() {
             </p>
             <Link
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
-              href="/get-involved"
+              href="/community"
             >
-              Get Involved
+              Community
             </Link>
             <Link
               className="hover:text-seaBlue-900"

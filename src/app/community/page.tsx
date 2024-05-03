@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Community from '../components/GetInvolved';
+import Community from '../components/Community';
 
 const url = new URL('https://www.poscidondao.com/research');
 

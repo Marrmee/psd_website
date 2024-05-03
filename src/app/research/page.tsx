@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Button from '../components/Button';
 import styles from '../components/Button.module.css';
-import FAQ from '../components/FAQ';
+import ResearchInfo from '@/app/components/ResearchInfo';
 
 const url = new URL('https://www.poscidondao.com/research');
 
@@ -27,7 +27,9 @@ export default function ProjectFunding() {
           flex-col
           items-center
           justify-center
-          xl:w-[65%] 
+          px-8 
+          lg:w-[90%]
+          xl:w-[80%]
           "
     >
       <header
@@ -42,7 +44,6 @@ export default function ProjectFunding() {
         <h1
           className={`
             flex 
-            w-[90%] 
             max-w-full
             items-center
             justify-center
@@ -58,14 +59,12 @@ export default function ProjectFunding() {
         </h1>
         <p
           className="
-              flex
-              w-[80%] 
+              flex 
               items-center 
               justify-center 
               py-8 
               text-center 
               text-base
-              sm:w-[70%]
               sm:text-xl
             "
         >
@@ -90,7 +89,7 @@ export default function ProjectFunding() {
         />
       </header>
       <section className="my-16 flex items-center justify-center">
-        <FAQ />
+        <ResearchInfo />
       </section>
     </main>
   );

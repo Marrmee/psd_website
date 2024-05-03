@@ -1,11 +1,12 @@
 import './globals.css';
-import localFont from "next/font/local";
+import localFont from 'next/font/local';
 import { Metadata } from 'next';
 import Script from 'next/script';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import { config } from '@fortawesome/fontawesome-svg-core';
+import Divider from './components/Divider';
 config.autoAddCss = false;
 
 const proximaNova = localFont({
@@ -110,8 +111,7 @@ export default function RootLayout({
         <NavBar />
         {children}
         <div className="w-full">
-          <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
-
+          <Divider />
           <Footer />
 
           <div
@@ -120,8 +120,8 @@ export default function RootLayout({
                   h-20
                   items-center
                   justify-center
-                  dark:text-gray-300
-                  text-sm sm:text-base
+                  text-sm
+                  dark:text-gray-300 sm:text-base
                   "
           >
             © PoSciDonDAO Foundation. All rights reserved.

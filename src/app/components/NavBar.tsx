@@ -126,10 +126,10 @@ export default function NavBar() {
               ? 'text-seaBlue-400 dark:text-seaBlue-500'
               : ''
           }`}
-          href="get-involved"
+          href="community"
           // href="https://forms.gle/g52VVJTXCnz7b8LU7"
         >
-          Get Involved
+          Community
         </Link>
         <Link
           className={`hover:text-seaBlue-900 ${

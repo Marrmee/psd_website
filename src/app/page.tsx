@@ -8,48 +8,41 @@ import Cards from './components/Cards';
 import Hero from './components/Hero';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import Faq from '@/app/components/Faq';
+import useMultipleIntersectionObserver from './hooks/useMultipleIntersectionObserver';
+import Divider from './components/Divider';
 
 export default function Home() {
-  const [isVisibleCards, setIsVisibleCards] = useState(false);
-  const [isVisibleContact, setIsVisibleContact] = useState(false);
   const sectionRefCards = useRef(null);
   const sectionRefContact = useRef(null);
+  const sectionRefFaq = useRef(null);
+  const observerOptions = { threshold: 0.1 };
+  const [isVisibleCards, isVisibleContact, isVisibleFaq] =
+    useMultipleIntersectionObserver(
+      [sectionRefCards, sectionRefContact, sectionRefFaq],
+      observerOptions
+    );
 
-  useEffect(() => {
-    // Adjust the threshold to trigger when 10% of the element is visible
-    const observerOptions = {
-      threshold: 0.1,
-    };
-
-    const observerCards = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setIsVisibleCards(true);
-      }
-    }, observerOptions);
-
-    const observerContact = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setIsVisibleContact(true);
-      }
-    }, observerOptions);
-
-    if (sectionRefCards.current) {
-      observerCards.observe(sectionRefCards.current);
-    }
-
-    if (sectionRefContact.current) {
-      observerContact.observe(sectionRefContact.current);
-    }
-
-    return () => {
-      if (sectionRefCards.current) {
-        observerCards.unobserve(sectionRefCards.current);
-      }
-      if (sectionRefContact.current) {
-        observerContact.unobserve(sectionRefContact.current);
-      }
-    };
-  }, []);
+  const faqs = [
+    {
+      question: 'What is a decentralized autonomous organisation (DAO)?',
+      answer: `A DAO is an organisation where its members work towards one common goal and that is governed by programs run on blockchain technology. These programs are also called smart contracts. Using this technology, the organisation can be governed in an objective, transparent, decentralized and borderless way. PoSciDonDAO's smart contracts create a tamper-proof, verifiable, and trustless proposal and voting mechanism.`,
+    },
+    {
+      question: 'What kind of research does PoSciDonDAO fund?',
+      answer: `PoSciDonDAO funds research that focuses on identifying biomarkers that can predict treatment response or on developing personalized therapies for life-altering diseases, including but not limited to, cancer, Alzheimer's disease and diabetes.`,
+    },
+    {
+      question: 'How can PoSciDonDAO support my research?',
+      answer:
+        'Besides funding your research project, PoSciDonDAO can provide scientific and commercial support for your research output. We are a diverse community with a broad range of expertise in the personalized medicine field. We will leverage our network in any way we can to support and uplift your inventions.',
+    },
+    {
+      question: 'Who is part of the PoSciDonDAO community?',
+      answer:
+        "Our community consists of academic researchers, bioentrepreneurs, physicians, decentralized science enthusiasts, biotech investors, and people that care about solving life's most challenging diseases.",
+    },
+  ];
 
   return (
     <main className="flex w-full max-w-full flex-col items-center justify-center xl+:w-[85%]">
@@ -77,16 +70,16 @@ export default function Home() {
           />
         </div>
       </header>
-      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
+      <Divider />{' '}
       <section
         ref={sectionRefCards}
         className={`${
           isVisibleCards ? 'animate-fadeUp' : ''
-        } my-16 flex w-full items-center justify-center px-8`}
+        } my-16 flex w-full items-center justify-center px-8 sm:px-16`}
       >
         <Cards />
       </section>
-      <hr className="w-full border-b-[1px] border-gray-200 dark:border-slate-700"></hr>
+      <Divider />{' '}
       <section
         ref={sectionRefContact}
         className={`${isVisibleContact ? 'animate-fadeUp' : ''} 
@@ -96,12 +89,33 @@ export default function Home() {
         w-full
         items-center
         justify-center
-        px-16
+        px-8
         sm:min-h-[400px]
+        sm:px-16
         md:min-h-[600px]
         `}
       >
         <ContactUs />
+      </section>
+      <Divider />{' '}
+      <section
+        ref={sectionRefFaq}
+        className={`
+        my-16
+        flex
+        min-h-[300px]
+        w-full
+        flex-col
+        items-center
+        justify-center
+        px-8
+        sm:min-h-[400px]
+        sm:px-16
+        md:min-h-[600px]
+        ${isVisibleFaq ? 'animate-fadeUp' : ''}
+      `}
+      >
+        <Faq faqs={faqs} />
       </section>
     </main>
   );
