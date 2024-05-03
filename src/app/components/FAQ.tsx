@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
-const Faq = ({ faqs }) => {
+export const Faq = ({ faqs }) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -61,4 +61,3 @@ Faq.propTypes = {
   ).isRequired,
 };
 
-export default Faq;
