@@ -8,7 +8,7 @@ import Cards from './components/Cards';
 import Hero from './components/Hero';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
-import { Faq } from '@/app/components/Faq';
+import Faq from './components/Faq';
 import useMultipleIntersectionObserver from './hooks/useMultipleIntersectionObserver';
 import Divider from './components/Divider';
 

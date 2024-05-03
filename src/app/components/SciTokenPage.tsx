@@ -12,7 +12,7 @@ import {
   faHandshakeAlt,
   faCoins,
 } from '@fortawesome/free-solid-svg-icons';
-import { Faq } from './Faq';
+import Faq from './Faq';
 import Tabs from './Tabs';
 import Tab from './Tab';
 import Link from 'next/link';
