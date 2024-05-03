@@ -54,7 +54,7 @@ const CardMember: React.FC<CardMemberProps> = ({
   };
 
   return (
-    <div className="mx-8 flex w-full flex-col items-center justify-center space-y-2 text-center">
+    <div className="flex w-full flex-col items-center justify-center space-y-2 px-2 text-center sm:px-8">
       <div className="relative mb-2 h-40 w-40">
         <Image
           src={src}
@@ -70,7 +70,9 @@ const CardMember: React.FC<CardMemberProps> = ({
           {tags.map((tag) => renderTag(tag))}
         </div>
       </div>
-      <p className="lg:h-[10rem] h-[5rem] sm+:h-[7.2rem] md:h-[8rem] sm+:w-full w-[75%] mx-auto text-sm text-gray-700 dark:text-gray-300">{description}</p>
+      <p className="sm+:h-[7.5rem] sm+:w-full mx-auto w-[75%] text-sm text-gray-700 dark:text-gray-300 sm:h-[6.5rem] md:h-[8.5rem] lg:h-[10rem]">
+        {description}
+      </p>
       <div className="flex space-x-4">
         <Link
           href={`https://twitter.com/${twitterUsername}`}
@@ -92,6 +94,7 @@ const CardMember: React.FC<CardMemberProps> = ({
           />
         </Link>
       </div>
+      <hr className="thin-hr"></hr>
     </div>
   );
 };

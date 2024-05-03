@@ -93,3 +93,10 @@ a.ref {
   background-image: linear-gradient(to right, transparent, #ccc, transparent);
   width: 100%;
 }
+
+.thin-hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, #374151, transparent);
+  width: 100%;
+}

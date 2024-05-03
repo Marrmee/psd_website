@@ -268,10 +268,10 @@ export default function Community() {
           isVisibleTeam ? 'animate-fadeUp' : ''
         } flex min-h-[300px] w-full flex-col items-center justify-center p-4 text-center text-sm sm:min-h-[500px] sm:p-8 sm:text-base md:min-h-[700px] md:items-center`}
       >
-        <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
+        <h2 className="sm:mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
           Team
         </h2>
-        <div className="grid w-full grid-cols-1 sm:grid-cols-2 place-items-center gap-12 px-4 lg:grid-cols-4">
+        <div className="grid w-full grid-cols-1 sm:grid-cols-2 place-items-center sm:gap-8 gap-16 px-4 my-8 lg:grid-cols-4">
           {members.map((member, index) => (
             <CardMember
               key={index}
