@@ -384,8 +384,16 @@ export default function SciTokenPage() {
                 width={1000}
                 height={1000}
                 layout="responsive"
-                src="/allocation.webp"
-                className="rounded-3xl"
+                src="/allocation-white.webp"
+                className="hidden dark:flex"
+              />
+              <Image
+                alt="Overview of SCI token allocation"
+                width={1000}
+                height={1000}
+                layout="responsive"
+                src="/allocation-black.webp"
+                className="flex dark:hidden"
               />
             </div>
           </div>
