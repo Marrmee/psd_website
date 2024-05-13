@@ -79,8 +79,8 @@ export default function Cards() {
             border-seaBlue-700
               "
               loading="eager"
-              width={600}
-              height={600}
+              width={300}
+              height={300}
               layout="responsive"
               alt="Genetic code surrounding the word 'research'"
               src={`${resSrc}`}
