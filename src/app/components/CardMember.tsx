@@ -70,7 +70,7 @@ const CardMember: React.FC<CardMemberProps> = ({
           {tags.map((tag) => renderTag(tag))}
         </div>
       </div>
-      <p className="sm+:h-[7.5rem] sm+:w-full mx-auto w-[75%] text-sm text-gray-700 dark:text-gray-300 sm:h-[6.5rem] md:h-[8.5rem] lg:h-[10rem]">
+      <p className="sm+:h-[10rem] sm+:w-full mx-auto w-[75%] text-sm text-gray-700 dark:text-gray-300 sm:h-[6.5rem] md:h-[8.5rem] xl:h-[10rem]">
         {description}
       </p>
       <div className="flex space-x-4">

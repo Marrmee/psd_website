@@ -54,7 +54,8 @@ export default function Community() {
         { type: 'core', value: 'Core' },
         { type: 'dueDiligence', value: 'Due Diligence' },
       ],
-      description: 'Co-founder of PoSciDonDAO. As an infectious disease epidemiologist, Ayat has established and led many research projects. Her branding, marketing and data science skills form the foundation of PoSciDonDAO.',
+      description:
+        'Co-founder of PoSciDonDAO. As an infectious disease epidemiologist, Ayat has established and led many research projects. Her branding, marketing and data science skills form the foundation of PoSciDonDAO.',
       twitterUsername: 'ayatabourashed',
       linkedinUsername: 'ayatea',
     },
@@ -68,8 +69,8 @@ export default function Community() {
       ],
       description:
         'Rakhan has extensive experience in biotech research and development and as a deal sourcer. He will be sourcing and reviewing personalized medicine research projects for PoSciDonDAO.',
-      twitterUsername: '',
-      linkedinUsername: '',
+      twitterUsername: 'r_aimbetov',
+      linkedinUsername: 'raimbetov',
     },
     {
       src: '/michael.webp',
@@ -81,8 +82,8 @@ export default function Community() {
       ],
       description:
         'Michael has years of experience as DAO operator and Contrent Strategist in the DeSci field. His experience will help bring PoSciDonDAO to the masses.',
-      twitterUsername: '',
-      linkedinUsername: '',
+      twitterUsername: '_marti_x',
+      linkedinUsername: 'michael-mati',
     },
     {
       src: '/omar.webp',
@@ -94,68 +95,58 @@ export default function Community() {
       ],
       description:
         'As a physian in the personalized oncology field, Omar will facilitate the bridge between PoSciDonDAO and patient communities.',
-      twitterUsername: '',
-      linkedinUsername: '',
+      twitterUsername: 'healthspan_md',
+      linkedinUsername: 'healthspan_md',
     },
     {
       src: '/chris.webp',
       alt: 'Advisor Chris',
       name: 'Chris Crecelius',
-      tags: [
-        { type: 'advisor', value: 'Advisor' },
-      ],
+      tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
         'Chris, co-founder and CEO of AxonDAO, has invaluable experience in establishing DeSci DAOs.',
-      twitterUsername: '',
-      linkedinUsername: '',
+      twitterUsername: 'Chris_AxonDAO',
+      linkedinUsername: 'ccrecelius',
     },
     {
       src: '/mack.webp',
       alt: 'Advisor Marck',
       name: 'Mack Stachowiak',
-      tags: [
-        { type: 'advisor', value: 'Advisor' },
-      ],
+      tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
         'Mack, co-founder an CTO of AxonDAO, has tremendous amounts of experience with creating medical devices bringing them into clinical practice.',
-      twitterUsername: '',
-      linkedinUsername: '',
+      twitterUsername: 'mstachowiak',
+      linkedinUsername: 'mmstachowiak',
     },
     {
       src: '/renee.webp',
       alt: 'Advisor Renee',
       name: 'Renée Davis',
-      tags: [
-        { type: 'advisor', value: 'Advisor' },
-      ],
+      tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
         'As experienced founder of TalentDAO and advisor for several DeSci projects, Renée is an asset for the PoSciDonDAO team.',
-      twitterUsername: '',
-      linkedinUsername: '',
+      twitterUsername: 'reneedaos',
+      linkedinUsername: 'research-wizard',
     },
     {
       src: '/shady.webp',
       alt: 'Advisor Shady',
       name: 'Shady El Damaty',
-      tags: [
-        { type: 'advisor', value: 'Advisor' },
-      ],
+      tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
         "Shady, co-founder of Silk and Holonym, has a PhD in neuroscience. Shady's expertise in business development and science helps bring PoSciDonDAO to the next level.",
-      twitterUsername: '',
-      linkedinUsername: '',
+      twitterUsername: 'hebbianloop',
+      linkedinUsername: 'shadyeldamaty',
     },
     {
       src: '/neville.webp',
       alt: 'Advisor Neville',
       name: 'Neville',
-      tags: [
-        { type: 'advisor', value: 'Advisor' },
-      ],
+      tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
         'As CEO of Crystale, a web3 game, Neville brings his business development knowledge to PoSciDonDAO.',
-      twitterUsername: '',
-      linkedinUsername: '',
+      twitterUsername: '0xStarke',
+      linkedinUsername: 'nevillestarke',
     },
   ];
 
@@ -271,7 +262,7 @@ export default function Community() {
         <h2 className="sm:mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
           Team
         </h2>
-        <div className="grid w-full grid-cols-1 sm:grid-cols-2 place-items-center sm:gap-8 gap-16 px-4 my-8 lg:grid-cols-4">
+        <div className="grid w-full grid-cols-1 sm:grid-cols-2 place-items-center sm:gap-8 gap-16 px-4 my-8 xl:grid-cols-4">
           {members.map((member, index) => (
             <CardMember
               key={index}
