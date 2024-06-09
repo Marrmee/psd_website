@@ -79,6 +79,12 @@ export default function Footer() {
             </Link>
             <Link
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              href={'/projects'}
+            >
+              Projects
+            </Link>
+            <Link
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/sci-token"
             >
               SCI Token

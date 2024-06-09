@@ -4,14 +4,19 @@ import styles from './Button.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReadme } from '@fortawesome/free-brands-svg-icons';
 
-export default function BlogPostCard({ src, alt, date, title, text, href }) {
+export default function ProjectCard({
+  src,
+  alt,
+  date,
+  title,
+  description,
+  href,
+}) {
   return (
     <section
       className="
-      mx-8
       mb-8 
       flex 
-      w-full
       max-w-full 
       flex-col
       items-center
@@ -19,62 +24,61 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
       border-b-2
       border-seaBlue-700
       text-center
-      md:max-w-[80%]
-      xl:max-w-[60%] 
+      w-[25rem]
       "
     >
       <div
         className="
-        h-30
-        flex 
-        w-full
-        items-center 
-        justify-center 
-        rounded-xl 
-        sm:h-40
-        my-8
+          min-h-24
+          my-4 
+          flex 
+          max-h-[300px] 
+          w-full 
+          items-center 
+          justify-center 
+          overflow-hidden
+          rounded-t-lg
         "
+        style={{ height: '300px' }}
       >
         <Image
-          className="
-          flex
+                  className="
           w-full
-          items-center
-          justify-center
-          rounded-t-3xl
           "
-          src={`${src}`}
-          alt={`${alt}`}
+          src={src}
+          alt={alt}
           width={300}
           height={300}
         />
       </div>
+
       <span className="pt-2 text-fieryRed">{date}</span>
       <h2
         className="
-        py-2
-        font-proximaSemiBold
-        text-xl
+          py-2
+          font-proximaSemiBold
+          text-xl
         "
       >
         {title}
       </h2>
       <p
         className="
-      py-2
-      font-proxima
-      "
+          h-24
+          overflow-hidden
+          py-2
+        "
       >
-        {text}
+        {description}
       </p>
       <div
         className="
-      flex 
-      h-36 
-      w-full 
-      items-center
-      justify-end
-      "
+          flex 
+          h-36 
+          w-full 
+          items-center
+          justify-end
+        "
       >
         <Button
           style={styles.primary}
@@ -82,14 +86,9 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
           text="Read more"
           href={href}
           onClick={''}
-          target=""
+          target="_blank"
           type={'button'}
-          icon={
-            <FontAwesomeIcon
-              icon={faReadme}
-              className="pr-2"
-            />
-          }
+          icon={<FontAwesomeIcon icon={faReadme} className="pr-2" />}
         />
       </div>
     </section>

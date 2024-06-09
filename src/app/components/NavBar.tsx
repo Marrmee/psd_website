@@ -114,6 +114,16 @@ export default function NavBar() {
           For Scientists
         </Link>
         <Link
+          className={`hover:text-seaBlue-900 ${
+            isActive('/projects')
+              ? 'text-seaBlue-400 dark:text-seaBlue-500'
+              : ''
+          }`}
+          href={'/projects'}
+        >
+          Projects
+        </Link>
+        <Link
           className="hover:text-seaBlue-900"
           href="https://protocol.poscidondao.com/donate"
           target="_blank"
