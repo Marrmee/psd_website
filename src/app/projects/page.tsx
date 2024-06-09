@@ -104,7 +104,7 @@ export default function ProjectFunding() {
           icon={''}
         /> */}
       </header>
-      <section className="my-16 gap-16 grid grid-cols-1 md:grid-cols-2 place-items-center">
+      <section className="my-8 w-full gap-16 grid grid-cols-1 md:grid-cols-2 place-items-center">
         {projects.map((project, index) => (
           <ProjectCard
             key={index}

@@ -105,6 +105,16 @@ export default function NavBar() {
       <div className="hidden w-full items-center justify-end gap-12 text-lg lg:flex">
         <Link
           className={`hover:text-seaBlue-900 ${
+            isActive('/sci-token')
+              ? 'text-seaBlue-400 dark:text-seaBlue-500'
+              : ''
+          }`}
+          href="/sci-token"
+        >
+          SCI Token
+        </Link>
+        <Link
+          className={`hover:text-seaBlue-900 ${
             isActive('/research')
               ? 'text-seaBlue-400 dark:text-seaBlue-500'
               : ''
@@ -140,16 +150,6 @@ export default function NavBar() {
           // href="https://forms.gle/g52VVJTXCnz7b8LU7"
         >
           Community
-        </Link>
-        <Link
-          className={`hover:text-seaBlue-900 ${
-            isActive('/sci-token')
-              ? 'text-seaBlue-400 dark:text-seaBlue-500'
-              : ''
-          }`}
-          href="/sci-token"
-        >
-          SCI Token
         </Link>
       </div>
 
