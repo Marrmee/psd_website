@@ -91,7 +91,6 @@ export default function RootLayout({
       </Script>
       <body
         className={`
-            dark:bg-seaBlue-1050
             flex
             w-full
             max-w-full
@@ -100,6 +99,7 @@ export default function RootLayout({
             justify-center
             bg-gray-100
             text-slate-700
+            dark:bg-seaBlue-1050
             dark:text-gray-300
             ${proximaNova.variable}  
             ${proximaNovaExtraBold.variable}  
@@ -113,7 +113,6 @@ export default function RootLayout({
         <div className="w-full">
           <Divider />
           <Footer />
-
           <div
             className=" 
                   flex 

@@ -18,6 +18,7 @@ export default function Policy() {
     <main
       className="
       flex 
+      mx-auto
       w-[70%] 
       flex-col 
       items-start 

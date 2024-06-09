@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { faDiscord, faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

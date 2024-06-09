@@ -31,11 +31,10 @@ export default function ResearchInfo() {
       className={`
       ${isVisibleFaq ? 'animate-fadeUp' : ''}
     flex
-    w-[85%]
+    mx-auto
     flex-col
     items-center
-    text-center
-    lg:w-[80%]  
+    text-center  
     `}
     >
       <div
@@ -50,7 +49,7 @@ export default function ResearchInfo() {
       >
         Why receive funding from PoSciDonDAO?
       </div>
-      <section className="w-[85%]">
+      <section>
         <div
           className="
       flex 

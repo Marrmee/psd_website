@@ -58,7 +58,6 @@ export default function NavBar() {
   return (
     <nav
       className="
-      dark:bg-seaBlue-1050
       top-0
       mx-8
       flex
@@ -70,6 +69,7 @@ export default function NavBar() {
       bg-gray-100
       px-6
       py-4
+      dark:bg-seaBlue-1050
         "
     >
       <Link
@@ -184,20 +184,20 @@ export default function NavBar() {
         {isOpen && (
           <div
             className="
-            dark:bg-seaBlue-1050 
-            absolute
+            absolute 
             right-0
             top-20
-            z-10 
-            flex
-            w-full 
-            flex-col
+            z-10
+            flex 
+            w-full
+            flex-col 
             items-center
-            justify-center gap-8 
-            border-b-2
+            justify-center
+            gap-8 border-b-2 
             border-seaBlue-900
             bg-gray-100
             p-4
+            dark:bg-seaBlue-1050
             sm:items-center
             "
           >

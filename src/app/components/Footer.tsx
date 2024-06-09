@@ -93,6 +93,15 @@ export default function Footer() {
               Whitepaper
             </Link>
             <Link
+              rel="noopener"
+              target="_blank"
+              locale={false}
+              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              href="https://poscidondao.gitbook.io/poscidondao/"
+            >
+              Litepaper
+            </Link>
+            <Link
               className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
               href="/blog"
             >

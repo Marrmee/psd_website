@@ -88,7 +88,7 @@ export default function ProjectFunding() {
           icon={''}
         />
       </header>
-      <section className="my-16 flex items-center justify-center">
+      <section className="my-16 flex items-center justify-center w-full">
         <ResearchInfo />
       </section>
     </main>
