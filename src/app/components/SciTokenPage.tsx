@@ -28,12 +28,17 @@ const faqs = [
   {
     question: 'How will the foundation funds be used?',
     answer:
-      'They will be used for ecosystem development, partnerships, legal, grants, bounties, logistical costs and hiring future employees/contributors beyond team allocation.',
+      'They will be used for funding research, ecosystem development, partnerships, legal, grants, bounties, logistical costs and hiring future employees/contributors beyond team allocation.',
   },
   {
     question: 'How will the community funds be used?',
     answer:
       'They will be used for the creation of liquidity pools, PO to SCI exchange program, and to expand and strengthen our community through marketing and outreach efforts.',
+  },
+  {
+    question: 'Who are part of the DAO Operators?',
+    answer:
+      'Founders, advisors, early contributors and members working on project development are considered DAO Operators.',
   },
   {
     question: 'Is there a hard cap for the SCI token supply?',
