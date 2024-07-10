@@ -40,6 +40,7 @@ export default function Community() {
       tags: [
         { type: 'core', value: 'Core' },
         { type: 'dueDiligence', value: 'Due Diligence' },
+        { type: 'operations', value: 'DAO Operations' },
       ],
       description:
         'Co-founder of PoSciDonDAO. Marco has led personalized medicine research projects involving viro-immunotherapies for pancreatic cancer. Marco builds the on-chain ecosystem and sources research projects for PoSciDonDAO.',
@@ -53,6 +54,7 @@ export default function Community() {
       tags: [
         { type: 'core', value: 'Core' },
         { type: 'dueDiligence', value: 'Due Diligence' },
+        { type: 'operations', value: 'DAO Operations' },
       ],
       description:
         'Co-founder of PoSciDonDAO. As an infectious disease epidemiologist, Ayat has established and led many research projects. Her branding, marketing and data science skills form the foundation of PoSciDonDAO.',
@@ -63,40 +65,11 @@ export default function Community() {
       src: '/rakhan.webp',
       alt: 'Contributor Rakhan',
       name: 'Rakhan Aimbetov',
-      tags: [
-        { type: 'core', value: 'Core' },
-        { type: 'dueDiligence', value: 'Due Diligence' },
-      ],
+      tags: [{ type: 'dueDiligence', value: 'Due Diligence' }],
       description:
         'Rakhan has extensive experience in biotech research and development and as a deal sourcer. He will be sourcing and reviewing personalized medicine research projects for PoSciDonDAO.',
       twitterUsername: 'r_aimbetov',
       linkedinUsername: 'raimbetov',
-    },
-    {
-      src: '/michael.webp',
-      alt: 'Contributor Michael',
-      name: 'Michael Mati',
-      tags: [
-        { type: 'core', value: 'Core' },
-        { type: 'operations', value: 'Operations' },
-      ],
-      description:
-        'Michael has years of experience as DAO operator and Contrent Strategist in the DeSci field. His experience will help bring PoSciDonDAO to the masses.',
-      twitterUsername: '_marti_x',
-      linkedinUsername: 'michael-mati',
-    },
-    {
-      src: '/omar.webp',
-      alt: 'Contributor Michael',
-      name: 'Omar Saleem',
-      tags: [
-        { type: 'core', value: 'Core' },
-        { type: 'operations', value: 'Operations' },
-      ],
-      description:
-        'As a physian in the personalized oncology field, Omar will facilitate the bridge between PoSciDonDAO and patient communities.',
-      twitterUsername: 'healthspan_md',
-      linkedinUsername: 'healthspan_md',
     },
     {
       src: '/chris.webp',
@@ -110,7 +83,7 @@ export default function Community() {
     },
     {
       src: '/mack.webp',
-      alt: 'Advisor Marck',
+      alt: 'Advisor Mack',
       name: 'Mack Stachowiak',
       tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
@@ -124,7 +97,7 @@ export default function Community() {
       name: 'Renée Davis',
       tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
-        'As experienced founder of TalentDAO and advisor for several DeSci projects, Renée is an asset for the PoSciDonDAO team.',
+        'As experienced founder of TalentDAO, Rare Compute and advisor for several DeSci projects, Renée is an asset for the PoSciDonDAO team.',
       twitterUsername: 'reneedaos',
       linkedinUsername: 'research-wizard',
     },
@@ -134,19 +107,9 @@ export default function Community() {
       name: 'Shady El Damaty',
       tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
-        "Shady, co-founder of Silk and Holonym, has a PhD in neuroscience. Shady's expertise in business development and science helps bring PoSciDonDAO to the next level.",
+        "Shady, co-founder of Silk and Holonym, has a PhD in neuroscience and his expertise in business development and science helps bring PoSciDonDAO to the next level.",
       twitterUsername: 'hebbianloop',
       linkedinUsername: 'shadyeldamaty',
-    },
-    {
-      src: '/neville.webp',
-      alt: 'Advisor Neville',
-      name: 'Neville',
-      tags: [{ type: 'advisor', value: 'Advisor' }],
-      description:
-        'As CEO of Crystale, a web3 game, Neville brings his business development knowledge to PoSciDonDAO.',
-      twitterUsername: '0xStarke',
-      linkedinUsername: 'nevillestarke',
     },
   ];
 
