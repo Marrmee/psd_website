@@ -121,8 +121,7 @@ export default function SciTokenPage() {
             The SCI token is the backbone of the PoSciDonDAO ecosystem, allowing
             holders to vote on proposals regarding DAO operations and the
             election of scientific experts that review personalized medicine
-            research projects. SCI will accrue value from our commercialized
-            assets, as revenue will be used to buy back and burn SCI tokens. SCI
+            research projects. SCI
             will be released soon!
           </p>
           <Button
