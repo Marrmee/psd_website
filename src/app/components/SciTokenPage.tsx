@@ -84,7 +84,7 @@ export default function SciTokenPage() {
   const ecosystemRef = useRef(null);
   const tokenomicsRef = useRef(null);
   const faqRef = useRef(null);
-  const visbilityThreshold = 0.05;
+  const observerOptions = { threshold: 0.05 };
   const [
     isVisibleHeader,
     isVisibleSection,
@@ -93,7 +93,7 @@ export default function SciTokenPage() {
     isVisibleFaq,
   ] = useMultipleIntersectionObserver(
     [headerRef, sectionRef, ecosystemRef, tokenomicsRef, faqRef],
-    { threshold: visbilityThreshold }
+    observerOptions
   );
 
   return (
@@ -121,8 +121,7 @@ export default function SciTokenPage() {
             The SCI token is the backbone of the PoSciDonDAO ecosystem, allowing
             holders to vote on proposals regarding DAO operations and the
             election of scientific experts that review personalized medicine
-            research projects. SCI
-            will be released soon!
+            research projects. SCI will be released soon!
           </p>
           <Button
             link={true}
@@ -156,7 +155,7 @@ export default function SciTokenPage() {
           {items.map((item, index) => (
             <div
               key={index}
-              className="dark:bg-seaBlue-1000 flex flex-col items-center justify-center rounded-lg bg-seaBlue-100 p-8 text-center"
+              className="flex flex-col items-center justify-center rounded-lg bg-seaBlue-100 p-8 text-center dark:bg-seaBlue-1000"
             >
               <div className="flex items-center justify-center rounded">
                 <FontAwesomeIcon
@@ -202,14 +201,14 @@ export default function SciTokenPage() {
         <div className="min-h-[34rem] w-full flex-auto px-4 text-gray-300 lg:w-2/5">
           <div
             className="
-        dark:bg-seaBlue-1000 
-        flex
+        flex 
         min-h-[34rem]
-        flex-col 
-        justify-between
+        flex-col
+        justify-between 
         rounded-lg
         bg-seaBlue-800
         p-12
+        dark:bg-seaBlue-1000
         "
           >
             <h2 className="mb-4 text-center text-4xl">Our Ecosystem</h2>

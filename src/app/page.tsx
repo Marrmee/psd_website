@@ -11,13 +11,15 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import Faq from './components/Faq';
 import useMultipleIntersectionObserver from './hooks/useMultipleIntersectionObserver';
 import Divider from './components/Divider';
+import Image from 'next/image';
 
 export default function Home() {
   const sectionRefCards = useRef(null);
+  const sectionRefTokenomics = useRef(null);
   const sectionRefContact = useRef(null);
   const sectionRefFaq = useRef(null);
-  const observerOptions = { threshold: 0.1 };
-  const [isVisibleCards, isVisibleContact, isVisibleFaq] =
+  const observerOptions = { threshold: 0.05 };
+  const [isVisibleCards, isVisibleTokenomics, isVisibleContact, isVisibleFaq] =
     useMultipleIntersectionObserver(
       [sectionRefCards, sectionRefContact, sectionRefFaq],
       observerOptions
@@ -78,6 +80,33 @@ export default function Home() {
         } my-16 flex w-full items-center justify-center px-8 sm:px-16`}
       >
         <Cards />
+      </section>
+      <Divider />{' '}
+      <section
+        ref={sectionRefTokenomics}
+        className={`${isVisibleTokenomics ? 'animate-fadeUp' : ''} 
+        my-16
+        flex
+        min-h-[300px]
+        w-full
+        items-center
+        justify-center
+        px-8
+        sm:min-h-[400px]
+        sm:px-16
+        md:min-h-[600px]
+        `}
+      >
+        <div className="md:w-[80%] lg:w-[70%] mx-auto">
+          <Image
+            src={'/roadmap.webp'}
+            className="rounded-3xl"
+            alt="PoSciDonDAO's roadmap for 2024"
+            width={200}
+            height={200}
+            layout="responsive"
+          />
+        </div>
       </section>
       <Divider />{' '}
       <section

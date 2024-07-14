@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef } from 'react';
 import Button from './Button';
 import styles from '@/app/components/Button.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,11 +14,12 @@ export default function Community() {
   const headerRef = useRef(null);
   const crewsRef = useRef(null);
   const teamRef = useRef(null);
-
+  const observerOptions = { threshold: 0.05 };
   const [isVisibleHeader, isVisibleCrews, isVisibleTeam] =
-    useMultipleIntersectionObserver([headerRef, crewsRef, teamRef], {
-      threshold: 0.05,
-    });
+    useMultipleIntersectionObserver(
+      [headerRef, crewsRef, teamRef],
+      observerOptions
+    );
   const items = [
     {
       title: 'Operations',
@@ -107,7 +108,7 @@ export default function Community() {
       name: 'Shady El Damaty',
       tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
-        "Shady, co-founder of Silk and Holonym, has a PhD in neuroscience and his expertise in business development and science helps bring PoSciDonDAO to the next level.",
+        'Shady, co-founder of Silk and Holonym, has a PhD in neuroscience and his expertise in business development and science helps bring PoSciDonDAO to the next level.',
       twitterUsername: 'hebbianloop',
       linkedinUsername: 'shadyeldamaty',
     },
@@ -148,7 +149,7 @@ export default function Community() {
         >
           The PoSciDonDAO Community
         </h1>
-        <p className="mx-auto w-full sm:px-8 px-2 text-center text-base transition-all duration-500 md:text-lg lg:w-[70%] lg:text-2xl">
+        <p className="mx-auto w-full px-2 text-center text-base transition-all duration-500 sm:px-8 md:text-lg lg:w-[70%] lg:text-2xl">
           The PoSciDonDAO community consists of many expert scientists,
           bioentrepreneurs and decentralized science enthusiasts. They
           collectively help the organisation and one another flourish. The DAO
@@ -159,7 +160,7 @@ export default function Community() {
           Get involved by becoming a contributor. Apply directly below and our
           team will review your application quickly.
         </p>
-        <div className="flex gap-8 flex-col sm:flex-row">
+        <div className="flex flex-col gap-8 sm:flex-row">
           <Button
             link={true}
             type={'button'}
@@ -194,7 +195,10 @@ export default function Community() {
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:mx-4 md:grid-cols-2">
           {items.map((item, index) => (
-            <div key={index} className="dark:bg-seaBlue-1000 flex flex-col items-center justify-center gap-6 rounded-lg bg-seaBlue-100 p-8 text-center">
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center gap-6 rounded-lg bg-seaBlue-100 p-8 text-center dark:bg-seaBlue-1000"
+            >
               <h3 className="mb-2 h-[2rem] font-proximaSemiBold text-2xl">
                 {item.title}
               </h3>
@@ -222,10 +226,10 @@ export default function Community() {
           isVisibleTeam ? 'animate-fadeUp' : ''
         } flex min-h-[300px] w-full flex-col items-center justify-center p-4 text-center text-sm sm:min-h-[500px] sm:p-8 sm:text-base md:min-h-[700px] md:items-center`}
       >
-        <h2 className="sm:mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
+        <h2 className="text-center text-4xl text-seaBlue-700 dark:text-gray-300 sm:mb-4">
           Team
         </h2>
-        <div className="grid w-full grid-cols-1 sm:grid-cols-2 place-items-center sm:gap-8 gap-16 px-4 my-8 xl:grid-cols-4">
+        <div className="my-8 grid w-full grid-cols-1 place-items-center gap-16 px-4 sm:grid-cols-2 sm:gap-8 xl:grid-cols-4">
           {members.map((member, index) => (
             <CardMember
               key={index}

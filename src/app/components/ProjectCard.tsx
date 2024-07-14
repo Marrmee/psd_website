@@ -17,14 +17,14 @@ export default function ProjectCard({
       className="
       mb-8 
       flex 
-      max-w-full 
+      w-[25rem] 
+      max-w-full
       flex-col
       items-center
       justify-center
       border-b-2
       border-seaBlue-700
       text-center
-      w-[25rem]
       "
     >
       <div
@@ -37,13 +37,13 @@ export default function ProjectCard({
           items-center 
           justify-center 
           overflow-hidden
-          rounded-t-lg
         "
-        style={{ height: '300px' }}
       >
         <Image
-                  className="
+          style={{ height: '300px' }}
+          className="
           w-full
+          rounded-t-3xl
           "
           src={src}
           alt={alt}
@@ -80,16 +80,18 @@ export default function ProjectCard({
           justify-end
         "
       >
-        <Button
-          style={styles.primary}
-          link={true}
-          text="Read more"
-          href={href}
-          onClick={''}
-          target="_blank"
-          type={'button'}
-          icon={<FontAwesomeIcon icon={faReadme} className="pr-2" />}
-        />
+        {href.length > 0 ? (
+          <Button
+            style={styles.primary}
+            link={true}
+            text="Read more"
+            href={href}
+            onClick={''}
+            target="_blank"
+            type={'button'}
+            icon={<FontAwesomeIcon icon={faReadme} className="pr-2" />}
+          />
+        ) : null}
       </div>
     </section>
   );
