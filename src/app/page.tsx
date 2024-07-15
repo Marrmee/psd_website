@@ -16,14 +16,26 @@ import Image from 'next/image';
 export default function Home() {
   const sectionRefCards = useRef(null);
   const sectionRefTokenomics = useRef(null);
+  const sectionRefRoadmap = useRef(null);
   const sectionRefContact = useRef(null);
   const sectionRefFaq = useRef(null);
   const observerOptions = { threshold: 0.05 };
-  const [isVisibleCards, isVisibleTokenomics, isVisibleContact, isVisibleFaq] =
-    useMultipleIntersectionObserver(
-      [sectionRefCards, sectionRefContact, sectionRefFaq],
-      observerOptions
-    );
+  const [
+    isVisibleCards,
+    isVisibleRoadmap,
+    isVisibleTokenomics,
+    isVisibleContact,
+    isVisibleFaq,
+  ] = useMultipleIntersectionObserver(
+    [
+      sectionRefCards,
+      sectionRefTokenomics,
+      sectionRefRoadmap,
+      sectionRefContact,
+      sectionRefFaq,
+    ],
+    observerOptions
+  );
 
   const faqs = [
     {
@@ -97,7 +109,47 @@ export default function Home() {
         md:min-h-[600px]
         `}
       >
-        <div className="md:w-[80%] lg:w-[70%] mx-auto">
+        <div className="mx-auto md:w-[80%] lg:w-[70%]">
+          <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
+           SCI Token Allocation
+          </h2>
+          <div className="flex items-center justify-center sm:w-full lg:max-w-[1000px]">
+            <Image
+              alt="Overview of SCI token allocation"
+              width={1000}
+              height={1000}
+              layout="responsive"
+              src="/allocation-white.webp"
+              className="hidden dark:flex"
+            />
+            <Image
+              alt="Overview of SCI token allocation"
+              width={1000}
+              height={1000}
+              layout="responsive"
+              src="/allocation-black.webp"
+              className="flex dark:hidden"
+            />
+          </div>
+        </div>
+      </section>
+      <Divider />{' '}
+      <section
+        ref={sectionRefRoadmap}
+        className={`${isVisibleRoadmap ? 'animate-fadeUp' : ''} 
+        my-16
+        flex
+        min-h-[300px]
+        w-full
+        items-center
+        justify-center
+        px-8
+        sm:min-h-[400px]
+        sm:px-16
+        md:min-h-[600px]
+        `}
+      >
+        <div className="mx-auto md:w-[80%] lg:w-[70%]">
           <Image
             src={'/roadmap.webp'}
             className="rounded-3xl"
