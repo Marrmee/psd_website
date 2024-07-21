@@ -230,7 +230,7 @@ export default function ProjectForm() {
             my-4 w-full px-8
             "
       >
-        <form onSubmit={upload} className="flex flex-col">
+        <form onSubmit={upload} className="flex flex-col text-seaBlue-1050">
           <section className="flex flex-col py-2">
             <label
               htmlFor="title"
