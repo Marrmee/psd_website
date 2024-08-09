@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Footer from './Footer';
 import { useClickOutside } from './ClickOutside';
 import { usePathname } from 'next/navigation';
-import { MotionConfig, motion } from 'framer-motion';
 import DarkModeToggle from './DarkModeToggle';
 
 export default function NavBar() {
@@ -16,67 +15,38 @@ export default function NavBar() {
   const dropdown = useRef<any>();
   const pathName = usePathname();
 
-  const VARIANTS = {
-    top: {
-      open: {
-        rotate: ['0deg', '0deg', '45deg'],
-        top: ['35%', '50%', '50%'],
-      },
-      closed: {
-        rotate: ['45deg', '0deg', '0deg'],
-        top: ['50%', '50%', '35%'],
-      },
-    },
-    middle: {
-      open: {
-        rotate: ['0deg', '0deg', '-45deg'],
-      },
-      closed: {
-        rotate: ['-45deg', '0deg', '0deg'],
-      },
-    },
-    bottom: {
-      open: {
-        rotate: ['0deg', '0deg', '45deg'],
-        bottom: ['35%', '50%', '50%'],
-        left: '50%',
-      },
-      closed: {
-        rotate: ['45deg', '0deg', '0deg'],
-        bottom: ['50%', '50%', '35%'],
-        left: 'calc(50% + 10px)',
-      },
-    },
-  };
-
   const isActive = (path) => {
     return pathName === path;
   };
 
   useClickOutside(dropdown, () => setIsOpen(false));
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav
       className="
-      top-0
-      mx-8
-      flex
-      h-20
-      w-full
-      max-w-full
-      items-center
-      justify-between
-      bg-gray-100
-      px-6
-      py-4
-      dark:bg-seaBlue-1050
-        "
+        top-0
+        mx-8
+        flex
+        h-20
+        w-full
+        max-w-full
+        items-center  
+        justify-between
+        bg-gray-100
+        px-6
+        py-4
+        dark:bg-seaBlue-1050
+      "
     >
       <Link
         onMouseEnter={() => setSrc('/logo-blue.webp')}
         onMouseLeave={() => setSrc('/logo-black.webp')}
         href="/"
-        className="flex w-[20rem] dark:hidden lg:w-[25rem]"
+        className="flex w-[20rem] items-start dark:hidden lg:w-[25rem]"
       >
         <Image
           width={1000}
@@ -91,7 +61,7 @@ export default function NavBar() {
         onMouseEnter={() => setDarkSrc('/logo-blue.webp')}
         onMouseLeave={() => setDarkSrc('/logo-white.webp')}
         href="/"
-        className="hidden w-[20rem] dark:flex lg:w-[25rem]"
+        className="hidden w-[20rem] items-start dark:flex lg:w-[25rem]"
       >
         <Image
           width={1000}
@@ -102,7 +72,7 @@ export default function NavBar() {
           alt="PoSciDonDAO's Logo: a trident attached to a DNA helix"
         />
       </Link>
-      <div className="hidden w-full items-center justify-end gap-12 text-lg lg:flex">
+      <div className="hidden w-full items-start justify-end gap-12 text-lg lg:flex">
         <Link
           className={`hover:text-seaBlue-900 ${
             isActive('/sci-token')
@@ -147,68 +117,47 @@ export default function NavBar() {
               : ''
           }`}
           href="community"
-          // href="https://forms.gle/g52VVJTXCnz7b8LU7"
         >
           Community
         </Link>
       </div>
 
-      <div ref={dropdown} className="flex items-center">
+      <div ref={dropdown} className="flex items-center gap-4">
         <DarkModeToggle />
-        <div className="ml-2 flex">
-          <MotionConfig
-            transition={{
-              duration: 0.5,
-              ease: 'easeInOut',
-            }}
+        <div className="flex items-center justify-center pb-2">
+          <button
+            className={`group relative h-8 w-8 transition-all duration-300`}
+            onClick={toggleMenu}
           >
-            <motion.button
-              initial={false}
-              animate={isOpen ? 'open' : 'closed'}
-              onClick={() => setIsOpen(!isOpen)}
-              className="group relative h-14 w-10 rounded-full transition-colors"
-            >
-              <motion.span
-                variants={VARIANTS.top}
-                className="absolute h-1 w-10 bg-seaBlue-700 group-hover:bg-seaBlue-500 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
-                style={{ y: '-50%', left: '50%', x: '-50%', top: '35%' }}
-              />
-              <motion.span
-                variants={VARIANTS.middle}
-                className="absolute h-1 w-10 bg-seaBlue-700 group-hover:bg-seaBlue-500 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
-                style={{ left: '50%', x: '-50%', top: '50%', y: '-50%' }}
-              />
-              <motion.span
-                variants={VARIANTS.bottom}
-                className="absolute h-1 w-5 bg-seaBlue-700 group-hover:bg-seaBlue-500 dark:bg-gray-300 dark:group-hover:bg-seaBlue-700"
-                style={{
-                  x: '-50%',
-                  y: '50%',
-                  bottom: '35%',
-                  left: 'calc(50% + 10px)',
-                }}
-              />
-            </motion.button>
-          </MotionConfig>
+            <div
+              className={`absolute left-1/2 top-1/2 h-1 w-8 transform rounded bg-seaBlue-700 transition-all duration-300 group-hover:bg-seaBlue-500 dark:bg-[#FDFDFD] dark:group-hover:bg-seaBlue-700 ${isOpen ? 'mt-1 -translate-x-1/2 -translate-y-1/2 rotate-45' : '-translate-x-1/2 -translate-y-[7px]'}`}
+            ></div>
+            <div
+              className={`absolute left-1/2 top-1/2 mt-1 h-1 w-8 transform rounded bg-seaBlue-700 transition-all duration-300 group-hover:bg-seaBlue-500 dark:bg-[#FDFDFD] dark:group-hover:bg-seaBlue-700 ${isOpen ? 'mt-0 opacity-0' : '-translate-x-1/2 -translate-y-1/2'}`}
+            ></div>
+            <div
+              className={`absolute left-1/2 top-1/2 mt-1 h-1 w-8 transform rounded bg-seaBlue-700 transition-all duration-300 group-hover:bg-seaBlue-500 dark:bg-[#FDFDFD] dark:group-hover:bg-seaBlue-700 ${isOpen ? 'mt-1 -translate-x-1/2 -translate-y-1/2 -rotate-45' : '-translate-x-1/2 translate-y-[7px]'}`}
+            ></div>
+          </button>
         </div>
         {isOpen && (
           <div
             className="
-            absolute 
-            right-0
-            top-20
-            z-10
-            flex 
-            w-full
-            flex-col 
-            items-center
-            justify-center
-            gap-8 border-b-2 
-            border-seaBlue-900
-            bg-gray-100
-            p-4
-            dark:bg-seaBlue-1050
-            sm:items-center
+              absolute 
+              right-0
+              top-20
+              z-10
+              flex 
+              w-full
+              flex-col 
+              items-center
+              justify-center
+              gap-8 border-b-2 
+              border-seaBlue-900
+              bg-gray-100
+              p-4
+              dark:bg-seaBlue-1050
+              sm:items-center
             "
           >
             <Footer />
