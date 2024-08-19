@@ -43,7 +43,7 @@ const faqs = [
   {
     question: 'Is there a hard cap for the SCI token supply?',
     answer:
-      'There is no hard cap for the token supply. The DAO can decide to mint tokens, but only when it is really necessary. For example, when more funds are needed to bring novel therapies into clinical trials or to establish next-level partnerships.',
+      'Yes the SCI token supply is 18,910,000 tokens. Additional tokens cannot be minted.',
   },
 ];
 
