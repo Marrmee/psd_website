@@ -74,18 +74,20 @@ a.ref {
 }
 
 @keyframes fadeUp {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(20px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .animate-fadeUp {
-  animation: fadeUp 1.5s ease-out;
+  animation: fadeUp 1.5s ease-in-out forwards;
 }
+
 
 .modern-hr {
   border: 0;

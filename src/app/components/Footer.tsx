@@ -8,11 +8,11 @@ export default function Footer() {
     <div
       className="
       flex 
-      w-full 
-      max-w-full
+      w-full
       flex-col
-      items-center 
-      justify-center
+      items-between 
+      justify-between
+      mx-auto w-[90%]
       pt-8
       "
     >

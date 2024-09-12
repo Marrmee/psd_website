@@ -59,16 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className="
-    flex
-    w-full 
-    flex-col 
-    items-center
-    justify-center
-    "
-    >
+    <html lang="en">
       {/* <Script
         id="font-awesome"
         src="https://kit.fontawesome.com/bfd0659090.js"
@@ -91,12 +82,6 @@ export default function RootLayout({
       </Script>
       <body
         className={`
-            flex
-            w-full
-            max-w-full
-            flex-col
-            items-center
-            justify-center
             bg-gray-100
             text-slate-700
             dark:bg-seaBlue-1050
@@ -105,7 +90,8 @@ export default function RootLayout({
             ${proximaNovaExtraBold.variable}  
             ${proximaNovaSemiBold.variable}  
             ${proximaNovaItalic.variable}  
-            font-proxima
+            mx-auto
+            w-[90%] font-proxima xl+:w-[80%]
              `}
       >
         <NavBar />

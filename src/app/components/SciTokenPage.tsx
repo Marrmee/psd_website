@@ -148,10 +148,10 @@ export default function SciTokenPage() {
           isVisibleSection ? 'animate-fadeUp' : ''
         } flex min-h-[300px] w-full flex-col items-center justify-center p-4 text-center text-sm sm:min-h-[500px] sm:p-8 sm:text-base md:min-h-[700px] md:items-center`}
       >
-        <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
+        <h2 className="mb-8 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
           SCI Utility
         </h2>
-        <div className="grid grid-cols-1 gap-4 sm:mx-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:mx-4 lg:grid-cols-2 xl:grid-cols-4">
           {items.map((item, index) => (
             <div
               key={index}
@@ -166,7 +166,7 @@ export default function SciTokenPage() {
               <h3 className="mb-2 h-10 font-proximaSemiBold text-2xl">
                 {item.title}
               </h3>
-              <p className="text-base text-base sm:h-[6rem] md:h-[10rem] md:text-lg xl:h-[15rem]">
+              <p className="text-sm sm:text-base h-content">
                 {item.content}
               </p>
             </div>

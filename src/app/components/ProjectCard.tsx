@@ -40,10 +40,10 @@ export default function ProjectCard({
         "
       >
         <Image
-          style={{ height: '300px' }}
+          style={{ height: '250px' }}
           className="
           w-full
-          rounded-t-3xl
+          rounded-t-lg
           "
           src={src}
           alt={alt}
@@ -64,7 +64,7 @@ export default function ProjectCard({
       </h2>
       <p
         className="
-          h-24
+          h-content
           overflow-hidden
           py-2
         "

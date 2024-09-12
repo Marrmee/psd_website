@@ -28,6 +28,7 @@ export default function ProjectFunding() {
           items-center
           justify-center
           px-8 
+          mx-auto
           lg:w-[90%]
           xl:w-[80%]
           "

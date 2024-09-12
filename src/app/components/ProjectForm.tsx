@@ -180,7 +180,6 @@ export default function ProjectForm() {
         items-center
         justify-center
         pt-12 
-        xl:w-[65%] 
         "
     >
       <header
@@ -189,7 +188,6 @@ export default function ProjectForm() {
         flex-col 
         items-center 
         justify-center 
-        px-8
         "
       >
         <h1
@@ -214,9 +212,9 @@ export default function ProjectForm() {
             items-center 
             justify-center 
             pt-8 
-            text-center 
-            text-base
-            sm:text-lg
+            text-center
+            text-sm 
+            sm:text-base
           "
         >
           Provide information about your project and specify how to generate and
@@ -227,7 +225,7 @@ export default function ProjectForm() {
       {/* <hr className="border-b-[1px] w-full border-gray-200 dark:border-slate-700"></hr> */}
       <section
         className="        
-            my-4 w-full px-8
+            my-4 w-full
             "
       >
         <form onSubmit={upload} className="flex flex-col text-seaBlue-1050">
@@ -247,7 +245,7 @@ export default function ProjectForm() {
               placeholder={`Identifying genes related to sensitivity to chemotherapy in renal carcinoma organoids`}
               name="title"
               className="
-                    rounded-3xl 
+                    rounded-lg 
                     p-4
                     shadow 
                     ring-tropicalBlue 
@@ -276,7 +274,7 @@ export default function ProjectForm() {
               name="description"
               className="
                 h-40
-                rounded-3xl 
+                rounded-lg 
                 p-4
                 shadow 
                 ring-tropicalBlue 
@@ -306,7 +304,7 @@ export default function ProjectForm() {
               name="strategy"
               className="
                 h-40
-                rounded-3xl 
+                rounded-lg 
                 p-4
                 shadow 
                 ring-tropicalBlue 
@@ -330,7 +328,7 @@ export default function ProjectForm() {
             </label>
             <select
               className={`
-                rounded-3xl 
+                rounded-lg 
                 p-4
                 shadow 
                 ring-tropicalBlue  
@@ -370,7 +368,7 @@ export default function ProjectForm() {
               placeholder={`Fill in the amount of USD you need to fund your project...`}
               name="funds"
               className="
-                rounded-3xl 
+                rounded-lg 
                 p-4
                 shadow 
                 ring-tropicalBlue 
@@ -418,7 +416,7 @@ export default function ProjectForm() {
               placeholder={`Starts with 0x...`}
               name="address"
               className="
-                rounded-3xl 
+                rounded-lg 
                 p-4
                 shadow 
                 ring-tropicalBlue 

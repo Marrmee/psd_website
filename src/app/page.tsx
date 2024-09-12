@@ -59,10 +59,10 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex w-full max-w-full flex-col items-center justify-center xl+:w-[85%]">
+    <main className="flex w-full max-w-full flex-col items-center justify-center">
       <header className="animate-fadeUp flex w-full flex-col items-center justify-center py-16">
         <Hero />
-        <p className="w-full p-8 text-center font-proxima text-base transition-all duration-500 sm:w-[80%] md:text-lg lg:text-2xl">
+        <p className="w-full py-8 text-center font-proxima text-base transition-all duration-500 md:text-lg lg:text-2xl">
           PoSciDonDAO is a Decentralized Autonomous Organisation (DAO) that
           funds personalized medicine research for{' '}
           <span className="font-proximaBold">life-altering diseases</span>{' '}
@@ -89,7 +89,7 @@ export default function Home() {
         ref={sectionRefCards}
         className={`${
           isVisibleCards ? 'animate-fadeUp' : ''
-        } my-16 flex w-full items-center justify-center px-8 sm:px-16`}
+        } my-16 flex w-full items-center justify-center`}
       >
         <Cards />
       </section>
@@ -103,9 +103,7 @@ export default function Home() {
         w-full
         items-center
         justify-center
-        px-8
         sm:min-h-[400px]
-        sm:px-16
         md:min-h-[600px]
         `}
       >
@@ -113,7 +111,7 @@ export default function Home() {
           <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
            SCI Token Allocation
           </h2>
-          <div className="flex items-center justify-center sm:w-full lg:max-w-[1000px]">
+          <div className="flex items-center justify-center">
             <Image
               alt="Overview of SCI token allocation"
               width={1000}
@@ -143,9 +141,7 @@ export default function Home() {
         w-full
         items-center
         justify-center
-        px-8
         sm:min-h-[400px]
-        sm:px-16
         md:min-h-[600px]
         `}
       >
@@ -170,9 +166,7 @@ export default function Home() {
         w-full
         items-center
         justify-center
-        px-8
         sm:min-h-[400px]
-        sm:px-16
         md:min-h-[600px]
         `}
       >
@@ -189,9 +183,7 @@ export default function Home() {
         flex-col
         items-center
         justify-center
-        px-8
         sm:min-h-[400px]
-        sm:px-16
         md:min-h-[600px]
         ${isVisibleFaq ? 'animate-fadeUp' : ''}
       `}

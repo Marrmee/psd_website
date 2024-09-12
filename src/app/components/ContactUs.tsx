@@ -37,7 +37,6 @@ export default function ContactUs() {
     }
 
     setErrors({ ...tempErrors });
-    console.log('errors', errors);
     return isValid;
   };
 
@@ -69,125 +68,92 @@ export default function ContactUs() {
         }),
       });
 
-      console.log(res);
       const { error1 } = await res.json();
-      if (error1) {
-        console.log(error1);
-        setShowSuccessMessage(false);
-        setShowFailureMessage(true);
-        setButtonText('Subscribe');
-
-        setName('');
-        setEmail('');
-        return;
-      }
-      console.log(resLead);
       const { error2 } = await resLead.json();
-      if (error2) {
-        console.log(error2);
+
+      if (error1 || error2) {
         setShowSuccessMessage(false);
         setShowFailureMessage(true);
         setButtonText('Subscribe');
-
         setName('');
         setEmail('');
         return;
       }
+
       setShowSuccessMessage(true);
       setShowFailureMessage(false);
       setButtonText('Subscribe');
-      // Reset form fields
       setName('');
       setEmail('');
     }
-    console.log(name, email);
   };
+
   return (
     <form
       onSubmit={sendEmail}
-      className="
-        flex 
-        w-full 
-        flex-col 
-        rounded-3xl
-        bg-seaBlue-700
-        dark:bg-seaBlue-1000
-        p-8
-        shadow-xl
-        text-gray-200
-        "
+      className="bg-darkBlue-900 flex w-full flex-col items-center rounded-lg text-gray-200 sm:mx-auto sm:w-[90%] sm:p-4"
     >
-      <h1 className="text-4xl font-bold">Stay up to date</h1>
-      <p className="py-4">
-        Want to know more about what PoSciDonDAO 🔱 is doing? Sign up
-        for our monthly newsletter for DAO news, personalized
-        medicine updates and more!
+      <h2 className="mb-8 text-left text-4xl font-semibold text-seaBlue-700 dark:text-gray-200">
+        Stay Up To Date!
+      </h2>
+      <p className="mb-8 text-center text-sm text-gray-400">
+        Want to know more about what PoSciDonDAO 🔱 is doing? Sign up for our
+        monthly newsletter for DAO news, personalized medicine updates and more!
       </p>
-      <label htmlFor="name" className="mt-4 font-light">
-        Name<span className="text-red-500">*</span>
-      </label>
-      <input
-        id="name"
-        type="text"
-        name="name"
-        placeholder="John Doe"
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-        className="border-b bg-transparent py-2 ring-tropicalBlue focus:rounded-md focus:outline-none focus:ring-1"
-      />
-      {errors?.name && <p className="text-red-500">Name cannot be empty.</p>}
-
-      <label htmlFor="email" className="mt-4 font-light">
-        E-mail<span className="text-red-500">*</span>
-      </label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        placeholder="johndoe@domain.com"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-        className="
-          border-b 
-          bg-transparent 
-          py-2 
-          text-slate-200 
-          ring-tropicalBlue 
-          focus:rounded-md 
-          focus:outline-none 
-          focus:ring-1
-          "
-      />
-      {errors?.email && <p className="text-red-500">Email cannot be empty.</p>}
-      <div className="my-6 flex flex-row items-center justify-start">
+      <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-3 flex-1 sm:mb-0 sm:mr-2">
+          <label htmlFor="name" className="sr-only">
+            Name
+          </label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="John Doe"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-700 focus:border-tropicalBlue focus:outline-none dark:text-gray-200"
+          />
+          {errors?.name && (
+            <p className="text-xs text-red-500">Name cannot be empty.</p>
+          )}
+        </div>
+        <div className="mb-3 flex-1 sm:mb-0 sm:mr-2">
+          <label htmlFor="email" className="sr-only">
+            E-mail
+          </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="johndoe@domain.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-700 focus:border-tropicalBlue focus:outline-none dark:text-gray-200"
+          />
+          {errors?.email && (
+            <p className="text-xs text-red-500">Email cannot be empty.</p>
+          )}
+        </div>
         <Button
-          link={false}
-          type={'submit'}
           target={'_blank'}
+          link={false}
+          type="submit"
           onClick={null}
           text={buttonText}
-          href={''}
-          style={`${styles.secondary} bg-seaBlue-100 text-seaBlue-700 hover:bg-seaBlue-300 hover:dark:bg-seaBlue-500 dark:bg-seaBlue-700 dark:text-gray-300`}
-          icon={
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className="pr-2"
-            />
-          }
+          href=""
+          style={`${styles.secondary} bg-seaBlue-700 hover:bg-seaBlue-500 dark:bg-seaBlueBlue-950`}
+          icon={<FontAwesomeIcon icon={faEnvelope} className="pr-2" />}
         />
       </div>
-      <div className="text-left">
+      <div className="mt-4 text-center">
         {showSuccessMessage && (
-          <p className="text-xl font-semibold text-aquaBlue">
+          <p className="text-sm text-green-400">
             Subscribed successfully, thank you!
           </p>
         )}
         {showFailureMessage && (
-          <p className="text-fieryRed text-xl font-semibold">
+          <p className="text-sm text-red-500">
             Oops! Something went wrong, please try again.
           </p>
         )}

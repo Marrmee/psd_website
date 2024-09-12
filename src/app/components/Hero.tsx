@@ -71,7 +71,6 @@ export const Hero = () => {
         xl:text-8xl
         transition-all
         duration-500
-        px-8
         "
     >
       <div className="">{text}</div>

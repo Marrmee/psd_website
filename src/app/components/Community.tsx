@@ -126,7 +126,7 @@ export default function Community() {
         items-center
          justify-center
          gap-8
-         p-8
+         py-8
          text-sm
          sm:min-h-[400px]
          sm:text-base
@@ -149,7 +149,7 @@ export default function Community() {
         >
           The PoSciDonDAO Community
         </h1>
-        <p className="mx-auto w-full px-2 text-center text-base transition-all duration-500 sm:px-8 md:text-lg lg:w-[70%] lg:text-2xl">
+        <p className="mx-auto w-full text-center text-base transition-all duration-500">
           The PoSciDonDAO community consists of many expert scientists,
           bioentrepreneurs and decentralized science enthusiasts. They
           collectively help the organisation and one another flourish. The DAO

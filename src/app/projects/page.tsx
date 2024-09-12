@@ -26,15 +26,15 @@ export default function ProjectFunding() {
       title: 'WeDEA',
       description: 'WeDEA is a copyleft IP-NFT pool framework built to foster open collaboration and innovation in the field of personalized medicine.',
     },
-    // {
-    //   src: '/rc-logo.png',
-    //   alt: 'Rare Compute',
-    //   href: '',
-    //   date: 'Coming Soon!',
-    //   title: 'Project Rook',
-    //   description:
-    //     'Project Rook aims to develop a large language model trained on genetic code from cancer patients to predict responsiveness to immunotherapies.',
-    // },
+    {
+      src: '/wecura-logo.webp',
+      alt: 'weCURA',
+      href: '',
+      date: 'Coming Soon!',
+      title: 'weCURA',
+      description:
+        'weCURA is tool that allows clinicians to predict which cancer patients need existing anti-cancer treatments.',
+    },
   ];
 
   return (

@@ -29,15 +29,14 @@ export default function NavBar() {
     <nav
       className="
         top-0
-        mx-8
-        flex
-        h-20
-        w-full
-        max-w-full
-        items-center  
-        justify-between
+        mx-auto
+        flex 
+        h-20 
+        w-full 
+        max-w-full 
+        items-center 
+        justify-between  
         bg-gray-100
-        px-6
         py-4
         dark:bg-seaBlue-1050
       "
