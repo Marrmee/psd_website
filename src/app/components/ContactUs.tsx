@@ -96,7 +96,7 @@ export default function ContactUs() {
       <h2 className="mb-8 text-left text-4xl font-semibold text-seaBlue-700 dark:text-gray-200">
         Stay Up To Date!
       </h2>
-      <p className="mb-8 text-center text-sm text-gray-400">
+      <p className="mb-8 text-center text-sm text-gray-700 dark:text-gray-200 sm:text-base">
         Want to know more about what PoSciDonDAO 🔱 is doing? Sign up for our
         monthly newsletter for DAO news, personalized medicine updates and more!
       </p>
@@ -112,7 +112,7 @@ export default function ContactUs() {
             placeholder="John Doe"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-700 focus:border-tropicalBlue focus:outline-none dark:text-gray-200"
+            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-700 focus:border-tropicalBlue focus:outline-none dark:text-gray-200 sm:text-base"
           />
           {errors?.name && (
             <p className="text-xs text-red-500">Name cannot be empty.</p>
@@ -129,7 +129,7 @@ export default function ContactUs() {
             placeholder="johndoe@domain.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-700 focus:border-tropicalBlue focus:outline-none dark:text-gray-200"
+            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-700 focus:border-tropicalBlue focus:outline-none dark:text-gray-200 sm:text-base"
           />
           {errors?.email && (
             <p className="text-xs text-red-500">Email cannot be empty.</p>

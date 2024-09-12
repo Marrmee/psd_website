@@ -148,7 +148,7 @@ export default function Home() {
         <div className="mx-auto md:w-[80%] lg:w-[70%]">
           <Image
             src={'/roadmap.webp'}
-            className="rounded-3xl"
+            className="rounded-lg"
             alt="PoSciDonDAO's roadmap for 2024"
             width={200}
             height={200}
