@@ -24,14 +24,14 @@ export default function Faq({ faqs }: FaqProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
-        <h2 className="sm:sticky mb-8 sm:text-left text-center text-4xl font-semibold text-seaBlue-700 dark:text-gray-200">
+        <h2 className="sm:sticky mb-8 sm:text-left text-center text-4xl font-semibold text-gray-200">
           Frequently Asked Questions
         </h2>
       <div className="space-y-8">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="rounded-lg bg-seaBlue-700 shadow dark:bg-seaBlue-1000"
+            className="rounded-lg shadow bg-seaBlue-1000"
           >
             <button
               className={`flex w-full items-center justify-start p-8 text-left font-proximaSemiBold text-gray-300 focus:outline-none sm:text-xl ${

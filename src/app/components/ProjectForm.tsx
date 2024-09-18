@@ -199,7 +199,7 @@ export default function ProjectForm() {
           text-center
           font-proximaSemiBold
           text-3xl
-          text-seaBlue-700 dark:text-gray-300 
+          text-gray-300 
           sm:text-5xl
           lg:text-6xl
           `}
@@ -222,7 +222,6 @@ export default function ProjectForm() {
           property.
         </p>
       </header>
-      {/* <hr className="border-b-[1px] w-full border-gray-200 dark:border-slate-700"></hr> */}
       <section
         className="        
             my-4 w-full
@@ -232,7 +231,7 @@ export default function ProjectForm() {
           <section className="flex flex-col py-2">
             <label
               htmlFor="title"
-              className="my-4 font-proximaSemiBold text-seaBlue-700 dark:text-gray-300"
+              className="my-4 font-proximaSemiBold text-gray-300"
             >
               Project Title<span className="py-2 text-fieryRed">*</span>
             </label>
@@ -251,7 +250,7 @@ export default function ProjectForm() {
                     ring-tropicalBlue 
                     focus:outline-none 
                     focus:ring-2
-                    dark:bg-slate-300
+                    bg-slate-300
                     "
             />
             {errors?.title && (
@@ -261,7 +260,7 @@ export default function ProjectForm() {
           <section className="flex flex-col py-2">
             <label
               htmlFor="description"
-              className="my-4 font-proximaSemiBold text-seaBlue-700 dark:text-gray-300"
+              className="my-4 font-proximaSemiBold text-gray-300"
             >
               Project Description<span className="py-2 text-fieryRed">*</span>
             </label>
@@ -280,7 +279,7 @@ export default function ProjectForm() {
                 ring-tropicalBlue 
                 focus:outline-none 
                 focus:ring-2
-                dark:bg-slate-300
+                bg-slate-300
                 "
             />
             {errors?.description && (
@@ -290,7 +289,7 @@ export default function ProjectForm() {
           <section className="flex flex-col py-2">
             <label
               htmlFor="strategy"
-              className="my-4 font-proximaSemiBold text-seaBlue-700 dark:text-gray-300"
+              className="my-4 font-proximaSemiBold text-gray-300"
             >
               Commercialization strategy
               <span className="py-2 text-fieryRed">*</span>
@@ -310,7 +309,7 @@ export default function ProjectForm() {
                 ring-tropicalBlue 
                 focus:outline-none 
                 focus:ring-2
-                dark:bg-slate-300
+                bg-slate-300
                 "
             />
             {errors?.strategy && (
@@ -322,7 +321,7 @@ export default function ProjectForm() {
           <section className="flex flex-col py-2">
             <label
               htmlFor="description"
-              className="my-4 font-proximaSemiBold text-seaBlue-700 dark:text-gray-300"
+              className="my-4 font-proximaSemiBold text-gray-300"
             >
               Research country<span className="py-2 text-fieryRed">*</span>
             </label>
@@ -334,7 +333,7 @@ export default function ProjectForm() {
                 ring-tropicalBlue  
                 focus:outline-none 
                 focus:ring-2
-                dark:bg-slate-300
+                bg-slate-300
                 ${country.length > 0 ? 'text-black' : 'text-gray-400'}
                 `}
               value={country}
@@ -354,7 +353,7 @@ export default function ProjectForm() {
           <section className="flex flex-col py-2">
             <label
               htmlFor="funds"
-              className="my-4 font-proximaSemiBold text-seaBlue-700 dark:text-gray-300"
+              className="my-4 font-proximaSemiBold text-gray-300"
             >
               Proposed funding amount (in USD)
               <span className="py-2 text-fieryRed">*</span>
@@ -374,7 +373,7 @@ export default function ProjectForm() {
                 ring-tropicalBlue 
                 focus:outline-none 
                 focus:ring-2
-                dark:bg-slate-300
+                bg-slate-300
                 "
             />
             {errors?.funds && (
@@ -392,7 +391,7 @@ export default function ProjectForm() {
               items-start 
               gap-2 
               font-proximaSemiBold 
-              text-seaBlue-700 dark:text-gray-300"
+              text-gray-300"
             >
               Ethereum address (optional)
               <InfoToolTip
@@ -422,7 +421,7 @@ export default function ProjectForm() {
                 ring-tropicalBlue 
                 focus:outline-none 
                 focus:ring-2
-                dark:bg-slate-300
+                bg-slate-300
                 "
             />
           </section>
@@ -450,7 +449,7 @@ export default function ProjectForm() {
                 Thank you! Your project has been submitted and will be reviewed
                 shortly. <br></br>
                 <Link
-                  className="text-seaBlue-700 underline dark:text-gray-300"
+                  className="underline text-gray-300"
                   href="https://discord.gg/TXZZV5KXmn"
                   target="_blank"
                 >

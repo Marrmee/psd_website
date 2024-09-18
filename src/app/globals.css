@@ -38,11 +38,11 @@ main.blog {
 }
 
 h1.header {
-  @apply mt-2 py-4 text-center font-proximaSemiBold text-3xl leading-10 text-seaBlue-700 dark:text-gray-300 sm:text-4xl;
+  @apply mt-2 py-4 text-center font-proximaSemiBold text-3xl leading-10 text-gray-300 sm:text-4xl;
 }
 
 h2.header {
-  @apply text-xl text-seaBlue-700 dark:text-gray-300;
+  @apply text-xl text-gray-300;
 }
 
 span.text {
@@ -70,7 +70,7 @@ span.reference {
 }
 
 a.ref {
-  @apply text-seaBlue-700 dark:text-gray-300 underline;
+  @apply text-gray-300 underline;
 }
 
 @keyframes fadeUp {

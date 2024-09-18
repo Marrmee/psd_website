@@ -53,44 +53,7 @@ export default function Cards() {
           <Link
             href="/research"
             className="
-            dark:hidden
           flex
-          items-center
-          justify-center
-          rounded-3xl
-          md:w-full
-          "
-          >
-            <Image
-              onMouseEnter={() => {
-                setResSrc('/research-blue.webp');
-              }}
-              onMouseLeave={() => {
-                setResSrc('/research-white.webp');
-              }}
-              className="
-            flex
-            w-full
-            max-w-full
-            items-start
-            justify-start 
-            rounded-3xl
-            border-2
-            border-seaBlue-700
-              "
-              loading="eager"
-              width={300}
-              height={300}
-              layout="responsive"
-              alt="Genetic code surrounding the word 'research'"
-              src={`${resSrc}`}
-            />
-          </Link>
-          <Link
-            href="/research"
-            className="
-            hidden
-          dark:flex
           items-center
           justify-center
           rounded-3xl
@@ -147,7 +110,7 @@ export default function Cards() {
               funding for your project.
             </p>
             <Link
-              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 dark:text-steelBlue sm:pb-0"
+              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-steelBlue sm:pb-0"
               href="/research"
             >
               Get your project funded{' '}
@@ -171,46 +134,7 @@ export default function Cards() {
             href="https://forms.gle/hY52XW7inek4ynrR6"
             target="_blank"
             className="
-
-            dark:hidden
               flex
-              items-center
-              justify-center
-              rounded-3xl
-              md:w-full
-              "
-          >
-            <Image
-              onMouseEnter={() => {
-                setComSrc('/community-blue.webp');
-              }}
-              onMouseLeave={() => {
-                setComSrc('/community-white.webp');
-              }}
-              className="
-              flex
-              w-full
-              max-w-full
-              items-start
-              justify-start 
-              rounded-3xl
-              border-2
-              border-seaBlue-700
-              "
-              loading="eager"
-              width={300}
-              height={300}
-              layout="responsive"
-              alt="Genetic code surrounding the word 'community'"
-              src={`${comSrc}`}
-            />
-          </Link>
-          <Link
-            href="https://forms.gle/hY52XW7inek4ynrR6"
-            target="_blank"
-            className="
-            hidden
-              dark:flex
               items-center
               justify-center
               rounded-3xl
@@ -268,7 +192,7 @@ export default function Cards() {
               medicine research. PoSciDonDAO is built by people like you.
             </p>
             <Link
-              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 dark:text-steelBlue sm:pb-0"
+              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-steelBlue sm:pb-0"
               href="https://forms.gle/hY52XW7inek4ynrR6"
               target="_blank"
             >
@@ -293,44 +217,7 @@ export default function Cards() {
           <Link
             href="/sci-token"
             className="
-          flex
-          items-center
-          justify-center
-          rounded-3xl
-          md:w-full
-              "
-          >
-            <Image
-              onMouseEnter={() => {
-                setTokSrc('/tokens-blue.webp');
-              }}
-              onMouseLeave={() => {
-                setTokSrc('/tokens-white.webp');
-              }}
-              className="
             flex
-            w-full
-            max-w-full
-            items-start
-            justify-start 
-            rounded-3xl
-            border-2
-            border-seaBlue-700
-            dark:hidden
-              "
-              loading="eager"
-              width={300}
-              height={300}
-              layout="responsive"
-              alt="Genetic code surrounding the word 'tokens'"
-              src={`${tokSrc}`}
-            />
-          </Link>
-          <Link
-            href="/sci-token"
-            className="
-            hidden
-            dark:flex
             items-center
             justify-center
             rounded-3xl
@@ -388,7 +275,7 @@ export default function Cards() {
             </p>
             <Link
               href="/sci-token"
-              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-seaBlue-700 dark:text-steelBlue sm:pb-0"
+              className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-steelBlue sm:pb-0"
             >
               Explore our tokens
               <span className="ml-1 transform transition-transform duration-300 ease-out group-hover:translate-x-[10px]">

@@ -51,7 +51,7 @@ export default function ProjectFunding() {
             text-center
             font-proximaSemiBold
             text-4xl
-            text-seaBlue-700 dark:text-gray-300 
+            text-gray-300 
             sm:text-5xl
             lg:text-6xl
             `}

@@ -91,12 +91,12 @@ export default function ContactUs() {
   return (
     <form
       onSubmit={sendEmail}
-      className="bg-darkBlue-900 flex w-full flex-col items-center rounded-lg text-gray-200 sm:mx-auto sm:w-[90%] sm:p-4"
+      className="flex w-full flex-col items-center rounded-lg text-gray-200 sm:mx-auto sm:w-[90%] sm:p-4"
     >
-      <h2 className="mb-8 text-left text-4xl font-semibold text-seaBlue-700 dark:text-gray-200">
+      <h2 className="mb-8 text-left text-4xl font-semibold text-gray-200">
         Stay Up To Date!
       </h2>
-      <p className="mb-8 text-center text-sm text-gray-700 dark:text-gray-200 sm:text-base">
+      <p className="mb-8 text-center text-sm text-gray-200 sm:text-base">
         Want to know more about what PoSciDonDAO 🔱 is doing? Sign up for our
         monthly newsletter for DAO news, personalized medicine updates and more!
       </p>
@@ -112,7 +112,7 @@ export default function ContactUs() {
             placeholder="John Doe"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-700 focus:border-tropicalBlue focus:outline-none dark:text-gray-200 sm:text-base"
+            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm focus:border-tropicalBlue focus:outline-none text-gray-200 sm:text-base"
           />
           {errors?.name && (
             <p className="text-xs text-red-500">Name cannot be empty.</p>
@@ -129,7 +129,7 @@ export default function ContactUs() {
             placeholder="johndoe@domain.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-700 focus:border-tropicalBlue focus:outline-none dark:text-gray-200 sm:text-base"
+            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm focus:border-tropicalBlue focus:outline-none text-gray-200 sm:text-base"
           />
           {errors?.email && (
             <p className="text-xs text-red-500">Email cannot be empty.</p>
@@ -142,7 +142,7 @@ export default function ContactUs() {
           onClick={null}
           text={buttonText}
           href=""
-          style={`${styles.secondary} bg-seaBlue-700 hover:bg-seaBlue-500 dark:bg-seaBlueBlue-950`}
+          style={`${styles.secondary}  hover:bg-seaBlue-500 bg-seaBlueBlue-950`}
           icon={<FontAwesomeIcon icon={faEnvelope} className="pr-2" />}
         />
       </div>

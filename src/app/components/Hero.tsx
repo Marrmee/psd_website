@@ -63,7 +63,7 @@ export const Hero = () => {
         font-proximaSemiBold
         text-4xl
         uppercase 
-        text-seaBlue-700 dark:text-gray-300 
+        text-gray-300 
         text-transparent
         sm:text-5xl 
         md:text-6xl 

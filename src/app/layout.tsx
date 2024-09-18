@@ -82,10 +82,8 @@ export default function RootLayout({
       </Script>
       <body
         className={`
-            bg-gray-100
-            text-slate-700
-            dark:bg-seaBlue-1050
-            dark:text-gray-300
+            bg-seaBlue-1050
+            text-gray-300
             ${proximaNova.variable}  
             ${proximaNovaExtraBold.variable}  
             ${proximaNovaSemiBold.variable}  
@@ -106,7 +104,7 @@ export default function RootLayout({
                   items-center
                   justify-center
                   text-sm
-                  dark:text-gray-300 sm:text-base
+                  text-gray-300 sm:text-base
                   "
           >
             © PoSciDonDAO Foundation. All rights reserved.

@@ -40,7 +40,7 @@ export default function InfoToolTip({ message }) {
           sm:mx-0 
           text-base
           font-proxima
-          dark:text-seaBlue-900
+          text-seaBlue-900
           "
         >
           {message}

@@ -65,26 +65,25 @@ export default function Footer() {
               className="
             font-proximaSemiBold 
             text-sm
-            text-seaBlue-700 dark:text-gray-300
-            dark:text-seaBlue-700
+            text-seaBlue-700
             "
             >
               ABOUT POSCIDONDAO
             </p>
             <Link
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="/research"
             >
               For Scientists
             </Link>
             <Link
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href={'/projects'}
             >
               Projects
             </Link>
             <Link
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="/sci-token"
             >
               SCI Token
@@ -93,7 +92,7 @@ export default function Footer() {
               rel="noopener"
               target="_blank"
               locale={false}
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="/Whitepaper.pdf"
             >
               Whitepaper
@@ -102,13 +101,13 @@ export default function Footer() {
               rel="noopener"
               target="_blank"
               locale={false}
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="https://poscidondao.gitbook.io/poscidondao/"
             >
               Litepaper
             </Link>
             <Link
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="/blog"
             >
               Blog
@@ -119,14 +118,13 @@ export default function Footer() {
               className="
             font-proximaSemiBold 
             text-sm
-            text-seaBlue-700 dark:text-gray-300
-            dark:text-seaBlue-700
+            text-seaBlue-700
             "
             >
               GET INVOLVED
             </p>
             <Link
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="/community"
             >
               Community
@@ -139,14 +137,14 @@ export default function Footer() {
               Donate
             </Link>
             <Link
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="/submit-project"
             >
               Submit Project
             </Link>
             <Link
               rel="noopener"
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="https://discord.gg/75SrHpcNSZ"
               target="_blank"
             >
@@ -154,7 +152,7 @@ export default function Footer() {
             </Link>
             <Link
               rel="noopener"
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="https://twitter.com/poscidondao"
               target="_blank"
             >
@@ -167,8 +165,6 @@ export default function Footer() {
             font-proximaSemiBold 
             text-sm
             text-seaBlue-700 
-            dark:text-gray-300
-            dark:text-seaBlue-700
             "
             >
               OTHER
@@ -176,14 +172,14 @@ export default function Footer() {
             <Link
               rel="noopener"
               locale={false}
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               target="_blank"
               href={'/brand-guidelines.pdf'}
             >
               Brand Guidelines
             </Link>
             <Link
-              className="hover:text-seaBlue-700 dark:text-gray-300 dark:hover:text-seaBlue-700"
+              className="text-gray-300 hover:text-seaBlue-700"
               href="/privacy-policy"
             >
               Privacy Policy

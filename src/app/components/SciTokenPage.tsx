@@ -60,14 +60,14 @@ const items = [
     content:
       'A portion of the revenue generated from commercialized IP will be used to buy back SCI from the market followed by a token burn, ensuring token holders benefit from scientific innovation and a growing IP portfolio.',
     icon: faHandshakeAlt,
-    iconColor: 'text-seaBlue-600 dark:text-seaBlue-700',
+    iconColor: 'text-seaBlue-700',
   },
   {
     title: 'Incentives',
     content:
       "SCI is used to attract and incentivise talent and experts to support the development of PoSciDonDAO's funded personalized medicine research projects.",
     icon: faCoins,
-    iconColor: 'text-seaBlue-800 dark:text-seaBlue-800',
+    iconColor: 'text-seaBlue-800',
   },
   {
     title: 'Rewards',
@@ -114,7 +114,7 @@ export default function SciTokenPage() {
           />
         </div>
         <div className="flex w-full flex-col items-center justify-center text-center sm:items-center sm:justify-center md:w-1/2">
-          <h1 className="text-center font-proximaSemiBold text-3xl text-seaBlue-700 dark:text-gray-300 sm:text-5xl lg:text-6xl">
+          <h1 className="text-center font-proximaSemiBold text-3xl text-gray-300 sm:text-5xl lg:text-6xl">
             Explore SCI
           </h1>
           <p className="flex w-full items-center justify-center py-4 text-center text-base sm:max-w-[70%] sm:py-8 sm:text-xl md:max-w-none">
@@ -148,14 +148,12 @@ export default function SciTokenPage() {
           isVisibleSection ? 'animate-fadeUp' : ''
         } flex min-h-[300px] w-full flex-col items-center justify-center p-4 text-center text-sm sm:min-h-[500px] sm:p-8 sm:text-base md:min-h-[700px] md:items-center`}
       >
-        <h2 className="mb-8 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
-          SCI Utility
-        </h2>
+        <h2 className="mb-8 text-center text-4xl text-gray-300">SCI Utility</h2>
         <div className="grid grid-cols-1 gap-4 sm:mx-4 lg:grid-cols-2 xl:grid-cols-4">
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center rounded-lg bg-seaBlue-100 p-8 text-center dark:bg-seaBlue-1000"
+              className="flex flex-col items-center justify-center rounded-lg bg-seaBlue-1000 p-8 text-center"
             >
               <div className="flex items-center justify-center rounded">
                 <FontAwesomeIcon
@@ -166,9 +164,7 @@ export default function SciTokenPage() {
               <h3 className="mb-2 h-10 font-proximaSemiBold text-2xl">
                 {item.title}
               </h3>
-              <p className="text-sm sm:text-base h-content">
-                {item.content}
-              </p>
+              <p className="h-content text-sm sm:text-base">{item.content}</p>
             </div>
           ))}
         </div>
@@ -206,9 +202,9 @@ export default function SciTokenPage() {
         flex-col
         justify-between 
         rounded-lg
+        bg-seaBlue-1000
         bg-seaBlue-800
         p-12
-        dark:bg-seaBlue-1000
         "
           >
             <h2 className="mb-4 text-center text-4xl">Our Ecosystem</h2>
@@ -368,43 +364,18 @@ export default function SciTokenPage() {
         ${isVisibleTokenomics ? 'animate-fadeUp' : ''}
       `}
       >
-        <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
+        <h2 className="mb-4 text-center text-4xl text-gray-300">
           Token Allocation
         </h2>
-        <div
-          className="
-        gird-cols-1
-        grid
-        "
-        >
-          <div className="flex flex-col items-center justify-center">
-            {/* <h3 className="mb-4 text-center font-proximaSemiBold text-3xl text-seaBlue-700 dark:text-gray-300">
-              Allocation
-            </h3> */}
-            <div className="flex items-center justify-center sm:w-full lg:max-w-[1000px]">
-              <Image
-                alt="Overview of SCI token allocation"
-                width={1000}
-                height={1000}
-                layout="responsive"
-                src="/allocation-white.webp"
-                className="hidden dark:flex"
-              />
-              <Image
-                alt="Overview of SCI token allocation"
-                width={1000}
-                height={1000}
-                layout="responsive"
-                src="/allocation-black.webp"
-                className="flex dark:hidden"
-              />
-            </div>
-          </div>
-          {/* <div className="flex flex-col">
-            <h3 className="mb-4 text-center text-3xl text-seaBlue-700 dark:text-gray-300">
-              Vesting
-            </h3>
-          </div> */}
+        <div className="flex items-center justify-center sm:w-full lg:max-w-[1000px]">
+          <Image
+            alt="Overview of SCI token allocation"
+            width={1000}
+            height={1000}
+            layout="responsive"
+            src="/allocation-white.webp"
+            className="flex"
+          />
         </div>
       </section>
       <Divider />

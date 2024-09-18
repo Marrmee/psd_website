@@ -108,7 +108,7 @@ export default function Home() {
         `}
       >
         <div className="mx-auto md:w-[80%] lg:w-[70%]">
-          <h2 className="mb-4 text-center text-4xl text-seaBlue-700 dark:text-gray-300">
+          <h2 className="mb-4 text-center text-4xl text-gray-300">
            SCI Token Allocation
           </h2>
           <div className="flex items-center justify-center">
@@ -118,15 +118,7 @@ export default function Home() {
               height={1000}
               layout="responsive"
               src="/allocation-white.webp"
-              className="hidden dark:flex"
-            />
-            <Image
-              alt="Overview of SCI token allocation"
-              width={1000}
-              height={1000}
-              layout="responsive"
-              src="/allocation-black.webp"
-              className="flex dark:hidden"
+              className="flex"
             />
           </div>
         </div>
