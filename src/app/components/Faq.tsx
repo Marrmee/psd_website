@@ -24,7 +24,7 @@ export default function Faq({ faqs }: FaqProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
-        <h2 className="sm:sticky mb-8 sm:text-left text-center text-4xl font-semibold text-gray-200">
+        <h2 className="sm:sticky mb-8 md:text-left flex justify-center items-center md:justify-start md:items-start text-center text-4xl font-semibold text-gray-200">
           Frequently Asked Questions
         </h2>
       <div className="space-y-8">
@@ -64,7 +64,7 @@ export default function Faq({ faqs }: FaqProps) {
                 style={{ transitionProperty: 'transform, opacity' }}
               >
                 <div className="px-8 pb-8">
-                  <p className="text-left text-xs text-gray-400 lg:text-base">
+                  <p className="text-left text-sm text-gray-400 md:text-base">
                     {faq.answer}
                   </p>
                 </div>

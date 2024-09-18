@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState } from 'react';
 import Button from './Button';
 import styles from './Button.module.css';
@@ -9,94 +7,76 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 export default function ContactUs() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-
-  const [errors, setErrors] = useState({
-    name: false,
-    email: false,
+  const [errors, setErrors] = useState({ name: false, email: false });
+  const [buttonText, setButtonText] = useState('Subscribe');
+  const [statusMessage, setStatusMessage] = useState({
+    success: false,
+    message: '',
   });
 
-  const [buttonText, setButtonText] = useState('Subscribe');
-
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [showFailureMessage, setShowFailureMessage] = useState(false);
-
   const handleValidation = () => {
-    let tempErrors = {
-      name: false,
-      email: false,
+    const tempErrors = {
+      name: !name.trim(),
+      email: !email.trim(),
     };
-    let isValid = true;
-
-    if (name.length <= 0) {
-      tempErrors.name = true;
-      isValid = false;
-    }
-    if (email.length <= 0) {
-      tempErrors.email = true;
-      isValid = false;
-    }
-
-    setErrors({ ...tempErrors });
-    return isValid;
+    setErrors(tempErrors);
+    return !tempErrors.name && !tempErrors.email;
   };
 
   const sendEmail = async (e) => {
     e.preventDefault();
+    if (!handleValidation()) return;
 
-    let isValidForm = handleValidation();
+    setButtonText('Subscribing...');
 
-    if (isValidForm) {
-      setButtonText('Subscribing...');
-      const res = await fetch('/api/sendgrid', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          name: name,
+    try {
+      const [res, resLead] = await Promise.all([
+        fetch('/api/sendgrid', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name }),
         }),
-      });
-      const resLead = await fetch('/api/sendgrid-lead', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          name: name,
+        fetch('/api/sendgrid-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name }),
         }),
-      });
+      ]);
 
-      const { error1 } = await res.json();
-      const { error2 } = await resLead.json();
+      const data1 = await res.json();
+      const data2 = await resLead.json();
 
-      if (error1 || error2) {
-        setShowSuccessMessage(false);
-        setShowFailureMessage(true);
-        setButtonText('Subscribe');
+      if (data1.error || data2.error) {
+        throw new Error('Failed to send email');
+      }
+      if (res.ok && resLead.ok) {
+        setStatusMessage({
+          success: true,
+          message: 'Subscribed successfully, thank you!',
+        });
         setName('');
         setEmail('');
-        return;
       }
-
-      setShowSuccessMessage(true);
-      setShowFailureMessage(false);
+    } catch (error) {
+      console.error(error);
+      setStatusMessage({
+        success: false,
+        message: 'Oops! Something went wrong, please try again.',
+      });
+    } finally {
       setButtonText('Subscribe');
-      setName('');
-      setEmail('');
     }
   };
 
   return (
     <form
       onSubmit={sendEmail}
-      className="flex w-full flex-col items-center rounded-lg text-gray-200 sm:mx-auto sm:w-[90%] sm:p-4"
+      className="flex w-full flex-col items-center rounded-lg text-gray-200 sm:mx-auto sm:w-[90%] sm:p-12 p-6 bg-seaBlue-1000"
     >
       <h2 className="mb-8 text-left text-4xl font-semibold text-gray-200">
         Stay Up To Date!
       </h2>
-      <p className="mb-8 text-center text-sm text-gray-200 sm:text-base">
+      <p className="mb-8 text-center text-base text-gray-200 sm:text-lg">
         Want to know more about what PoSciDonDAO 🔱 is doing? Sign up for our
         monthly newsletter for DAO news, personalized medicine updates and more!
       </p>
@@ -112,9 +92,9 @@ export default function ContactUs() {
             placeholder="John Doe"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm focus:border-tropicalBlue focus:outline-none text-gray-200 sm:text-base"
+            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-200 focus:border-tropicalBlue focus:outline-none sm:text-base"
           />
-          {errors?.name && (
+          {errors.name && (
             <p className="text-xs text-red-500">Name cannot be empty.</p>
           )}
         </div>
@@ -129,32 +109,29 @@ export default function ContactUs() {
             placeholder="johndoe@domain.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm focus:border-tropicalBlue focus:outline-none text-gray-200 sm:text-base"
+            className="w-full border-b border-seaBlue-700 bg-transparent py-2 text-sm text-gray-200 focus:border-tropicalBlue focus:outline-none sm:text-base"
           />
-          {errors?.email && (
+          {errors.email && (
             <p className="text-xs text-red-500">Email cannot be empty.</p>
           )}
         </div>
-        <Button
+       <Button
           target={'_blank'}
           link={false}
           type="submit"
           onClick={null}
           text={buttonText}
           href=""
-          style={`${styles.secondary}  hover:bg-seaBlue-500 bg-seaBlueBlue-950`}
+          style={`${styles.primary}  hover:bg-seaBlue-500 bg-seaBlueBlue-950`}
           icon={<FontAwesomeIcon icon={faEnvelope} className="pr-2" />}
         />
       </div>
       <div className="mt-4 text-center">
-        {showSuccessMessage && (
-          <p className="text-sm text-green-400">
-            Subscribed successfully, thank you!
-          </p>
-        )}
-        {showFailureMessage && (
-          <p className="text-sm text-red-500">
-            Oops! Something went wrong, please try again.
+        {statusMessage.message && (
+          <p
+            className={`text-sm ${statusMessage.success ? 'text-green-400' : 'text-red-500'}`}
+          >
+            {statusMessage.message}
           </p>
         )}
       </div>

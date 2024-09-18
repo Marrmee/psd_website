@@ -54,17 +54,11 @@ export const Hero = () => {
       className="
         w-full
         max-w-full
-        bg-gradient-to-r
-        from-seaBlue-900
-        via-seaBlue-700
-        to-seaBlue-500
-        bg-clip-text
         text-center 
         font-proximaSemiBold
         text-4xl
         uppercase 
         text-gray-300 
-        text-transparent
         sm:text-5xl 
         md:text-6xl 
         lg:text-7xl

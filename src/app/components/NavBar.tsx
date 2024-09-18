@@ -36,6 +36,7 @@ export default function NavBar() {
         items-center 
         justify-between  
         py-4
+        gap-12
         bg-seaBlue-1050
       "
     >

@@ -24,7 +24,8 @@ export default function ProjectFunding() {
       href: 'https://wedea.org',
       date: 'Coming Soon!',
       title: 'WeDEA',
-      description: 'WeDEA is a copyleft IP-NFT pool framework built to foster open collaboration and innovation in the field of personalized medicine.',
+      description:
+        'WeDEA is a copyleft IP-NFT pool framework built to foster open collaboration and innovation in the field of personalized medicine.',
     },
     {
       src: '/wecura-logo.webp',
@@ -46,10 +47,6 @@ export default function ProjectFunding() {
           flex-col
           items-center
           justify-center
-          px-8 
-          mx-auto
-          lg:w-[90%]
-          xl:w-[80%]
           "
     >
       <header
@@ -79,13 +76,14 @@ export default function ProjectFunding() {
         </h1>
         <p
           className="
+              mx-auto 
               flex 
+              w-[80%] 
               items-center 
               justify-center 
-              pt-8 
-              text-center 
+              pt-8
+              text-center
               text-base
-              sm:text-xl
             "
         >
           PoSciDonDAO funds cutting-edge personalized medicine projects and
@@ -104,7 +102,7 @@ export default function ProjectFunding() {
           icon={''}
         /> */}
       </header>
-      <section className="my-8 w-full gap-16 grid grid-cols-1 md:grid-cols-2 place-items-center">
+      <section className="my-8 grid w-full grid-cols-1 place-items-center gap-16 md:grid-cols-2">
         {projects.map((project, index) => (
           <ProjectCard
             key={index}

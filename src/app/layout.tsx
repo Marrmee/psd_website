@@ -89,7 +89,10 @@ export default function RootLayout({
             ${proximaNovaSemiBold.variable}  
             ${proximaNovaItalic.variable}  
             mx-auto
-            w-[90%] font-proxima xl+:w-[80%]
+            w-[95%]
+            sm:w-[90%] 
+            font-proxima 
+            xl+:w-[80%]
              `}
       >
         <NavBar />

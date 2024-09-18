@@ -5,9 +5,6 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Cards() {
-  const [resSrc, setResSrc] = useState('/research-white.webp');
-  const [comSrc, setComSrc] = useState('/community-white.webp');
-  const [tokSrc, setTokSrc] = useState('/tokens-white.webp');
   const [darkResSrc, setDarkResSrc] = useState('/research-blue.webp');
   const [darkComSrc, setDarkComSrc] = useState('/community-blue.webp');
   const [darkTokSrc, setDarkTokSrc] = useState('/tokens-blue.webp');
@@ -15,7 +12,6 @@ export default function Cards() {
   return (
     <div
       className="
-        flex
         flex
         min-h-[300px]
         max-w-full
@@ -26,8 +22,6 @@ export default function Cards() {
         sm:min-h-[400px] 
         sm:text-base 
         md:min-h-[600px]
-        md:items-center 
-        md:justify-center
         "
     >
       <div
@@ -36,7 +30,7 @@ export default function Cards() {
         flex-col 
         justify-start 
         gap-12
-        md:w-full
+        w-full
         md:flex-row 
       "
       >
@@ -57,7 +51,7 @@ export default function Cards() {
           items-center
           justify-center
           rounded-3xl
-          md:w-full
+          w-full
           "
           >
             <Image
@@ -138,7 +132,7 @@ export default function Cards() {
               items-center
               justify-center
               rounded-3xl
-              md:w-full
+              w-full
               "
           >
             <Image
@@ -221,7 +215,7 @@ export default function Cards() {
             items-center
             justify-center
             rounded-3xl
-            md:w-full
+            w-full
               "
           >
             <Image

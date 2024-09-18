@@ -208,13 +208,14 @@ export default function ProjectForm() {
         </h1>
         <p
           className="
-            flex
+            mx-auto
+            flex 
+            w-[80%] 
             items-center 
-            justify-center 
-            pt-8 
+            justify-center
+            pt-8
             text-center
-            text-sm 
-            sm:text-base
+            text-base
           "
         >
           Provide information about your project and specify how to generate and
@@ -245,12 +246,12 @@ export default function ProjectForm() {
               name="title"
               className="
                     rounded-lg 
-                    p-4
+                    bg-slate-300
+                    p-4 
                     shadow 
                     ring-tropicalBlue 
-                    focus:outline-none 
+                    focus:outline-none
                     focus:ring-2
-                    bg-slate-300
                     "
             />
             {errors?.title && (
@@ -274,12 +275,12 @@ export default function ProjectForm() {
               className="
                 h-40
                 rounded-lg 
-                p-4
+                bg-slate-300
+                p-4 
                 shadow 
                 ring-tropicalBlue 
-                focus:outline-none 
+                focus:outline-none
                 focus:ring-2
-                bg-slate-300
                 "
             />
             {errors?.description && (
@@ -304,12 +305,12 @@ export default function ProjectForm() {
               className="
                 h-40
                 rounded-lg 
-                p-4
+                bg-slate-300
+                p-4 
                 shadow 
                 ring-tropicalBlue 
-                focus:outline-none 
+                focus:outline-none
                 focus:ring-2
-                bg-slate-300
                 "
             />
             {errors?.strategy && (
@@ -328,12 +329,12 @@ export default function ProjectForm() {
             <select
               className={`
                 rounded-lg 
-                p-4
-                shadow 
-                ring-tropicalBlue  
-                focus:outline-none 
-                focus:ring-2
                 bg-slate-300
+                p-4 
+                shadow  
+                ring-tropicalBlue 
+                focus:outline-none
+                focus:ring-2
                 ${country.length > 0 ? 'text-black' : 'text-gray-400'}
                 `}
               value={country}
@@ -368,12 +369,12 @@ export default function ProjectForm() {
               name="funds"
               className="
                 rounded-lg 
-                p-4
+                bg-slate-300
+                p-4 
                 shadow 
                 ring-tropicalBlue 
-                focus:outline-none 
+                focus:outline-none
                 focus:ring-2
-                bg-slate-300
                 "
             />
             {errors?.funds && (
@@ -416,12 +417,12 @@ export default function ProjectForm() {
               name="address"
               className="
                 rounded-lg 
-                p-4
+                bg-slate-300
+                p-4 
                 shadow 
                 ring-tropicalBlue 
-                focus:outline-none 
+                focus:outline-none
                 focus:ring-2
-                bg-slate-300
                 "
             />
           </section>
@@ -449,7 +450,7 @@ export default function ProjectForm() {
                 Thank you! Your project has been submitted and will be reviewed
                 shortly. <br></br>
                 <Link
-                  className="underline text-gray-300"
+                  className="text-gray-300 underline"
                   href="https://discord.gg/TXZZV5KXmn"
                   target="_blank"
                 >

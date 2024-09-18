@@ -115,41 +115,55 @@ export default function Community() {
   ];
 
   return (
-    <main className="flex w-full flex-col items-center justify-center">
+    <main
+      className="
+          mx-auto
+          flex 
+          w-full
+          max-w-full
+          flex-col
+          items-center
+          justify-center 
+          "
+    >
       <header
-        ref={headerRef}
-        className={`${isVisibleHeader ? 'animate-fadeUp' : ''} 
-        flex
-        min-h-[300px]
-        w-full
-        flex-col
-        items-center
-         justify-center
-         gap-8
-         py-8
-         text-sm
-         sm:min-h-[400px]
-         sm:text-base
-         md:min-h-[600px]
-         `}
+        className="
+          my-16 
+          flex 
+          flex-col 
+          items-center
+          justify-center
+          "
       >
         <h1
           className={`
-          flex 
-          max-w-full
-          items-center
-          justify-center
-          text-center
-          font-proximaSemiBold
-          text-4xl
-          text-gray-300 
-          sm:text-6xl
-          lg:text-7xl
-          `}
+            flex 
+            max-w-full
+            items-center
+            justify-center
+            text-center
+            font-proximaSemiBold
+            text-4xl
+            text-gray-300 
+            sm:text-5xl
+            lg:text-6xl
+            `}
         >
           The PoSciDonDAO Community
         </h1>
-        <p className="mx-auto w-full text-center text-base transition-all duration-500">
+        <p
+          className="
+              flex 
+              items-center 
+              justify-center 
+              py-8 
+              text-center 
+              text-base
+              mx-auto
+              w-[80%]
+            "
+        >
+          {' '}
           The PoSciDonDAO community consists of many expert scientists,
           bioentrepreneurs and decentralized science enthusiasts. They
           collectively help the organisation and one another flourish. The DAO
@@ -188,16 +202,14 @@ export default function Community() {
         ref={crewsRef}
         className={`${
           isVisibleCrews ? 'animate-fadeUp' : ''
-        } flex min-h-[300px] w-full flex-col items-center justify-center p-4 text-center text-sm sm:min-h-[400px] sm:p-8 sm:text-base md:min-h-[500px] md:items-center`}
+        } flex min-h-[300px] w-full flex-col items-center justify-center py-4 text-center text-sm sm:min-h-[400px] sm:py-8 sm:text-base md:min-h-[500px] md:items-center`}
       >
-        <h2 className="mb-8 text-center text-4xl text-gray-300">
-          Crews
-        </h2>
-        <div className="grid grid-cols-1 gap-4 sm:mx-4 md:grid-cols-2">
+        <h2 className="mb-8 text-center text-4xl text-gray-300">Crews</h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center gap-6 rounded-lg p-8 text-center bg-seaBlue-1000"
+              className="flex flex-col items-center justify-center gap-6 rounded-lg bg-seaBlue-1000 p-8 text-center"
             >
               <h3 className="mb-2 h-[2rem] font-proximaSemiBold text-2xl">
                 {item.title}
@@ -224,12 +236,10 @@ export default function Community() {
         ref={teamRef}
         className={`${
           isVisibleTeam ? 'animate-fadeUp' : ''
-        } flex min-h-[300px] w-full flex-col items-center justify-center p-4 text-center text-sm sm:min-h-[500px] sm:p-8 sm:text-base md:min-h-[700px] md:items-center`}
+        } flex min-h-[300px] w-full flex-col items-center justify-center py-4 text-center text-sm sm:min-h-[500px] sm:py-8 sm:text-base md:min-h-[700px] md:items-center`}
       >
-        <h2 className="text-center text-4xl text-gray-300 sm:mb-4">
-          Team
-        </h2>
-        <div className="my-8 grid w-full grid-cols-1 place-items-center gap-16 px-4 sm:grid-cols-2 sm:gap-8 xl:grid-cols-4">
+        <h2 className="text-center text-4xl text-gray-300 sm:mb-4">Team</h2>
+        <div className="my-8 grid w-full grid-cols-1 place-items-center gap-16 md:grid-cols-2 md:gap-8 xl:grid-cols-3">
           {members.map((member, index) => (
             <CardMember
               key={index}

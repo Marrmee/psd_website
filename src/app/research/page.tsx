@@ -27,10 +27,6 @@ export default function ProjectFunding() {
           flex-col
           items-center
           justify-center
-          px-8 
-          mx-auto
-          lg:w-[90%]
-          xl:w-[80%]
           "
     >
       <header
@@ -60,21 +56,19 @@ export default function ProjectFunding() {
         </h1>
         <p
           className="
+              mx-auto 
               flex 
+              w-[80%] 
               items-center 
               justify-center 
-              py-8 
-              text-center 
+              py-8
+              text-center
               text-base
-              sm:text-xl
             "
         >
           PoSciDonDAO is a member-owned worldwide organisation that funds and
           incubates personalized medicine research projects with the goal to
-          commercialize their research output.
-          <br></br>
-          <br></br>
-          Join our community of personalized medicine researchers,
+          commercialize their research output. Join our community of personalized medicine researchers,
           entrepreneurs, investors and donors that will go above and beyond to
           assist you from project submission to funding and further.
         </p>
@@ -89,7 +83,7 @@ export default function ProjectFunding() {
           icon={''}
         />
       </header>
-      <section className="my-16 flex items-center justify-center w-full">
+      <section className="mb-16 flex w-full items-center justify-center">
         <ResearchInfo />
       </section>
     </main>

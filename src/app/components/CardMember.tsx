@@ -21,11 +21,15 @@ interface CardMemberProps {
 
 // Define styles based on tag types
 const tagStyles = {
-  core: 'bg-mellowYellow text-yellow-800 px-3 py-2 rounded-full text-sm',
-  dueDiligence: 'bg-steelBlue text-gray-300 px-3 py-2 rounded-full text-sm',
-  operations: 'bg-pineGreen text-gray-300 px-3 py-2 rounded-full text-sm',
-  advisor: 'bg-powderBlue text-gray-700 px-3 py-2 rounded-full text-sm',
-  default: 'bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm',
+  core: 'bg-mellowYellow text-yellow-800 px-3 py-2 rounded-full text-sm whitespace-nowrap',
+  dueDiligence:
+    'bg-steelBlue text-gray-300 px-3 py-2 rounded-full text-sm whitespace-nowrap',
+  operations:
+    'bg-pineGreen text-gray-300 px-3 py-2 rounded-full text-sm whitespace-nowrap',
+  advisor:
+    'bg-powderBlue text-gray-700 px-3 py-2 rounded-full text-sm whitespace-nowrap',
+  default:
+    'bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm whitespace-nowrap',
 };
 
 const CardMember: React.FC<CardMemberProps> = ({
@@ -54,8 +58,8 @@ const CardMember: React.FC<CardMemberProps> = ({
   };
 
   return (
-    <div className="flex w-full flex-col items-center justify-center space-y-2 px-2 text-center sm:px-8">
-      <div className="relative mb-2 h-40 w-40">
+    <div className="flex h-full w-full mx-auto flex-col items-center justify-between space-y-2 px-2 text-center sm:px-8">
+      <div className="relative mb-2 h-40 w-40 flex-shrink-0">
         <Image
           src={src}
           layout="fill"
@@ -64,15 +68,19 @@ const CardMember: React.FC<CardMemberProps> = ({
           className="rounded-full"
         />
       </div>
+
       <h3 className="h-[1rem] font-proximaSemiBold text-xl">{name}</h3>
+
+      {/* Tags - Use flex and no-wrap for consistent height */}
       <div className="pt-2">
-        <div className="my-2 flex flex-wrap justify-center gap-2">
+        <div className="my-2 flex justify-center gap-4 w-full">
           {tags.map((tag) => renderTag(tag))}
         </div>
       </div>
-      <p className="sm+:h-[10rem] sm+:w-full mx-auto w-[75%] text-sm text-gray-300 sm:h-[6.5rem] md:h-[8.5rem] xl:h-[10rem]">
-        {description}
-      </p>
+
+      {/* Description with flexible height */}
+      <p className="mb-4 md:w-[90%] mx-auto flex-grow text-sm text-gray-300">{description}</p>
+
       <div className="flex space-x-4">
         <Link
           href={`https://twitter.com/${twitterUsername}`}
@@ -94,6 +102,8 @@ const CardMember: React.FC<CardMemberProps> = ({
           />
         </Link>
       </div>
+
+      {/* Divider */}
       <hr className="thin-hr"></hr>
     </div>
   );
