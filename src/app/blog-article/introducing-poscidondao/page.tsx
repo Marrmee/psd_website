@@ -38,13 +38,10 @@ export default function IntroBlog() {
   // }
 
   return (
-    <>
-      <div className="pt-4 text-gray-300">
+    <main className="mx-auto flex xl:w-[70%] sm:w-[85%] w-[95%] flex-col items-center justify-center">
+      <div className="pb-4 text-steelBlue">
         {'< '}
-        <Link
-          href={'/blog'}
-          className="text-gray-300 underline hover:text-seaBlue-800"
-        >
+        <Link href={'/blog'} className=" underline">
           Return to blogs
         </Link>
       </div>
@@ -54,7 +51,7 @@ export default function IntroBlog() {
       }}
       
       /> */}
-      <main className="blog animate-fadeUp">
+      <div className="blog animate-fadeUp ">
         <section>
           <h1 className="header">
             Introducing PoSciDonDAO: The first community-owned collective
@@ -343,16 +340,13 @@ export default function IntroBlog() {
           </cite>
           <br></br>
         </section>
-      </main>
-      <div className="pb-4 text-gray-300">
+      </div>
+      <div className="pb-4 text-steelBlue">
         {'< '}
-        <Link
-          href={'/blog'}
-          className="text-gray-300 underline hover:text-seaBlue-800"
-        >
+        <Link href={'/blog'} className=" underline">
           Return to blogs
         </Link>
       </div>
-    </>
+    </main>
   );
 }

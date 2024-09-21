@@ -90,8 +90,8 @@ export default function RootLayout({
             ${proximaNovaItalic.variable}  
             mx-auto
             w-[95%]
-            sm:w-[90%] 
             font-proxima 
+            sm:w-[90%] 
             xl+:w-[80%]
              `}
       >
@@ -99,7 +99,8 @@ export default function RootLayout({
         {children}
         <div className="w-full">
           <Divider />
-          <Footer />
+          <Footer isNavBar={false} setIsOpen={false} />
+
           <div
             className=" 
                   flex 

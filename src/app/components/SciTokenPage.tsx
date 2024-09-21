@@ -203,11 +203,11 @@ export default function SciTokenPage() {
         justify-between 
         rounded-lg
         bg-seaBlue-1000
-        bg-seaBlue-800
-        p-12
+        p-6
+        sm:p-12
         "
           >
-            <h2 className="mb-4 text-center text-4xl">Our Ecosystem</h2>
+            <h2 className="mb-4 text-center text-3xl sm:text-4xl">Ecosystem</h2>
             <Tabs startingIndex={0}>
               <Tab title="Operations" size="text-sm lg:text-base xl:text-lg">
                 <div>
@@ -220,8 +220,11 @@ export default function SciTokenPage() {
                   </p>
                   <div className="mt-8 flex flex-col items-start justify-start gap-8">
                     <div className="flex items-center justify-center text-left">
-                      <div className="flex h-10 w-14 items-center justify-center rounded-full bg-seaBlue-500 p-2 text-center text-2xl">
-                        1
+                      <div
+                        style={{ minHeight: '40px', minWidth: '40px' }}
+                        className="flex items-center justify-center rounded-full bg-seaBlue-500 text-center text-2xl"
+                      >
+                        <span>1</span>
                       </div>
                       <p className="ml-4">
                         Anyone can create a proposal if sufficient SCI tokens
@@ -246,8 +249,11 @@ export default function SciTokenPage() {
                     </div>
 
                     <div className="flex items-center justify-center text-left">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-seaBlue-500 p-2 text-center text-2xl">
-                        2
+                      <div
+                        style={{ minHeight: '40px', minWidth: '40px' }}
+                        className="flex items-center justify-center rounded-full bg-seaBlue-500 text-center text-2xl"
+                      >
+                        <span>2</span>
                       </div>
                       <p className="ml-4">
                         Proposer can then convince other community members to
@@ -261,9 +267,13 @@ export default function SciTokenPage() {
                         </Link>
                       </p>
                     </div>
+
                     <div className="flex items-center justify-center text-left">
-                      <div className="flex h-10 w-14 items-center justify-center rounded-full bg-seaBlue-500 p-2 text-center text-2xl">
-                        3
+                      <div
+                        style={{ minHeight: '40px', minWidth: '40px' }}
+                        className="flex items-center justify-center rounded-full bg-seaBlue-500 text-center text-2xl"
+                      >
+                        <span>3</span>
                       </div>
                       <p className="ml-4">
                         If the proposal has passed and requires distribution of
@@ -288,8 +298,11 @@ export default function SciTokenPage() {
                   </p>
                   <div className="mt-8 flex flex-col items-start justify-start gap-8">
                     <div className="flex items-center justify-center text-left">
-                      <div className="flex h-10 w-14 items-center justify-center rounded-full bg-seaBlue-500 p-2 text-center text-2xl">
-                        1
+                      <div
+                        style={{ minHeight: '40px', minWidth: '40px' }}
+                        className="flex items-center justify-center rounded-full bg-seaBlue-500 text-center text-2xl"
+                      >
+                        <span>1</span>
                       </div>
                       <p className="ml-4">
                         Scientists can become part of the Due Diligence Crew, a
@@ -299,8 +312,11 @@ export default function SciTokenPage() {
                     </div>
 
                     <div className="flex items-center justify-center text-left">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-seaBlue-500 p-2 text-center text-2xl">
-                        2
+                      <div
+                        style={{ minHeight: '40px', minWidth: '40px' }}
+                        className="flex items-center justify-center rounded-full bg-seaBlue-500 text-center text-2xl"
+                      >
+                        <span>2</span>
                       </div>
                       <p className="ml-4">
                         Elected scientific advisors with sufficient SCI tokens
@@ -317,8 +333,11 @@ export default function SciTokenPage() {
                       </p>
                     </div>
                     <div className="flex items-center justify-center text-left">
-                      <div className="flex h-10 w-14 items-center justify-center rounded-full bg-seaBlue-500 p-2 text-center text-2xl">
-                        3
+                      <div
+                        style={{ minHeight: '40px', minWidth: '40px' }}
+                        className="flex items-center justify-center rounded-full bg-seaBlue-500 text-center text-2xl"
+                      >
+                        <span>3</span>
                       </div>
                       <p className="ml-4">
                         Similarly to governance of DAO operations, passed

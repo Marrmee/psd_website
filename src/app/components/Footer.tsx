@@ -1,18 +1,20 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Socials from './Socials';
 import Logo from '/public/logo.svg';
 
-export default function Footer() {
+export default function Footer({ isNavBar, setIsOpen }) {
   return (
     <div
       className="
-      flex 
-      w-full
-      flex-col
       items-between 
-      justify-between
-      mx-auto w-[90%]
+      mx-auto
+      flex
+      w-[90%] 
+      w-full
+      flex-col justify-between
       pt-8
       "
     >
@@ -32,6 +34,7 @@ export default function Footer() {
           <Link
             href="/"
             className="flex w-[5rem] transition-all duration-500 ease-in sm:w-[10rem]"
+            onClick={() => isNavBar && setIsOpen(false)}
           >
             <Image
               width={1000}
@@ -73,18 +76,21 @@ export default function Footer() {
             <Link
               className="text-gray-300 hover:text-seaBlue-700"
               href="/research"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               For Scientists
             </Link>
             <Link
               className="text-gray-300 hover:text-seaBlue-700"
-              href={'/projects'}
+              href="/projects"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Projects
             </Link>
             <Link
               className="text-gray-300 hover:text-seaBlue-700"
               href="/sci-token"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               SCI Token
             </Link>
@@ -94,6 +100,7 @@ export default function Footer() {
               locale={false}
               className="text-gray-300 hover:text-seaBlue-700"
               href="/Whitepaper.pdf"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Whitepaper
             </Link>
@@ -103,12 +110,14 @@ export default function Footer() {
               locale={false}
               className="text-gray-300 hover:text-seaBlue-700"
               href="https://poscidondao.gitbook.io/poscidondao/"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Litepaper
             </Link>
             <Link
               className="text-gray-300 hover:text-seaBlue-700"
               href="/blog"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Blog
             </Link>
@@ -126,6 +135,7 @@ export default function Footer() {
             <Link
               className="text-gray-300 hover:text-seaBlue-700"
               href="/community"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Community
             </Link>
@@ -133,12 +143,14 @@ export default function Footer() {
               className="hover:text-seaBlue-900"
               href="https://protocol.poscidondao.com/donate"
               target="_blank"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Donate
             </Link>
             <Link
               className="text-gray-300 hover:text-seaBlue-700"
               href="/submit-project"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Submit Project
             </Link>
@@ -147,6 +159,7 @@ export default function Footer() {
               className="text-gray-300 hover:text-seaBlue-700"
               href="https://discord.gg/75SrHpcNSZ"
               target="_blank"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Join our Discord
             </Link>
@@ -155,6 +168,7 @@ export default function Footer() {
               className="text-gray-300 hover:text-seaBlue-700"
               href="https://twitter.com/poscidondao"
               target="_blank"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Join our Twitter
             </Link>
@@ -175,12 +189,14 @@ export default function Footer() {
               className="text-gray-300 hover:text-seaBlue-700"
               target="_blank"
               href={'/brand-guidelines.pdf'}
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Brand Guidelines
             </Link>
             <Link
               className="text-gray-300 hover:text-seaBlue-700"
               href="/privacy-policy"
+              onClick={() => isNavBar && setIsOpen(false)}
             >
               Privacy Policy
             </Link>

@@ -9,7 +9,6 @@ import { usePathname } from 'next/navigation';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [src, setSrc] = useState('/logo-black.webp');
   const [darkSrc, setDarkSrc] = useState('/logo-white.webp');
   const dropdown = useRef<any>();
   const pathName = usePathname();
@@ -30,37 +29,36 @@ export default function NavBar() {
         top-0
         mx-auto
         flex 
-        h-20 
+        min-h-20 
         w-full 
         max-w-full 
         items-center 
         justify-between  
-        py-4
         gap-12
         bg-seaBlue-1050
+        py-4
       "
     >
       <Link
         onMouseEnter={() => setDarkSrc('/logo-blue.webp')}
         onMouseLeave={() => setDarkSrc('/logo-white.webp')}
         href="/"
-        className="w-[20rem] items-start flex lg:w-[25rem]"
+        className="flex items-start"
+        style={{ maxWidth: '250px', height: 'auto' }} // Consistent size for logo container
       >
         <Image
-          width={1000}
-          height={1000}
+          width={200} // Fixed width for the image
+          height={150} // Adjust height as needed for the logo
           className="hover:cursor-pointer"
           layout="responsive"
           src={`${darkSrc}`}
           alt="PoSciDonDAO's Logo: a trident attached to a DNA helix"
         />
       </Link>
-      <div className="hidden w-full items-start justify-end gap-12 text-lg lg:flex">
+      <div className="hidden w-full items-start justify-end gap-12 text-lg xl:flex">
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/sci-token')
-              ? 'text-seaBlue-500'
-              : ''
+            isActive('/sci-token') ? 'text-seaBlue-500' : ''
           }`}
           href="/sci-token"
         >
@@ -68,9 +66,7 @@ export default function NavBar() {
         </Link>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/research')
-              ? 'text-seaBlue-500'
-              : ''
+            isActive('/research') ? 'text-seaBlue-500' : ''
           }`}
           href={'/research'}
         >
@@ -78,9 +74,7 @@ export default function NavBar() {
         </Link>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/projects')
-              ? 'text-seaBlue-500'
-              : ''
+            isActive('/projects') ? 'text-seaBlue-500' : ''
           }`}
           href={'/projects'}
         >
@@ -95,9 +89,7 @@ export default function NavBar() {
         </Link>
         <Link
           className={`hover:text-seaBlue-900 ${
-            isActive('/get-involved')
-              ? 'text-seaBlue-500'
-              : ''
+            isActive('/get-involved') ? 'text-seaBlue-500' : ''
           }`}
           href="community"
         >
@@ -112,13 +104,13 @@ export default function NavBar() {
             onClick={toggleMenu}
           >
             <div
-              className={`absolute left-1/2 top-1/2 h-1 w-8 transform rounded transition-all duration-300  bg-[#FDFDFD] group-hover:bg-seaBlue-700 ${isOpen ? 'mt-1 -translate-x-1/2 -translate-y-1/2 rotate-45' : '-translate-x-1/2 -translate-y-[7px]'}`}
+              className={`absolute left-1/2 top-1/2 h-1 w-8 transform rounded bg-[#FDFDFD] transition-all  duration-300 group-hover:bg-seaBlue-700 ${isOpen ? 'mt-1 -translate-x-1/2 -translate-y-1/2 rotate-45' : '-translate-x-1/2 -translate-y-[7px]'}`}
             ></div>
             <div
-              className={`absolute left-1/2 top-1/2 mt-1 h-1 w-8 transform rounded transition-all duration-300 bg-[#FDFDFD] group-hover:bg-seaBlue-700 ${isOpen ? 'mt-0 opacity-0' : '-translate-x-1/2 -translate-y-1/2'}`}
+              className={`absolute left-1/2 top-1/2 mt-1 h-1 w-8 transform rounded bg-[#FDFDFD] transition-all duration-300 group-hover:bg-seaBlue-700 ${isOpen ? 'mt-0 opacity-0' : '-translate-x-1/2 -translate-y-1/2'}`}
             ></div>
             <div
-              className={`absolute left-1/2 top-1/2 mt-1 h-1 w-8 transform rounded transition-all duration-300 bg-[#FDFDFD] group-hover:bg-seaBlue-700 ${isOpen ? 'mt-1 -translate-x-1/2 -translate-y-1/2 -rotate-45' : '-translate-x-1/2 translate-y-[7px]'}`}
+              className={`absolute left-1/2 top-1/2 mt-1 h-1 w-8 transform rounded bg-[#FDFDFD] transition-all duration-300 group-hover:bg-seaBlue-700 ${isOpen ? 'mt-1 -translate-x-1/2 -translate-y-1/2 -rotate-45' : '-translate-x-1/2 translate-y-[7px]'}`}
             ></div>
           </button>
         </div>
@@ -134,14 +126,15 @@ export default function NavBar() {
               flex-col 
               items-center
               justify-center
-              gap-8 border-b-2 
+              gap-8 
+              border-b-2 
               border-seaBlue-900
-              p-4
               bg-seaBlue-1050
+              p-4
               sm:items-center
             "
           >
-            <Footer />
+            <Footer isNavBar={true} setIsOpen={setIsOpen}/>
           </div>
         )}
       </div>
