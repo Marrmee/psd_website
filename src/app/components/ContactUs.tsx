@@ -73,7 +73,7 @@ export default function ContactUs() {
       onSubmit={sendEmail}
       className="flex w-full flex-col items-center rounded-lg text-gray-200 sm:mx-auto sm:w-[90%] sm:p-12 p-6 bg-seaBlue-1000"
     >
-      <h2 className="mb-8 text-left text-4xl font-semibold text-gray-200">
+      <h2 className="mb-8 text-left text-4xl text-gray-200">
         Stay Up To Date!
       </h2>
       <p className="mb-8 text-center text-base text-gray-200 sm:text-lg">

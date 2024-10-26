@@ -24,7 +24,7 @@ export default function Faq({ faqs }: FaqProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2">
-        <h2 className="sm:sticky mb-8 md:text-left flex justify-center items-center md:justify-start md:items-start text-center text-4xl font-semibold text-gray-200">
+        <h2 className="sm:sticky mb-8 md:text-left flex justify-center items-center md:justify-start md:items-start text-center text-4xl text-gray-200">
           Frequently Asked Questions
         </h2>
       <div className="space-y-8">

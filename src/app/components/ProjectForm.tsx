@@ -446,7 +446,7 @@ export default function ProjectForm() {
           </div>
           <div className="text-left text-lg">
             {showSuccessMessage && (
-              <p className="mb-6 py-4 font-semibold text-aquaBlue">
+              <p className="mb-6 py-4  text-aquaBlue">
                 Thank you! Your project has been submitted and will be reviewed
                 shortly. <br></br>
                 <Link
@@ -460,7 +460,7 @@ export default function ProjectForm() {
               </p>
             )}
             {showFailureMessage && (
-              <p className="mb-6 py-4 font-semibold text-fieryRed">
+              <p className="mb-6 py-4 font-proximaSemiBold text-fieryRed">
                 Oops! Something went wrong, please try again.
               </p>
             )}
