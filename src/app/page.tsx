@@ -170,11 +170,12 @@ export default function Home() {
         className={`
         my-16
         flex
-        min-h-[300px]
+        
         w-full
         flex-col
         items-center
         justify-center
+        min-h-[300px]
         sm:min-h-[400px]
         md:min-h-[600px]
         ${isVisibleFaq ? 'animate-fadeUp' : ''}

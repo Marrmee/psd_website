@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 export const useClickOutside = (ref, handler) => {
   useEffect(() => {
     const listener = (e) => {
-      // Do nothing if clicking ref's element or descendent elements
       if (!ref?.current || ref.current.contains(e.target)) {
         return;
       }
