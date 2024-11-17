@@ -51,7 +51,7 @@ const items = [
   {
     title: 'Governance',
     content:
-      "After staking SCI tokens, members receive governance rights over PoSciDonDAO's treasury, its operations, the election of scientific experts, and over the management of the personalized medicine IP portfolio.",
+      "After locking SCI tokens, members receive governance rights over PoSciDonDAO's treasury, its operations, the election of scientific experts, and over the management of the personalized medicine IP portfolio.",
     icon: faBalanceScale,
     iconColor: 'text-seaBlue-400 text-seaBlue-600',
   },
