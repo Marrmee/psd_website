@@ -119,7 +119,7 @@ export default function RootLayout({
           </div>
           <div
             className=" 
-                  mb-8 flex
+                  mb-8 flex flex-col sm:flex-row
                   items-center
                   justify-center
                   text-center
