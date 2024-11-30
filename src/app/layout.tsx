@@ -7,6 +7,10 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import Divider from './components/Divider';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+
 config.autoAddCss = false;
 
 const proximaNova = localFont({
@@ -112,6 +116,25 @@ export default function RootLayout({
                   "
           >
             © PoSciDonDAO Foundation. All rights reserved.
+          </div>
+          <div
+            className=" 
+                  mb-8 flex
+                  items-center
+                  justify-center
+                  text-center
+                  text-sm
+                  text-gray-300 sm:text-base
+                  "
+          >
+            Voucher (vSCI) contract address on Base:&nbsp;
+            <Link
+              className="text-steelBlue" target='_blank'
+              href="https://basescan.org/token/0xc1709720be448d8c0c829d3ab1a4d661e94f327a?a=0x96f67a852f8d3bc05464c4f91f97aace060e247a"
+            >
+              0xc1709720bE448D8c0C829D3Ab1A4D661E94f327a{' '}
+              <FontAwesomeIcon icon={faExternalLinkAlt} size='xs'/>
+            </Link>
           </div>
         </div>
       </body>

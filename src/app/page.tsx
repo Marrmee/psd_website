@@ -109,7 +109,7 @@ export default function Home() {
       >
         <div className="mx-auto md:w-[80%] lg:w-[70%]">
           <h2 className="mb-4 text-center text-4xl text-gray-300">
-           SCI Token Allocation
+            SCI Token Allocation
           </h2>
           <div className="flex items-center justify-center">
             <Image
@@ -171,11 +171,11 @@ export default function Home() {
         my-16
         flex
         
+        min-h-[300px]
         w-full
         flex-col
         items-center
         justify-center
-        min-h-[300px]
         sm:min-h-[400px]
         md:min-h-[600px]
         ${isVisibleFaq ? 'animate-fadeUp' : ''}
