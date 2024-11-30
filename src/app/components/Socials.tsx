@@ -40,7 +40,7 @@ export default function Socials() {
         <Link
           aria-label="Start the conversation in PoSciDon DAO's Telegram group"
           className="flex h-[4rem] w-10 items-center justify-center"
-          href="https://t.me/+orlGVaLwlGVlZjI8"
+          href="https://t.me/PoSciDonDAO"
           target="_blank"
         >
           <FontAwesomeIcon
