@@ -67,7 +67,7 @@ export default function NavBar() {
           </span>
         ) : (
           <span>
-            Uniswap launch of PoSciDonDAO's Token (SCI) starts in:{' '}~
+            Uniswap launch of PoSciDonDAO's Token (SCI) starts in:{' '}&plusmn;
             {countdown}
           </span>
         )}
