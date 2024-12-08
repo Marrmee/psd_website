@@ -26,7 +26,7 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    const targetDate = new Date('2024-12-02T17:00:00Z').getTime();
+    const targetDate = new Date('2024-12-10T21:00:00Z').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -57,18 +57,17 @@ export default function NavBar() {
       <div className="top-0 flex min-h-[4rem] w-full items-center justify-center rounded-b-lg bg-tropicalBlue p-4 text-center text-base text-seaBlue-1050 sm:text-xl">
         {isCountdownComplete ? (
           <span>
-            The pre-sale offering of PoSciDonDAO's Voucher (vSCI) has
-            started!&nbsp;
-            <Link
+            The PoSciDonDAO's Token (SCI) is now LIVE on Uniswap!&nbsp;
+            {/* <Link
               className="text-steelBlue underline"
               href="https://presale.poscidondao.com"
             >
               Visit our dApp
-            </Link>
+            </Link> */}
           </span>
         ) : (
           <span>
-            Pre-sale offering of PoSciDonDAO's Voucher (vSCI) starts in:{' '}
+            Uniswap launch of PoSciDonDAO's Token (SCI) starts in:{' '}~
             {countdown}
           </span>
         )}
