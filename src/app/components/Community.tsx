@@ -88,7 +88,7 @@ export default function Community() {
       name: 'Mack Stachowiak',
       tags: [{ type: 'advisor', value: 'Advisor' }],
       description:
-        'Mack, co-founder an CTO of AxonDAO, has tremendous amounts of experience with creating medical devices bringing them into clinical practice.',
+        'Mack, co-founder an CTO of AxonDAO, has tremendous amounts of experience with creating medical devices and bringing them into clinical practice.',
       twitterUsername: 'mstachowiak',
       linkedinUsername: 'mmstachowiak',
     },
