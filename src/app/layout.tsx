@@ -119,21 +119,22 @@ export default function RootLayout({
           </div>
           <div
             className=" 
-                  mb-8 flex flex-col sm:flex-row
-                  items-center
+                  mb-8 flex flex-col items-center
                   justify-center
                   text-center
                   text-sm
-                  text-gray-300 sm:text-base
+                  text-gray-300
+                  sm:flex-row sm:text-base
                   "
           >
-            Voucher (vSCI) contract address on Base:&nbsp;
+            PoSciDonDAO Token (SCI) contract address on Base:&nbsp;
             <Link
-              className="text-steelBlue" target='_blank'
-              href="https://basescan.org/token/0xc1709720be448d8c0c829d3ab1a4d661e94f327a?a=0x96f67a852f8d3bc05464c4f91f97aace060e247a"
+              className="text-steelBlue"
+              target="_blank"
+              href="https://basescan.org/token/0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3"
             >
-              0xc1709720bE448D8c0C829D3Ab1A4D661E94f327a{' '}
-              <FontAwesomeIcon icon={faExternalLinkAlt} size='xs'/>
+              0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3{' '}
+              <FontAwesomeIcon icon={faExternalLinkAlt} size="xs" />
             </Link>
           </div>
         </div>
