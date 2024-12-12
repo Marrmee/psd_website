@@ -10,8 +10,8 @@ import { usePathname } from 'next/navigation';
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [darkSrc, setDarkSrc] = useState('/logo-white.webp');
-  // const [countdown, setCountdown] = useState('');
-  // const [isCountdownComplete, setIsCountdownComplete] = useState(false);
+  const [countdown, setCountdown] = useState('');
+  const [isCountdownComplete, setIsCountdownComplete] = useState(false);
   const dropdown = useRef<any>();
   const pathName = usePathname();
 
@@ -25,54 +25,53 @@ export default function NavBar() {
     setIsOpen(!isOpen);
   };
 
-  // useEffect(() => {
-  //   const targetDate = new Date('2024-12-10T21:00:00Z').getTime();
+  useEffect(() => {
+    const targetDate = new Date('2024-12-10T21:00:00Z').getTime();
 
-  //   const updateCountdown = () => {
-  //     const now = new Date().getTime();
-  //     const timeLeft = targetDate - now;
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
 
-  //     if (timeLeft <= 0) {
-  //       setIsCountdownComplete(true);
-  //       setCountdown('');
-  //       return;
-  //     }
+      if (timeLeft <= 0) {
+        setIsCountdownComplete(true);
+        setCountdown('');
+        return;
+      }
 
-  //     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  //     const hours = Math.floor(
-  //       (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //     );
-  //     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-  //     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-  //     setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s`);
-  //   };
+      setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+    };
 
-  //   const interval = setInterval(updateCountdown, 1000);
-  //   return () => clearInterval(interval); // Cleanup the interval on component unmount
-  // }, []);
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, []);
 
   return (
-    // <>
-    //   <div className="top-0 flex min-h-[4rem] w-full items-center justify-center rounded-b-lg bg-tropicalBlue p-4 text-center text-base text-seaBlue-1050 sm:text-xl">
-    //     {isCountdownComplete ? (
-    //       <span>
-    //         The PoSciDonDAO's Token (SCI) is now LIVE on Uniswap!&nbsp;
-    //         {/* <Link
-    //           className="text-steelBlue underline"
-    //           href="https://presale.poscidondao.com"
-    //         >
-    //           Visit our dApp
-    //         </Link> */}
-    //       </span>
-    //     ) : (
-    //       <span>
-    //         Uniswap launch of PoSciDonDAO's Token (SCI) starts in: &plusmn;
-    //         {countdown}
-    //       </span>
-    //     )}
-    //   </div>
-
+    <>
+      <div className="top-0 flex min-h-[4rem] w-full items-center justify-center rounded-b-lg bg-tropicalBlue p-4 text-center text-base text-seaBlue-1050 sm:text-xl">
+        {isCountdownComplete ? (
+          <span>
+            The PoSciDonDAO's Token (SCI) is now LIVE on Uniswap!&nbsp;
+            <Link
+              className="text-steelBlue underline"
+              href="https://app.uniswap.org/swap?exactField=input&inputCurrency=ETH&outputCurrency=0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3&chain=base"
+            >
+              Purchase here
+            </Link>
+          </span>
+        ) : (
+          <span>
+            Uniswap launch of PoSciDonDAO's Token (SCI) starts in: &plusmn;
+            {countdown}
+          </span>
+        )}
+      </div>
       <nav
         className="
         min-h-20
@@ -189,6 +188,7 @@ export default function NavBar() {
           )}
         </div>
       </nav>
-    // </>
+      //{' '}
+    </>
   );
 }
