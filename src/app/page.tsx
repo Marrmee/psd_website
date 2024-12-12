@@ -7,7 +7,7 @@ import styles from './components/Button.module.css';
 import Cards from './components/Cards';
 import Hero from './components/Hero';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faCoins } from '@fortawesome/free-solid-svg-icons';
 import Faq from './components/Faq';
 import useMultipleIntersectionObserver from './hooks/useMultipleIntersectionObserver';
 import Divider from './components/Divider';
@@ -71,16 +71,28 @@ export default function Home() {
           <span className="font-proximaBold">change the lives of people</span>{' '}
           affected by these diseases.
         </p>
-        <div className="flex gap-4">
-          <Button
+        <div className="flex gap-6">
+          {/* <Button
             link={true}
             type={'button'}
             onClick={null}
             target={'_blank'}
             text={`Join our community`}
             href={'https://discord.gg/75SrHpcNSZ'}
-            icon={<FontAwesomeIcon icon={faUsers} className="pr-2" />}
-            style={styles.primary}
+            icon={''}
+            style={styles.primaryReversed}
+          /> */}
+          <Button
+            link={true}
+            type={'button'}
+            onClick={null}
+            target={'_blank'}
+            text={`Purchase SCI`}
+            href={
+              'https://app.uniswap.org/swap?exactField=input&inputCurrency=ETH&outputCurrency=0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3&chain=base'
+            }
+            icon={''}
+            style={styles.primaryWide}
           />
         </div>
       </header>
