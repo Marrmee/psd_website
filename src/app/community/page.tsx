@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Community from '../components/Community';
 
-const url = new URL('https://www.poscidondao.com/research');
+const url = new URL('https://www.poscidondao.com/community');
 
 export const metadata: Metadata = {
   metadataBase: url,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   robots: 'index, follow',
 };
 
-export default function GetInvolved() {
+export default function CommunityPage() {
   return (
     <main>
       <Community />

@@ -125,7 +125,7 @@ export default function Cards() {
           "
         >
           <Link
-            href="https://forms.gle/hY52XW7inek4ynrR6"
+            href="/community"
             target="_blank"
             className="
               flex

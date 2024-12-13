@@ -137,7 +137,7 @@ export default function NavBar() {
           </Link>
           <Link
             className={`hover:text-seaBlue-900 ${
-              isActive('/get-involved') ? 'text-seaBlue-500' : ''
+              isActive('/community') ? 'text-seaBlue-500' : ''
             }`}
             href="community"
           >
