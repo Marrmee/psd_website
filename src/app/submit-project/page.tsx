@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import ProjectForm from '../components/ProjectForm';
 import { Metadata } from 'next';
 
@@ -18,6 +17,6 @@ export const metadata: Metadata = {
 
 export default function ProjectSubmission() {
   return (
-    <ProjectForm/>
+    <div className="p-8 text-fieryRed">Project submissions will be opened soon!</div>
   );
 }
