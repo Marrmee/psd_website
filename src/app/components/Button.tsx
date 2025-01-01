@@ -13,7 +13,7 @@ export default function Button({
   return (
     <>
       {link ? (
-        <Link href={href} target={target} className={style}>
+        <Link href={href} target={target} rel="noopener noreferrer" className={style}>
           <span>
             <slot>{icon}</slot>
             <slot>{text}</slot>

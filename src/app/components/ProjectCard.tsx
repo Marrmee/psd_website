@@ -88,7 +88,6 @@ export default function ProjectCard({
             href={href}
             onClick={''}
             target="_blank"
-                rel="noopener noreferrer"
             type={'button'}
             icon={<FontAwesomeIcon icon={faReadme} className="pr-2" />}
           />

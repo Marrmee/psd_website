@@ -95,7 +95,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               SCI Token
             </Link>
             <Link
-              rel="noopener"
+              
               target="_blank"
                 rel="noopener noreferrer"
               locale={false}
@@ -106,7 +106,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               Whitepaper
             </Link>
             <Link
-              rel="noopener"
+              
               target="_blank"
                 rel="noopener noreferrer"
               locale={false}
@@ -158,7 +158,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               Submit Project
             </Link>
             <Link
-              rel="noopener"
+              
               className="text-gray-300 hover:text-seaBlue-700"
               href="https://discord.gg/75SrHpcNSZ"
               target="_blank"
@@ -168,7 +168,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               Join our Discord
             </Link>
             <Link
-              rel="noopener"
+              
               className="text-gray-300 hover:text-seaBlue-700"
               href="https://twitter.com/poscidondao"
               target="_blank"
@@ -189,7 +189,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               OTHER
             </p>
             <Link
-              rel="noopener"
+              
               locale={false}
               className="text-gray-300 hover:text-seaBlue-700"
               target="_blank"

@@ -86,7 +86,6 @@ const CardMember: React.FC<CardMemberProps> = ({
           href={`https://twitter.com/${twitterUsername}`}
           aria-label="Twitter"
           target="_blank"
-                rel="noopener noreferrer"
           rel="noopener noreferrer"
         >
           <FontAwesomeIcon icon={faTwitter} className="h-5 w-5 text-blue-500" />
@@ -95,7 +94,6 @@ const CardMember: React.FC<CardMemberProps> = ({
           href={`https://www.linkedin.com/in/${linkedinUsername}`}
           aria-label="LinkedIn"
           target="_blank"
-                rel="noopener noreferrer"
           rel="noopener noreferrer"
         >
           <FontAwesomeIcon
