@@ -231,6 +231,7 @@ export default function SciTokenPage() {
                         have been staked through{' '}
                         <Link
                           target="_blank"
+                rel="noopener noreferrer"
                           href="https://protocol.poscidondao.com"
                           className="text-steelBlue underline"
                         >
@@ -239,6 +240,7 @@ export default function SciTokenPage() {
                         . A guide on making a proposal can be found{' '}
                         <Link
                           target="_blank"
+                rel="noopener noreferrer"
                           href="https://discord.com/channels/1106907057107505226/1199792951035957308"
                           className="text-steelBlue underline"
                         >
@@ -260,6 +262,7 @@ export default function SciTokenPage() {
                         vote in favor of their proposal through{' '}
                         <Link
                           target="_blank"
+                rel="noopener noreferrer"
                           href="https://protocol.poscidondao.com"
                           className="text-steelBlue underline"
                         >
@@ -324,6 +327,7 @@ export default function SciTokenPage() {
                         experts through{' '}
                         <Link
                           target="_blank"
+                rel="noopener noreferrer"
                           href="https://protocol.poscidondao.com"
                           className="text-steelBlue underline"
                         >

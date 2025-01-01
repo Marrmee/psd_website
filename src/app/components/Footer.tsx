@@ -97,6 +97,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
             <Link
               rel="noopener"
               target="_blank"
+                rel="noopener noreferrer"
               locale={false}
               className="text-gray-300 hover:text-seaBlue-700"
               href="/Whitepaper.pdf"
@@ -107,6 +108,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
             <Link
               rel="noopener"
               target="_blank"
+                rel="noopener noreferrer"
               locale={false}
               className="text-gray-300 hover:text-seaBlue-700"
               href="https://poscidondao.gitbook.io/poscidondao/"
@@ -143,6 +145,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               className="hover:text-seaBlue-900"
               href="https://protocol.poscidondao.com/donate"
               target="_blank"
+                rel="noopener noreferrer"
               onClick={() => isNavBar && setIsOpen(false)}
             >
               Donate
@@ -159,6 +162,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               className="text-gray-300 hover:text-seaBlue-700"
               href="https://discord.gg/75SrHpcNSZ"
               target="_blank"
+                rel="noopener noreferrer"
               onClick={() => isNavBar && setIsOpen(false)}
             >
               Join our Discord
@@ -168,6 +172,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               className="text-gray-300 hover:text-seaBlue-700"
               href="https://twitter.com/poscidondao"
               target="_blank"
+                rel="noopener noreferrer"
               onClick={() => isNavBar && setIsOpen(false)}
             >
               Join our Twitter
@@ -188,6 +193,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               locale={false}
               className="text-gray-300 hover:text-seaBlue-700"
               target="_blank"
+                rel="noopener noreferrer"
               href={'/brand-guidelines.pdf'}
               onClick={() => isNavBar && setIsOpen(false)}
             >

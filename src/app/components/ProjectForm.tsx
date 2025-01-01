@@ -453,6 +453,7 @@ export default function ProjectForm() {
                   className="text-gray-300 underline"
                   href="https://discord.gg/TXZZV5KXmn"
                   target="_blank"
+                rel="noopener noreferrer"
                 >
                   Join our discord
                 </Link>{' '}

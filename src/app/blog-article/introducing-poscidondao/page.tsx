@@ -207,6 +207,7 @@ export default function IntroBlog() {
               Learn more about us by reading the whitepaper:{' '}
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 className="ref"
                 href="https://poscidondao.com/Whitepaper.pdf"
               >
@@ -218,6 +219,7 @@ export default function IntroBlog() {
               Join the revolution of research funding:{' '}
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 className="ref"
                 href="https://discord.gg/ZZ5yyTMTH6"
               >
@@ -229,6 +231,7 @@ export default function IntroBlog() {
               Stay up to date by following us on X/Twitter:{' '}
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 className="ref"
                 href="https://twitter.com/PoSciDonDAO"
               >

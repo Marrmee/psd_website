@@ -220,6 +220,7 @@ export default function Community() {
               <Link
                 href={'https://forms.gle/g52VVJTXCnz7b8LU7'}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="group mt-4 flex w-full cursor-pointer items-center justify-center pb-2 font-proximaSemiBold text-lg text-steelBlue md:text-xl"
               >
                 Apply to join

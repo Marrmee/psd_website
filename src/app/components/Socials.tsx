@@ -18,6 +18,7 @@ export default function Socials() {
           className="flex items-center justify-center"
           href="https://discord.gg/75SrHpcNSZ"
           target="_blank"
+                rel="noopener noreferrer"
         >
           <FontAwesomeIcon
             icon={faDiscord}
@@ -30,6 +31,7 @@ export default function Socials() {
           className="flex h-[4rem] w-10 items-center justify-center"
           href="https://twitter.com/poscidondao"
           target="_blank"
+                rel="noopener noreferrer"
         >
           <FontAwesomeIcon
             icon={faTwitter}
@@ -42,6 +44,7 @@ export default function Socials() {
           className="flex h-[4rem] w-10 items-center justify-center"
           href="https://t.me/OfficialPoSciDonDAO"
           target="_blank"
+                rel="noopener noreferrer"
         >
           <FontAwesomeIcon
             icon={faTelegram}

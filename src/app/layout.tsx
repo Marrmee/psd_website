@@ -64,18 +64,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <Script
-        id="font-awesome"
-        src="https://kit.fontawesome.com/bfd0659090.js"
-        crossOrigin="anonymous"
-      /> */}
-      <Script
-        id="google-analytics-tag"
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GMT_ID}`}
-      />
-      <Script id="google-analytics-code" strategy="lazyOnload">
-        {`
+      <head>
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (window.top !== window.self) {
+                window.top.location = window.self.location;
+              }
+            `,
+          }}
+        />
+        <Script
+          id="google-analytics-tag"
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GMT_ID}`}
+        />
+        <Script id="google-analytics-code" strategy="lazyOnload">
+          {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -83,7 +88,8 @@ export default function RootLayout({
         page_path: window.location.pathname,
         });
       `}
-      </Script>
+        </Script>
+      </head>
       <body
         className={`
             bg-seaBlue-1050
@@ -131,6 +137,7 @@ export default function RootLayout({
             <Link
               className="text-steelBlue"
               target="_blank"
+              rel="noopener noreferrer"
               href="https://basescan.org/token/0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3"
             >
               0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3{' '}

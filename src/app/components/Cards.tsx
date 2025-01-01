@@ -127,6 +127,7 @@ export default function Cards() {
           <Link
             href="/community"
             target="_blank"
+                rel="noopener noreferrer"
             className="
               flex
               items-center
@@ -189,6 +190,7 @@ export default function Cards() {
               className="group flex w-full cursor-pointer items-center justify-center pb-2 font-proximaItalic text-steelBlue sm:pb-0"
               href="https://forms.gle/hY52XW7inek4ynrR6"
               target="_blank"
+                rel="noopener noreferrer"
             >
               Become a contributor{' '}
               <span className="ml-1 transform transition-transform duration-300 ease-out group-hover:translate-x-[10px]">

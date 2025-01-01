@@ -132,6 +132,7 @@ export default function NavBar() {
             className="hover:text-seaBlue-900"
             href="https://protocol.poscidondao.com/donate"
             target="_blank"
+                rel="noopener noreferrer"
           >
             Donate
           </Link>
