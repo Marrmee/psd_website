@@ -135,7 +135,8 @@ export default function RootLayout({
                   text-center
                   text-sm
                   text-gray-300
-                  sm:flex-row sm:text-base
+                  whitespace-wrap
+                  md:flex-row sm:text-base
                   "
           >
             PoSciDonDAO Token (SCI) contract address on Base:&nbsp;
