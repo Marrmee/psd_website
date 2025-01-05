@@ -10,6 +10,7 @@ import Divider from './components/Divider';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { headers } from 'next/headers';
 
 config.autoAddCss = false;
 
@@ -54,6 +55,7 @@ export const metadata: Metadata = {
   ],
   manifest: `${url}manifest.json`,
 };
+const nonce = headers().get('x-content-nonce') || undefined;
 
 const GMT_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ?? '';
 
@@ -66,6 +68,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script
+          nonce={nonce}
           dangerouslySetInnerHTML={{
             __html: `
               if (window.top !== window.self) {
@@ -75,11 +78,12 @@ export default function RootLayout({
           }}
         />
         <Script
+          nonce={nonce}
           id="google-analytics-tag"
           strategy="lazyOnload"
           src={`https://www.googletagmanager.com/gtag/js?id=${GMT_ID}`}
         />
-        <Script id="google-analytics-code" strategy="lazyOnload">
+        <Script nonce={nonce} id="google-analytics-code" strategy="lazyOnload">
           {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

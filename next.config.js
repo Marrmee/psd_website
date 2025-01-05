@@ -14,8 +14,8 @@ const nextConfig = {
             value: "SAMEORIGIN",
           },
           {
-            key: "Content-Security-Policy",
-            value: "frame-ancestors 'self'; default-src 'self'; script-src 'self' 'unsafe-inline' https://trusted-cdn.com; style-src 'self' 'unsafe-inline'; object-src 'none';",
+            key: 'Content-Security-Policy',
+            value: ``
           },
           // Prevent MIME Type Sniffing
           {

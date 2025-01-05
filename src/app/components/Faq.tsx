@@ -64,7 +64,7 @@ export default function Faq({ faqs }: FaqProps) {
                 style={{ transitionProperty: 'transform, opacity' }}
               >
                 <div className="px-8 pb-8">
-                  <p className="text-left text-sm text-gray-400 md:text-base">
+                  <p className="text-left text-sm text-gray-400 md:text-base whitespace-wrap break-words">
                     {faq.answer}
                   </p>
                 </div>

@@ -22,8 +22,7 @@ import Divider from './Divider';
 const faqs = [
   {
     question: 'What are the official addresses of the SCI token?',
-    answer:
-      'The SCI token has not been launched yet. Join our discord or telegram group to stay up to date with its release.',
+    answer: `The SCI token has been launched on Base mainnet and its contract address is: 0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3. The contract address for the SCI/WETH pair on Base on Uniswap is: 0x0962a51e121aa8371Cd4bb0458B7e5A08c1cbd29`,
   },
   {
     question: 'How will the foundation funds be used?',
@@ -231,7 +230,7 @@ export default function SciTokenPage() {
                         have been staked through{' '}
                         <Link
                           target="_blank"
-                rel="noopener noreferrer"
+                          rel="noopener noreferrer"
                           href="https://protocol.poscidondao.com"
                           className="text-steelBlue underline"
                         >
@@ -240,7 +239,7 @@ export default function SciTokenPage() {
                         . A guide on making a proposal can be found{' '}
                         <Link
                           target="_blank"
-                rel="noopener noreferrer"
+                          rel="noopener noreferrer"
                           href="https://discord.com/channels/1106907057107505226/1199792951035957308"
                           className="text-steelBlue underline"
                         >
@@ -262,7 +261,7 @@ export default function SciTokenPage() {
                         vote in favor of their proposal through{' '}
                         <Link
                           target="_blank"
-                rel="noopener noreferrer"
+                          rel="noopener noreferrer"
                           href="https://protocol.poscidondao.com"
                           className="text-steelBlue underline"
                         >
@@ -327,7 +326,7 @@ export default function SciTokenPage() {
                         experts through{' '}
                         <Link
                           target="_blank"
-                rel="noopener noreferrer"
+                          rel="noopener noreferrer"
                           href="https://protocol.poscidondao.com"
                           className="text-steelBlue underline"
                         >
