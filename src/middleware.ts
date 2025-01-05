@@ -10,24 +10,23 @@ const allowedOrigins = [
 
 export function middleware(req: NextRequest) {
   const origin = req.headers.get('origin');
+  const isDev = process.env.NODE_ENV == 'development';
 
-  const isDev = process.env.NODE_ENV === 'development';
   const headers = new Headers();
-  // Handle preflight requests for CORS
-  if (req.method === 'OPTIONS') {
 
+  // Handle preflight requests (CORS)
+  if (req.method === 'OPTIONS') {
     headers.set('Access-Control-Allow-Origin', origin || '');
-    headers.set('Access-Control-Allow-Methods', 'GET, POST');
+    headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     headers.set('Access-Control-Allow-Credentials', 'true');
-
     return new NextResponse(null, { status: 204, headers });
   }
 
-  // Generate a unique nonce for CSP
+  // Generate a nonce for added CSP security
   const nonce = crypto.randomUUID();
 
-  // Create a sanitized CSP string
+  // Define a robust Content-Security-Policy
   const csp = [
     `default-src 'self';`,
     `script-src 'self' 'nonce-${nonce}' ${isDev ? "'unsafe-eval'" : ""};`,
@@ -35,15 +34,14 @@ export function middleware(req: NextRequest) {
     `font-src 'self';`,
     `img-src 'self' data: https: blob:;`,
     `connect-src 'self';`,
-    `frame-src 'self' https://silksecure.net/;`,
+    `frame-src 'self' https://poscidondao.notion.site;`,
     `object-src 'none';`,
     `base-uri 'self';`,
-    `frame-ancestors 'none' https://poscidondao.notion.site;`,
-    `manifest-src 'self' https://protocol.poscidondao.com;`,
+    `frame-ancestors 'self' https://poscidondao.notion.site;`,
+    `manifest-src 'self' https://www.poscidondao.com;`,
   ]
     .join(' ')
     .trim();
-  
 
   if (origin && allowedOrigins.includes(origin)) {
     headers.set('Access-Control-Allow-Origin', origin);
@@ -52,11 +50,11 @@ export function middleware(req: NextRequest) {
     headers.set('Access-Control-Allow-Credentials', 'true');
   }
 
+  // Add headers
   headers.set('Content-Security-Policy', csp);
-  headers.set('X-Content-Nonce', nonce); // Expose nonce for server-side rendering
+  headers.set('X-Content-Nonce', nonce);
 
-  const response = NextResponse.next({ headers });
-  return response;
+  return NextResponse.next({ headers });
 }
 
 export const config = {

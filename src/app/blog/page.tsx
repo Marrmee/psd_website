@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   robots: 'index, follow',
 };
 
-export default function Blogs() {
+export default function Blog() {
   return (
     <main
       className="

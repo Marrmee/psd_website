@@ -55,7 +55,6 @@ export const metadata: Metadata = {
   ],
   manifest: `${url}manifest.json`,
 };
-const nonce = headers().get('x-content-nonce') || undefined;
 
 const GMT_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ?? '';
 
@@ -64,11 +63,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const nonce = headers().get('x-content-nonce') || undefined;
   return (
     <html lang="en">
       <head>
         <Script
           nonce={nonce}
+          id="anti-clickjacking script"
           dangerouslySetInnerHTML={{
             __html: `
               if (window.top !== window.self) {
