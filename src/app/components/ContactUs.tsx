@@ -91,7 +91,7 @@ export default function ContactUs() {
       if (res.ok) {
         setStatusMessage({
           success: true,
-          message: 'Subscribed successfully, thank you!',
+          message: 'Subscribed successfully, thank you! Check your inbox for a confirmation email.',
         });
         setName('');
         setEmail('');

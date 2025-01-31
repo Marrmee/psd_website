@@ -1,13 +1,11 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef } from 'react';
 import ContactUs from './components/ContactUs';
 import Button from './components/Button';
 import styles from './components/Button.module.css';
 import Cards from './components/Cards';
 import Hero from './components/Hero';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUsers, faCoins } from '@fortawesome/free-solid-svg-icons';
 import Faq from './components/Faq';
 import useMultipleIntersectionObserver from './hooks/useMultipleIntersectionObserver';
 import Divider from './components/Divider';
@@ -19,7 +17,10 @@ export default function Home() {
   const sectionRefRoadmap = useRef(null);
   const sectionRefContact = useRef(null);
   const sectionRefFaq = useRef(null);
-  const observerOptions = { threshold: 0.05 };
+  const observerOptions = { 
+    threshold: 0.01,  // Reduced threshold significantly for earlier detection
+    rootMargin: '100px 0px',  // Increased margin to trigger detection earlier
+  };
   const [
     isVisibleCards,
     isVisibleRoadmap,
@@ -99,8 +100,8 @@ export default function Home() {
       <Divider />{' '}
       <section
         ref={sectionRefCards}
-        className={`${
-          isVisibleCards ? 'animate-fadeUp' : ''
+        className={`transition-all duration-500 transform ${
+          isVisibleCards ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         } my-16 flex w-full items-center justify-center`}
       >
         <Cards />
@@ -108,16 +109,9 @@ export default function Home() {
       <Divider />{' '}
       <section
         ref={sectionRefTokenomics}
-        className={`${isVisibleTokenomics ? 'animate-fadeUp' : ''} 
-        my-16
-        flex
-        min-h-[300px]
-        w-full
-        items-center
-        justify-center
-        sm:min-h-[400px]
-        md:min-h-[600px]
-        `}
+        className={`transition-all duration-1000 ease-out ${  // Increased duration and added ease-out
+          isVisibleTokenomics ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        } my-16 flex min-h-[300px] w-full items-center justify-center sm:min-h-[400px] md:min-h-[600px]`}
       >
         <div className="mx-auto md:w-[80%] lg:w-[70%]">
           <h2 className="mb-4 text-center text-4xl text-gray-300">
@@ -125,12 +119,14 @@ export default function Home() {
           </h2>
           <div className="flex items-center justify-center">
             <Image
+              priority
+              loading="eager"  // Added eager loading
               alt="Overview of SCI token allocation"
               width={1000}
               height={1000}
-              layout="responsive"
               src="/allocation-white.webp"
-              className="flex"
+              className="flex transition-opacity duration-500"  // Added transition to image itself
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"  // Added sizes for better loading
             />
           </div>
         </div>
@@ -138,60 +134,36 @@ export default function Home() {
       <Divider />{' '}
       <section
         ref={sectionRefRoadmap}
-        className={`${isVisibleRoadmap ? 'animate-fadeUp' : ''} 
-        my-16
-        flex
-        min-h-[300px]
-        w-full
-        items-center
-        justify-center
-        sm:min-h-[400px]
-        md:min-h-[600px]
-        `}
+        className={`transition-all duration-500 transform ${
+          isVisibleRoadmap ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        } my-16 flex min-h-[300px] w-full items-center justify-center sm:min-h-[400px] md:min-h-[600px]`}
       >
         <div className="mx-auto md:w-[80%] lg:w-[70%]">
           <Image
             src={'/roadmap.webp'}
-            className="rounded-lg"
+            className="rounded-lg w-full h-auto"
             alt="PoSciDonDAO's roadmap for 2024"
-            width={200}
-            height={200}
-            layout="responsive"
+            width={1000}
+            height={1000}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           />
         </div>
       </section>
       <Divider />{' '}
       <section
         ref={sectionRefContact}
-        className={`${isVisibleContact ? 'animate-fadeUp' : ''} 
-        my-16
-        flex
-        min-h-[300px]
-        w-full
-        items-center
-        justify-center
-        sm:min-h-[400px]
-        md:min-h-[600px]
-        `}
+        className={`transition-all duration-500 transform ${
+          isVisibleContact ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        } my-16 flex min-h-[300px] w-full items-center justify-center sm:min-h-[400px] md:min-h-[600px]`}
       >
         <ContactUs />
       </section>
       <Divider />{' '}
       <section
         ref={sectionRefFaq}
-        className={`
-        my-16
-        flex
-        
-        min-h-[300px]
-        w-full
-        flex-col
-        items-center
-        justify-center
-        sm:min-h-[400px]
-        md:min-h-[600px]
-        ${isVisibleFaq ? 'animate-fadeUp' : ''}
-      `}
+        className={`transition-all duration-500 transform ${
+          isVisibleFaq ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        } my-16 flex min-h-[300px] w-full flex-col items-center justify-center sm:min-h-[400px] md:min-h-[600px]`}
       >
         <Faq faqs={faqs} />
       </section>

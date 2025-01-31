@@ -1,7 +1,11 @@
+'use client';
+
 import { Metadata } from 'next';
 import Button from '../components/Button';
 import styles from '../components/Button.module.css';
 import ResearchInfo from '@/app/components/ResearchInfo';
+import { useRef } from 'react';
+import useMultipleIntersectionObserver from '../hooks/useMultipleIntersectionObserver';
 
 const url = new URL('https://www.poscidondao.com/research');
 
@@ -18,6 +22,14 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectFunding() {
+  const headerRef = useRef(null);
+  const infoRef = useRef(null);
+  
+  const [isVisibleHeader, isVisibleInfo] = useMultipleIntersectionObserver(
+    [headerRef, infoRef],
+    { threshold: 0.1, rootMargin: '50px' }
+  );
+
   return (
     <main
       className="
@@ -30,13 +42,10 @@ export default function ProjectFunding() {
           "
     >
       <header
-        className="
-          my-16 
-          flex 
-          flex-col 
-          items-center
-          justify-center
-          "
+        ref={headerRef}
+        className={`transition-all duration-1000 ease-out ${
+          isVisibleHeader ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        } my-16 flex flex-col items-center justify-center`}
       >
         <h1
           className={`
@@ -83,7 +92,12 @@ export default function ProjectFunding() {
           icon={''}
         />
       </header>
-      <section className="mb-16 flex w-full items-center justify-center">
+      <section 
+        ref={infoRef}
+        className={`transition-all duration-1000 ease-out ${
+          isVisibleInfo ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        } mb-16 flex w-full items-center justify-center`}
+      >
         <ResearchInfo />
       </section>
     </main>

@@ -1,7 +1,11 @@
+'use client';
+
 import { Metadata } from 'next';
 import Button from '../components/Button';
 import styles from '../components/Button.module.css';
 import ProjectCard from '../components/ProjectCard';
+import { useRef } from 'react';
+import useMultipleIntersectionObserver from '../hooks/useMultipleIntersectionObserver';
 
 const url = new URL('https://www.poscidondao.com/projects');
 
@@ -17,6 +21,14 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectFunding() {
+  const headerRef = useRef(null);
+  const projectsRef = useRef(null);
+  
+  const [isVisibleHeader, isVisibleProjects] = useMultipleIntersectionObserver(
+    [headerRef, projectsRef],
+    { threshold: 0.1, rootMargin: '50px' }
+  );
+
   const projects = [
     {
       src: '/wedea-logo.png',
@@ -50,13 +62,10 @@ export default function ProjectFunding() {
           "
     >
       <header
-        className="
-          my-16 
-          flex 
-          flex-col 
-          items-center
-          justify-center
-          "
+        ref={headerRef}
+        className={`transition-all duration-1000 ease-out ${
+          isVisibleHeader ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        } my-16 flex flex-col items-center justify-center`}
       >
         <h1
           className={`
@@ -102,7 +111,12 @@ export default function ProjectFunding() {
           icon={''}
         /> */}
       </header>
-      <section className="my-8 grid w-full grid-cols-1 place-items-center gap-16 md:grid-cols-2">
+      <section 
+        ref={projectsRef}
+        className={`transition-all duration-1000 ease-out ${
+          isVisibleProjects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        } my-8 grid w-full grid-cols-1 place-items-center gap-16 md:grid-cols-2`}
+      >
         {projects.map((project, index) => (
           <ProjectCard
             key={index}

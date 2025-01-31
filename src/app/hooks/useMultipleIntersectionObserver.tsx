@@ -1,24 +1,39 @@
 import { useEffect, useRef, useState } from 'react';
 
-function useMultipleIntersectionObserver(refs, options) {
-  const [isVisible, setIsVisible] = useState(refs.map(() => false));
-  const hasBeenVisibleRef = useRef(refs.map(() => false));
+function useMultipleIntersectionObserver(
+  refs: React.RefObject<Element>[],
+  options: IntersectionObserverInit = {}
+) {
+  const [isVisible, setIsVisible] = useState<boolean[]>(refs.map(() => false));
+  const observersRef = useRef<IntersectionObserver[]>([]);
+  const hasBeenVisible = useRef<boolean[]>(refs.map(() => false));
 
   useEffect(() => {
-    const observers = refs.map((ref, index) => {
-      const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          if (!hasBeenVisibleRef.current[index]) {
-            hasBeenVisibleRef.current[index] = true;
-            setIsVisible((prevVisible) => {
-              const updatedVisible = [...prevVisible];
-              updatedVisible[index] = true;
-              return updatedVisible;
-            });
-          }
+    // Cleanup previous observers
+    observersRef.current.forEach(observer => observer.disconnect());
+    
+    // Create new observers for each ref
+    observersRef.current = refs.map((ref, index) => {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          // Once element becomes visible, keep it visible
+          hasBeenVisible.current[index] = true;
+          setIsVisible(prev => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+          
+          // Optionally stop observing once element has been seen
+          observer.unobserve(entry.target);
         }
-      }, options);
+      }, {
+        threshold: options.threshold || 0.1,
+        rootMargin: options.rootMargin || '0px',
+        root: options.root || null
+      });
 
+      // Start observing if ref is available
       if (ref.current) {
         observer.observe(ref.current);
       }
@@ -26,14 +41,11 @@ function useMultipleIntersectionObserver(refs, options) {
       return observer;
     });
 
+    // Cleanup function
     return () => {
-      refs.forEach((ref, index) => {
-        if (ref.current) {
-          observers[index].unobserve(ref.current);
-        }
-      });
+      observersRef.current.forEach(observer => observer.disconnect());
     };
-  }, [refs, options]);
+  }, [refs, options.threshold, options.rootMargin, options.root]);
 
   return isVisible;
 }

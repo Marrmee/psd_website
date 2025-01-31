@@ -1,5 +1,9 @@
+'use client';
+
 import BlogPostCard from '../components/BlogPostCard';
 import { Metadata } from 'next';
+import { useRef } from 'react';
+import useMultipleIntersectionObserver from '../hooks/useMultipleIntersectionObserver';
 
 const url = new URL('https://www.poscidondao.com/blog');
 
@@ -15,6 +19,14 @@ export const metadata: Metadata = {
 };
 
 export default function Blog() {
+  const headerRef = useRef(null);
+  const postsRef = useRef(null);
+  
+  const [isVisibleHeader, isVisiblePosts] = useMultipleIntersectionObserver(
+    [headerRef, postsRef],
+    { threshold: 0.1, rootMargin: '50px' }
+  );
+
   return (
     <main
       className="
@@ -27,13 +39,10 @@ export default function Blog() {
           "
     >
       <header
-        className="
-          my-16 
-          flex 
-          flex-col 
-          items-center
-          justify-center
-          "
+        ref={headerRef}
+        className={`transition-all duration-1000 ease-out ${
+          isVisibleHeader ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        } my-16 flex flex-col items-center justify-center`}
       >
         <h1
           className={`
@@ -72,14 +81,11 @@ export default function Blog() {
         </p> */}
       </header>
       <section
+        ref={postsRef}
         id="blog-posts"
-        className="
-        mx-auto 
-        grid
-        w-[80%]
-        place-items-center
-        sm:w-[70%]
-        "
+        className={`transition-all duration-1000 ease-out ${
+          isVisiblePosts ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+        } mx-auto grid w-[80%] place-items-center sm:w-[70%]`}
       >
         <BlogPostCard
           src={'/blog-banner.png'}
