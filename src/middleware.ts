@@ -8,7 +8,7 @@ const allowedOrigins = [
   'https://www.poscidon.com',
 ];
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const origin = req.headers.get('origin');
   const isDev = process.env.NODE_ENV == 'development';
 
@@ -26,22 +26,38 @@ export function middleware(req: NextRequest) {
   // Generate a nonce for added CSP security
   const nonce = crypto.randomUUID();
 
-  // Define a robust Content-Security-Policy
-  const csp = [
-    `default-src 'self';`,
-    `script-src 'self' 'nonce-${nonce}' ${isDev ? "'unsafe-eval'" : ""};`,
-    `style-src 'self' 'unsafe-inline';`,
-    `font-src 'self';`,
-    `img-src 'self' data: https: blob:;`,
-    `connect-src 'self';`,
-    `frame-src 'self' https://poscidondao.notion.site;`,
-    `object-src 'none';`,
-    `base-uri 'self';`,
-    `frame-ancestors 'self' https://poscidondao.notion.site;`,
-    `manifest-src 'self' https://www.poscidondao.com;`,
-  ]
-    .join(' ')
-    .trim();
+  // Define different CSP for development and production
+  const csp = isDev 
+    ? // Development CSP - more permissive
+      [
+        `default-src 'self';`,
+        `script-src 'self' 'unsafe-eval' 'unsafe-inline' https: http: 'nonce-${nonce}';`,
+        `style-src 'self' 'unsafe-inline' https: http:;`,
+        `font-src 'self' data: https: http:;`,
+        `img-src 'self' data: https: http: blob:;`,
+        `connect-src 'self' https: http:;`,
+        `frame-src 'self' https: http:;`,
+        `object-src 'none';`,
+        `base-uri 'self';`,
+        `frame-ancestors 'self' https://poscidondao.notion.site;`,
+        `manifest-src 'self' https://www.poscidondao.com;`,
+        `media-src 'self' https: http:;`,
+      ].join(' ').trim()
+    : // Production CSP - more restrictive
+      [
+        `default-src 'self';`,
+        `script-src 'self' 'nonce-${nonce}' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/;`,
+        `style-src 'self' 'unsafe-inline' https://www.gstatic.com/;`,
+        `font-src 'self' data:;`,
+        `img-src 'self' data: https: blob:;`,
+        `connect-src 'self' https://www.google.com/recaptcha/ https://*.google.com https://*.gstatic.com;`,
+        `frame-src 'self' https://poscidondao.notion.site https://www.google.com/ https://recaptcha.google.com/;`,
+        `object-src 'none';`,
+        `base-uri 'self';`,
+        `frame-ancestors 'self' https://poscidondao.notion.site;`,
+        `manifest-src 'self' https://www.poscidondao.com;`,
+        `media-src 'self';`,
+      ].join(' ').trim();
 
   if (origin && allowedOrigins.includes(origin)) {
     headers.set('Access-Control-Allow-Origin', origin);

@@ -1,5 +1,17 @@
 import Link from 'next/link';
 
+interface ButtonProps {
+  link: any;
+  href: any;
+  target: any;
+  onClick: any;
+  type: any;
+  text: any;
+  icon: any;
+  style: any;
+  disabled?: boolean;
+}
+
 export default function Button({
   link,
   href,
@@ -9,7 +21,8 @@ export default function Button({
   text,
   icon,
   style,
-}) {
+  disabled,
+}: ButtonProps) {
   return (
     <>
       {link ? (

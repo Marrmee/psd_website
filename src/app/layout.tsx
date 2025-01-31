@@ -94,10 +94,15 @@ export default function RootLayout({
         });
       `}
         </Script>
+        <Script
+          src="https://www.google.com/recaptcha/api.js"
+          async
+          defer
+          nonce={nonce}
+        />
       </head>
       <body
-        className={`
-            bg-seaBlue-1050
+        className={`            bg-seaBlue-1050
             text-gray-300
             ${proximaNova.variable}  
             ${proximaNovaExtraBold.variable}  
@@ -130,13 +135,13 @@ export default function RootLayout({
           </div>
           <div
             className=" 
-                  mb-8 flex flex-col items-center
+                  whitespace-wrap mb-8 flex flex-col
+                  items-center
                   justify-center
                   text-center
                   text-sm
                   text-gray-300
-                  whitespace-wrap
-                  md:flex-row sm:text-base
+                  sm:text-base md:flex-row
                   "
           >
             PoSciDonDAO Token (SCI) contract address on Base:&nbsp;
