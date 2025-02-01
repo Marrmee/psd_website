@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link';
 
 const url = new URL('https://www.poscidondao.com/blog-article/introducing-poscidondao');
@@ -38,7 +38,7 @@ export default function IntroBlog() {
   // }
 
   return (
-    <main className="mx-auto flex xl:w-[70%] sm:w-[85%] w-[95%] flex-col items-center justify-center">
+    (<main className="mx-auto flex xl:w-[70%] sm:w-[85%] w-[95%] flex-col items-center justify-center">
       <div className="pb-4 text-steelBlue">
         {'< '}
         <Link href={'/blog'} className=" underline">
@@ -139,7 +139,10 @@ export default function IntroBlog() {
             src="/blog-images/ecosystem.webp"
             width={1000}
             height={1000}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           <span className="description">PoSciDonDAO’s ecosystem overview</span>
         </section>
         <section className="paragraph">
@@ -161,7 +164,10 @@ export default function IntroBlog() {
             src="/blog-images/sci-token.webp"
             width={300}
             height={300}
-          />{' '}
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />{' '}
           <span className="description">
             Schematic representation of the SCI token
           </span>
@@ -350,6 +356,6 @@ export default function IntroBlog() {
           Return to blogs
         </Link>
       </div>
-    </main>
+    </main>)
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -10,7 +10,7 @@ export default function Cards() {
   const [darkTokSrc, setDarkTokSrc] = useState('/tokens-blue.webp');
 
   return (
-    <div
+    (<div
       className="
         flex
         min-h-[300px]
@@ -74,10 +74,13 @@ export default function Cards() {
               loading="eager"
               width={300}
               height={300}
-              layout="responsive"
               alt="Genetic code surrounding the word 'research'"
               src={`${darkResSrc}`}
-            />
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
           </Link>
           <div
             className="          
@@ -156,10 +159,13 @@ export default function Cards() {
               loading="eager"
               width={300}
               height={300}
-              layout="responsive"
               alt="Genetic code surrounding the word 'community'"
               src={`${darkComSrc}`}
-            />
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
           </Link>
           <div
             className="
@@ -240,10 +246,13 @@ export default function Cards() {
               loading="eager"
               width={300}
               height={300}
-              layout="responsive"
               alt="Genetic code surrounding the word 'tokens'"
               src={`${darkTokSrc}`}
-            />
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto"
+              }} />
           </Link>
           <div
             className="          
@@ -281,6 +290,6 @@ export default function Cards() {
           </div>
         </div>
       </div>
-    </div>
+    </div>)
   );
 }

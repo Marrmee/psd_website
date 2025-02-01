@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Button from '../components/Button';
 import styles from '../components/Button.module.css';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFileAlt,
@@ -96,7 +96,7 @@ export default function SciTokenPage() {
   );
 
   return (
-    <main className="flex w-full flex-col items-center justify-center">
+    (<main className="flex w-full flex-col items-center justify-center">
       <header
         ref={headerRef}
         className={`${
@@ -108,9 +108,12 @@ export default function SciTokenPage() {
             alt="Representation of SCI, PoSciDonDAO's tradable governance token"
             width={1000}
             height={1000}
-            layout="responsive"
             src="/sci.webp"
-          />
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </div>
         <div className="flex w-full flex-col items-center justify-center text-center sm:items-center sm:justify-center md:w-1/2">
           <h1 className="text-center font-proximaSemiBold text-3xl text-gray-300 sm:text-5xl lg:text-6xl">
@@ -359,10 +362,13 @@ export default function SciTokenPage() {
             alt="Overview of PoSciDonDAO's ecosystem"
             width={1000}
             height={1000}
-            layout="responsive"
             src="/blog-images/ecosystem.webp"
             className="rounded-lg"
-          />
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </div>
       </section>
       <Divider />
@@ -394,10 +400,13 @@ export default function SciTokenPage() {
             alt="Overview of SCI token allocation"
             width={1000}
             height={1000}
-            layout="responsive"
             src="/allocation-white.webp"
             className="flex"
-          />
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </div>
       </section>
       <Divider />
@@ -421,6 +430,6 @@ export default function SciTokenPage() {
       >
         <Faq faqs={faqs} />
       </section>
-    </main>
+    </main>)
   );
 }

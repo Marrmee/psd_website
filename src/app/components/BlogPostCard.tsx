@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Button from './Button';
 import styles from './Button.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,7 +6,7 @@ import { faReadme } from '@fortawesome/free-brands-svg-icons';
 
 export default function BlogPostCard({ src, alt, date, title, text, href }) {
   return (
-    <section
+    (<section
       className="
       mx-8
       mb-8 
@@ -47,7 +47,10 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
           alt={`${alt}`}
           width={300}
           height={300}
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
       <span className="pt-2 text-fieryRed">{date}</span>
       <h2
@@ -92,6 +95,6 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
           }
         />
       </div>
-    </section>
+    </section>)
   );
 }

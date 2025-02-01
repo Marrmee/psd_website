@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Button from './Button';
 import styles from './Button.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +13,7 @@ export default function ProjectCard({
   href,
 }) {
   return (
-    <section
+    (<section
       className="
       mb-8 
       flex 
@@ -40,7 +40,6 @@ export default function ProjectCard({
         "
       >
         <Image
-          style={{ height: '250px' }}
           className="
           w-full
           rounded-t-lg
@@ -49,9 +48,12 @@ export default function ProjectCard({
           alt={alt}
           width={300}
           height={300}
-        />
+          style={{
+            height: '250px',
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
-
       <span className="pt-2 text-fieryRed">{date}</span>
       <h2
         className="
@@ -93,6 +95,6 @@ export default function ProjectCard({
           />
         ) : null}
       </div>
-    </section>
+    </section>)
   );
 }

@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -58,29 +58,27 @@ const CardMember: React.FC<CardMemberProps> = ({
   };
 
   return (
-    <div className="flex h-full w-full mx-auto flex-col items-center justify-between space-y-2 px-2 text-center sm:px-8">
+    (<div className="flex h-full w-full mx-auto flex-col items-center justify-between space-y-2 px-2 text-center sm:px-8">
       <div className="relative mb-2 h-40 w-40 flex-shrink-0">
         <Image
           src={src}
-          layout="fill"
-          objectFit="cover"
           alt={alt}
           className="rounded-full"
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
       </div>
-
       <h3 className="h-[1rem] font-proximaSemiBold text-xl">{name}</h3>
-
       {/* Tags - Use flex and no-wrap for consistent height */}
       <div className="pt-2">
         <div className="my-2 flex justify-center gap-4 w-full">
           {tags.map((tag) => renderTag(tag))}
         </div>
       </div>
-
       {/* Description with flexible height */}
       <p className="mb-4 md:w-[90%] mx-auto flex-grow text-sm text-gray-300">{description}</p>
-
       <div className="flex space-x-4">
         <Link
           href={`https://twitter.com/${twitterUsername}`}
@@ -102,10 +100,9 @@ const CardMember: React.FC<CardMemberProps> = ({
           />
         </Link>
       </div>
-
       {/* Divider */}
       <hr className="thin-hr"></hr>
-    </div>
+    </div>)
   );
 };
 

@@ -1,13 +1,13 @@
 'use client';
 
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from 'next/link';
 import Socials from './Socials';
 import Logo from '/public/logo.svg';
 
 export default function Footer({ isNavBar, setIsOpen }) {
   return (
-    <div
+    (<div
       className="
       items-between 
       mx-auto
@@ -41,7 +41,10 @@ export default function Footer({ isNavBar, setIsOpen }) {
               height={1000}
               src={Logo}
               alt="PoSciDon logo consisting of a trident on top of a DNA helix"
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </Link>
         </div>
         <div
@@ -210,6 +213,6 @@ export default function Footer({ isNavBar, setIsOpen }) {
         </div>
       </div>
       <Socials />
-    </div>
+    </div>)
   );
 }

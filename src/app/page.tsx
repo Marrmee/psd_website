@@ -9,7 +9,7 @@ import Hero from './components/Hero';
 import Faq from './components/Faq';
 import useMultipleIntersectionObserver from './hooks/useMultipleIntersectionObserver';
 import Divider from './components/Divider';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export default function Home() {
   const sectionRefCards = useRef(null);
@@ -60,7 +60,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex w-full max-w-full flex-col items-center justify-center">
+    (<main className="flex w-full max-w-full flex-col items-center justify-center">
       <header className="animate-fadeUp flex w-full flex-col items-center justify-center py-16">
         <Hero />
         <p className="w-full py-8 text-center font-proxima text-base transition-all duration-500 md:text-lg lg:text-2xl">
@@ -120,14 +120,20 @@ export default function Home() {
           <div className="flex items-center justify-center">
             <Image
               priority
-              loading="eager"  // Added eager loading
+              // Added eager loading
+              loading="eager"
               alt="Overview of SCI token allocation"
               width={1000}
               height={1000}
               src="/allocation-white.webp"
-              className="flex transition-opacity duration-500"  // Added transition to image itself
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"  // Added sizes for better loading
-            />
+              // Added transition to image itself
+              className="flex transition-opacity duration-500"
+              // Added sizes for better loading
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
         </div>
       </section>
@@ -146,7 +152,10 @@ export default function Home() {
             width={1000}
             height={1000}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
       </section>
       <Divider />{' '}
@@ -167,6 +176,6 @@ export default function Home() {
       >
         <Faq faqs={faqs} />
       </section>
-    </main>
+    </main>)
   );
 }
