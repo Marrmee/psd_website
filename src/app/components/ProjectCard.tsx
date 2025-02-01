@@ -51,7 +51,6 @@ export default function ProjectCard({
           style={{
             height: '250px',
             maxWidth: "100%",
-            height: "auto"
           }} />
       </div>
       <span className="pt-2 text-fieryRed">{date}</span>
