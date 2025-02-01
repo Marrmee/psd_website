@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import Socials from './Socials';
 import Logo from '/public/logo.svg';

@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Button from '../components/Button';
 import styles from '../components/Button.module.css';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFileAlt,

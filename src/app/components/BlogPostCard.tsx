@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Button from './Button';
 import styles from './Button.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

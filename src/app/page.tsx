@@ -9,7 +9,7 @@ import Hero from './components/Hero';
 import Faq from './components/Faq';
 import useMultipleIntersectionObserver from './hooks/useMultipleIntersectionObserver';
 import Divider from './components/Divider';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 export default function Home() {
   const sectionRefCards = useRef(null);
