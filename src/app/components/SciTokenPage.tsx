@@ -127,10 +127,10 @@ export default function SciTokenPage() {
           </p>
           <Button
             link={true}
-            type={''}
+            type={'button'}
             target={'_blank'}
             href={'/Whitepaper.pdf'}
-            onClick={''}
+            onClick={() => {}}
             text={'Read our Whitepaper'}
             icon={
               <FontAwesomeIcon

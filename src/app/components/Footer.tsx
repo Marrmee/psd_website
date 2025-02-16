@@ -145,7 +145,7 @@ export default function Footer({ isNavBar, setIsOpen }) {
               Community
             </Link>
             <Link
-              className="hover:text-seaBlue-900"
+              className="hover:text-seaBlue-700"
               href="https://protocol.poscidondao.com/donate"
               target="_blank"
                 rel="noopener noreferrer"

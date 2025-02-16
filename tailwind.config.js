@@ -15,10 +15,12 @@ module.exports = {
         proximaItalic: ['var(--font-proximaNovaItalic)'],
       },
       screens: {
-        'sm+': '640px',
+        xs: '280px',
+        'xs+': '350px',
         'md+': '896px',
         'lg+': '1152px',
-        'xl+': '1445px',
+        'xl+': '1440px',
+        '2xl': '1536px',
       },
       colors: {
         seaBlue: {
@@ -45,7 +47,9 @@ module.exports = {
         forestGreen: '#004832',
         fieryRed: '#fe3303',
         mellowYellow: '#ffff66',
-        powderBlue: '#c3ebf0'
+        powderBlue: '#c3ebf0',
+        highlightRed: '#FF6B6B',
+        neonGreen: '#00FF99',
       },
       translate: ['responsive', 'hover', 'group-hover'],
       backgroundImage: {

@@ -17,6 +17,6 @@ export const metadata: Metadata = {
 
 export default function ProjectSubmission() {
   return (
-    <div className="p-8 text-fieryRed">Project submissions will be opened soon!</div>
+    <ProjectForm />
   );
 }

@@ -1,49 +1,46 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
-export default function InfoToolTip({ message }) {
-  const [showModal, setShowModal] = useState(false);
+interface InfoToolTipProps {
+  message: string;
+}
+
+export default function InfoToolTip({ message }: InfoToolTipProps) {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   return (
-    <div
-      className="flex items-center justify-center"
-      onMouseEnter={() => setShowModal(true)}
-      onMouseLeave={() => setShowModal(false)}
-    >
-      <div className="text-fieryRed mt-1">
+    <div className="relative inline-block">
+      <button
+        type="button"
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+        className="text-gray-300 hover:text-gray-400 focus:outline-none"
+        aria-label="More information"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4"
-          fill="none"
           viewBox="0 0 24 24"
+          fill="none"
           stroke="currentColor"
-          stroke-width="2"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-4 w-4"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="16" x2="12" y2="12" />
+          <line x1="12" y1="8" x2="12.01" y2="8" />
         </svg>
-      </div>
-      {showModal && (
-        <div
-          className="
-          absolute
-          sm:ml-[26rem]
-          sm:w-[25rem]
-          max-w-full
-          rounded-xl 
-          border-2 
-          border-seaBlue-700 
-          bg-seaBlue-200 
-          p-3
-          mx-2
-          sm:mx-0 
-          text-base
-          font-proxima
-          text-seaBlue-900
-          "
-        >
-          {message}
+      </button>
+      
+      {showTooltip && (
+        <div className="absolute left-1/2 top-6 z-50 w-72 -translate-x-1/2 transform rounded-lg bg-gray-900 p-4 text-sm text-gray-300 shadow-lg">
+          <div className="relative">
+            {/* Triangle pointer */}
+            <div className="absolute -top-6 left-1/2 -ml-2 border-8 border-transparent border-b-gray-900" />
+            <div className="whitespace-pre-line">{message}</div>
+          </div>
         </div>
       )}
     </div>

@@ -110,3 +110,24 @@
   bg-seaBlue-700
   hover:bg-seaBlue-500
 }
+
+.error {
+  @apply flex 
+  h-12 
+  w-full
+  px-4 
+  cursor-pointer 
+  items-center 
+  justify-center 
+  rounded-lg 
+  whitespace-nowrap
+  bg-highlightRed
+  font-proximaSemiBold 
+  shadow-xl 
+  transition-all 
+  duration-300 
+  ease-in-out 
+  hover:bg-highlightRed/70 
+  xs:text-base 
+  md:text-lg;
+}
