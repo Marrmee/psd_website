@@ -178,7 +178,7 @@ export default function Community() {
           <Button
             link={true}
             type={'button'}
-            onClick={null}
+            onClick={()=>{}}
             target={'_blank'}
             text={`Become a contributor`}
             href={'https://forms.gle/g52VVJTXCnz7b8LU7'}
@@ -188,7 +188,7 @@ export default function Community() {
           <Button
             link={true}
             type={'button'}
-            onClick={null}
+            onClick={()=>{}}
             target={'_blank'}
             text={`Join the community`}
             href={'https://discord.gg/75SrHpcNSZ'}

@@ -38,7 +38,7 @@ export default function ProjectFundingContent() {
           target={''}
           href={'/submit-project'}
           style={styles.primary}
-          onClick={''}
+          onClick={()=>{}}
           type={'button'}
           text={'Submit your project proposal'}
           icon={''}

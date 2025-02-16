@@ -84,7 +84,7 @@ export default function BlogPostCard({ src, alt, date, title, text, href }) {
           link={true}
           text="Read more"
           href={href}
-          onClick={''}
+          onClick={()=>{}}
           target=""
           type={'button'}
           icon={

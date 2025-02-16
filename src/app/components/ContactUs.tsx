@@ -160,7 +160,7 @@ export default function ContactUs() {
           target=""
           link={false}
           type="submit"
-          onClick={null}
+          onClick={()=>{}}
           text={buttonText}
           href=""
           style={`${styles.primary} hover:bg-seaBlue-500 bg-seaBlueBlue-950`}

@@ -76,7 +76,7 @@ export default function Home() {
           {/* <Button
             link={true}
             type={'button'}
-            onClick={null}
+            onClick={()=>{}}
             target={'_blank'}
             text={`Join our community`}
             href={'https://discord.gg/75SrHpcNSZ'}
@@ -86,7 +86,7 @@ export default function Home() {
           <Button
             link={true}
             type={'button'}
-            onClick={null}
+            onClick={()=>{}}
             target={'_blank'}
             text={`Purchase SCI`}
             href={
