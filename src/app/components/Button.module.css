@@ -73,6 +73,7 @@
   text-base 
   leading-[1.55rem] 
   text-gray-300 
+  whitespace-nowrap
   px-4 
   py-2 
   rounded-lg 

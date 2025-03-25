@@ -73,27 +73,27 @@ export default function Home() {
           affected by these diseases.
         </p>
         <div className="flex gap-6">
-          {/* <Button
-            link={true}
-            type={'button'}
-            onClick={()=>{}}
-            target={'_blank'}
-            text={`Join our community`}
-            href={'https://discord.gg/75SrHpcNSZ'}
-            icon={''}
-            style={styles.primaryReversed}
-          /> */}
           <Button
             link={true}
             type={'button'}
             onClick={()=>{}}
             target={'_blank'}
-            text={`Purchase SCI`}
+            text={`Visit dApp`}
+            href={'https://protocol.poscidondao.com'}
+            icon={''}
+            style={styles.primary}
+          />
+          <Button
+            link={true}
+            type={'button'}
+            onClick={()=>{}}
+            target={'_blank'}
+            text={`Purchase SCI tokens`}
             href={
               'https://app.uniswap.org/swap?exactField=input&inputCurrency=ETH&outputCurrency=0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3&chain=base'
             }
             icon={''}
-            style={styles.primaryWide}
+            style={styles.tertiary}
           />
         </div>
       </header>

@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Footer from './Footer';
 import { useClickOutside } from './ClickOutside';
 import { usePathname } from 'next/navigation';
+import Button from './Button';
+import styles from './Button.module.css';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,12 +58,12 @@ export default function NavBar() {
     <>
       <div className="top-0 flex min-h-[4rem] w-full items-center justify-center rounded-b-lg bg-tropicalBlue p-4 text-center text-base text-seaBlue-1050 sm:text-xl">
         <span>
-          The PoSciDonDAO Token (SCI) is now LIVE on Uniswap!&nbsp;
+          The PoSciDonDAO Protocol dApp is now LIVE on Base!&nbsp;
           <Link
             className="text-steelBlue underline"
-            href="https://app.uniswap.org/swap?exactField=input&inputCurrency=ETH&outputCurrency=0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3&chain=base"
+            href="https://protocol.poscidondao.com"
           >
-            Purchase here
+            Visit here to lock SCI tokens andvote on proposals!
           </Link>
         </span>
       </div>
@@ -102,9 +104,10 @@ export default function NavBar() {
             }}
           />
         </Link>
+
         <div className="hidden w-full items-start justify-end gap-12 text-lg xl:flex">
           <Link
-            className={`hover:text-seaBlue-900 ${
+            className={`hover:text-seaBlue-900 whitespace-nowrap ${
               isActive('/sci-token') ? 'text-seaBlue-500' : ''
             }`}
             href="/sci-token"
@@ -112,7 +115,7 @@ export default function NavBar() {
             SCI Token
           </Link>
           <Link
-            className={`hover:text-seaBlue-900 ${
+            className={`hover:text-seaBlue-900 whitespace-nowrap ${
               isActive('/research') ? 'text-seaBlue-500' : ''
             }`}
             href={'/research'}
@@ -144,7 +147,18 @@ export default function NavBar() {
             Community
           </Link>
         </div>
-
+        <div className="flex w-full justify-end xl:w-auto">
+          <Button
+            link={true}
+            type={'button'}
+            onClick={()=>{}}
+            target={'_blank'}
+            text={`Visit dApp`}
+            href={'https://protocol.poscidondao.com'}
+            icon={''}
+            style={styles.primary}
+          />
+        </div>
         <div ref={dropdown} className="flex items-center">
           <div className="flex items-center justify-center pb-2">
             <button
