@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef} from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Footer from './Footer';
@@ -58,13 +58,14 @@ export default function NavBar() {
     <>
       <div className="top-0 flex min-h-[4rem] w-full items-center justify-center rounded-b-lg bg-tropicalBlue p-4 text-center text-base text-seaBlue-1050 sm:text-xl">
         <span>
-          The PoSciDonDAO Protocol dApp is now LIVE on Base!&nbsp;
+          The PoSciDonDAO Protocol dApp is now LIVE on Base!&nbsp; Visit{' '}
           <Link
             className="text-steelBlue underline"
             href="https://protocol.poscidondao.com"
           >
-            Visit here to lock SCI tokens andvote on proposals!
+            here
           </Link>
+          {' '}to lock SCI tokens and vote on proposals!
         </span>
       </div>
       <nav
@@ -77,7 +78,8 @@ export default function NavBar() {
       max-w-full 
       items-center 
       justify-between  
-      gap-12
+      gap-4
+      sm:gap-12
       bg-seaBlue-1050
       py-4
     "
@@ -86,7 +88,7 @@ export default function NavBar() {
           onMouseEnter={() => setDarkSrc('/logo-blue.webp')}
           onMouseLeave={() => setDarkSrc('/logo-white.webp')}
           href="/"
-          className="flex items-start"
+          className="flex w-full items-start"
           style={{ maxWidth: '250px', height: 'auto' }} // Consistent size for logo container
         >
           <Image
@@ -107,7 +109,7 @@ export default function NavBar() {
 
         <div className="hidden w-full items-start justify-end gap-12 text-lg xl:flex">
           <Link
-            className={`hover:text-seaBlue-900 whitespace-nowrap ${
+            className={`whitespace-nowrap hover:text-seaBlue-900 ${
               isActive('/sci-token') ? 'text-seaBlue-500' : ''
             }`}
             href="/sci-token"
@@ -115,7 +117,7 @@ export default function NavBar() {
             SCI Token
           </Link>
           <Link
-            className={`hover:text-seaBlue-900 whitespace-nowrap ${
+            className={`whitespace-nowrap hover:text-seaBlue-900 ${
               isActive('/research') ? 'text-seaBlue-500' : ''
             }`}
             href={'/research'}
@@ -147,11 +149,11 @@ export default function NavBar() {
             Community
           </Link>
         </div>
-        <div className="flex w-full justify-end xl:w-auto">
+        <div className="flex justify-end xl:w-auto">
           <Button
             link={true}
             type={'button'}
-            onClick={()=>{}}
+            onClick={() => {}}
             target={'_blank'}
             text={`Visit dApp`}
             href={'https://protocol.poscidondao.com'}

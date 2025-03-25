@@ -72,7 +72,7 @@ export default function Home() {
           <span className="font-proximaBold">change the lives of people</span>{' '}
           affected by these diseases.
         </p>
-        <div className="flex gap-6">
+        <div className="flex gap-2 sm:gap-6">
           <Button
             link={true}
             type={'button'}
