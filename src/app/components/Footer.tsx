@@ -209,6 +209,13 @@ export default function Footer({ isNavBar, setIsOpen }) {
             >
               Privacy Policy
             </Link>
+            <Link
+              className="text-gray-300 hover:text-seaBlue-700"
+              href="/terms-of-service"
+              onClick={() => isNavBar && setIsOpen(false)}
+            >
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>
