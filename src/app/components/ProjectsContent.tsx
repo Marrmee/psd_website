@@ -26,7 +26,7 @@ export default function ProjectsContent() {
     {
       src: '/wecura-logo.webp',
       alt: 'weCURA',
-      href: '',
+      href: '/wecura-whitepaper.pdf',
       date: 'Coming Soon!',
       title: 'weCURA',
       description:
