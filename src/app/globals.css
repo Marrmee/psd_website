@@ -3,102 +3,44 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --background: 240 100% 11%;
+  --foreground: 0 0% 100%;
+  --card: 240 100% 11%;
+  --card-foreground: 0 0% 100%;
+  --popover: 240 100% 11%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 240 100% 11%;
+  --secondary: 240 30% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 240 30% 20%;
+  --muted-foreground: 0 0% 70%;
+  --accent: 240 30% 20%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 30% 20%;
+  --input: 240 30% 20%;
+  --ring: 240 30% 20%;
+  --radius: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-* {
-  box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-end-rgb)) rgb(var(--background-start-rgb));
+  background-color: #010737;
+  color: white;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-h2 {
-  @apply py-2 font-proximaBold text-2xl;
-}
-
-h4 {
-  @apply py-1 font-proximaBold text-lg;
-}
-
-main.blog {
-  @apply max-w-full px-8 transition-all duration-500 sm:w-[80%] md:w-[70%] lg:w-[60%] xl+:w-[45%];
-}
-
-h1.header {
-  @apply mt-2 py-4 text-center font-proximaSemiBold text-3xl leading-10 text-gray-300 sm:text-4xl;
-}
-
-h2.header {
-  @apply text-xl text-gray-300;
-}
-
-span.text {
-  @apply py-1;
-}
-
-p.text {
-  @apply py-2;
-}
-
-span.description {
-  @apply font-proximaItalic;
-}
-
-section.image {
-  @apply flex flex-col items-center justify-center text-center;
-}
-
-section.paragraph {
-  @apply my-2 py-2;
-}
-
-span.reference {
-  @apply my-2 break-normal;
-}
-
-a.ref {
-  @apply text-gray-300 underline;
-}
-
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
+@layer base {
+  * {
+    @apply border-border;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  body {
+    @apply bg-background text-foreground;
   }
-}
-
-.animate-fadeUp {
-  animation: fadeUp 1.5s ease-in-out forwards;
-}
-
-
-.modern-hr {
-  border: 0;
-  height: 2px;
-  background-image: linear-gradient(to right, transparent, #ccc, transparent);
-  width: 100%;
-}
-
-.thin-hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, transparent, #374151, transparent);
-  width: 100%;
 }

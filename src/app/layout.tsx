@@ -1,73 +1,77 @@
-import './globals.css';
-import localFont from 'next/font/local';
-import { Metadata } from 'next';
-import Script from 'next/script';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-import { config } from '@fortawesome/fontawesome-svg-core';
-import Divider from './components/Divider';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { headers } from 'next/headers';
+import type React from "react"
+import type { Metadata } from "next"
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import localFont from 'next/font/local'
+import { headers } from "next/headers"
+import Script from "next/script"
+import RecaptchaProvider from '@/components/recaptcha-provider';
+import MinimalCaptchaBadge from '@/components/minimal-captcha-badge';
 
-config.autoAddCss = false;
-
-const proximaNova = localFont({
-  src: [{ path: 'ProximaNovaRegular.otf' }],
-  variable: '--font-proximaNova',
+const acumin = localFont({
+  src: './AcuminProMedium.otf',
+  preload: true,
+  display: 'swap',
 });
-
-const proximaNovaExtraBold = localFont({
-  src: [{ path: 'ProximaNovaBold.otf' }],
-  variable: '--font-proximaNovaBold',
-});
-
-const proximaNovaSemiBold = localFont({
-  src: [{ path: 'ProximaNovaSemibold.otf' }],
-  variable: '--font-proximaNovaSemiBold',
-});
-
-const proximaNovaItalic = localFont({
-  src: [{ path: 'ProximaNovaRegularItalic.otf' }],
-  variable: '--font-proximaNovaItalic',
-});
-
-const url = new URL('https://www.poscidondao.com');
 
 export const metadata: Metadata = {
-  metadataBase: url,
-  title: 'PoSciDonDAO | Revolutionizing Personalized Medicine Research Funding',
-  description: `PoSciDonDAO streamlines and democratizes the funding process of personalized medicine research. Become part of the change that science needs!`,
-  viewport: 'width=device-width, initial-scale=1.0',
-  alternates: {
-    canonical: url,
+  title: "Poscidon | Revolutionizing Personalized Medicine Research Funding",
+  description:
+    "The first-ever decentralized biotech organization dedicated to funding personalized medicine research for life-altering diseases.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: [
+      { url: "/apple-icon-180x180.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "icon", url: "/favicon.ico" },
+      { rel: "apple-touch-icon", url: "/apple-icon-180x180.png" },
+    ],
   },
-  robots: 'index, follow',
-  icons: [
-    { rel: 'icon', url: `${url}favicon.ico` },
-    { rel: 'icon', url: `${url}favicon-16x16.png` },
-    { rel: 'icon', url: `${url}favicon-32x32.png` },
-    { rel: 'apple-touch-icon', url: `${url}apple-touch-icon.png` },
-    { rel: 'android-chrome-192x192', url: `${url}android-chrome-192x192.png` },
-    { rel: 'android-chrome-512x512', url: `${url}android-chrome-512x512.png` },
-  ],
-  manifest: `${url}manifest.json`,
-};
+  manifest: "/manifest.json",
+  openGraph: {
+    title: "Poscidon | Revolutionizing Personalized Medicine Research Funding",
+    description: "The first-ever decentralized biotech organization dedicated to funding personalized medicine research for life-altering diseases.",
+    url: "https://poscidon.com",
+    siteName: "Poscidon",
+    images: [
+      {
+        url: "https://poscidon.com/psdlogo_white.png",
+        width: 1200,
+        height: 630,
+        alt: "Poscidon Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Poscidon | Revolutionizing Personalized Medicine Research Funding",
+    description: "The first-ever decentralized biotech organization dedicated to funding personalized medicine research for life-altering diseases.",
+    images: ["https://poscidon.com/twitter-card.png"],
+    creator: "@PoSciDonDAO",
+  },
+}
 
 const GMT_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ?? '';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
-  const nonce = headers().get('x-content-nonce') || undefined;
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+
+  const nonce = (await headers()).get('x-content-nonce') || undefined;
+  
   return (
-    <html lang="en">
+    <html lang="en" className={acumin.className}>
       <head>
-        <Script
+      <Script
           nonce={nonce}
           id="anti-clickjacking script"
           dangerouslySetInnerHTML={{
@@ -78,85 +82,40 @@ export default function RootLayout({
             `,
           }}
         />
+      {GMT_ID && (
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GMT_ID}`}
+            strategy="afterInteractive"
+            nonce={nonce}
+          />
+        )}
         <Script
-          nonce={nonce}
-          id="google-analytics-tag"
-          strategy="lazyOnload"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GMT_ID}`}
-        />
-        <Script nonce={nonce} id="google-analytics-code" strategy="lazyOnload">
-          {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GMT_ID}', {
-        page_path: window.location.pathname,
-        });
-      `}
-        </Script>
-        <Script
-          src="https://www.google.com/recaptcha/api.js"
-          async
-          defer
-          nonce={nonce}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Poscidon",
+              "url": "https://poscidon.com",
+              "logo": "https://poscidon.com/psdlogo_blue.png",
+              "sameAs": [
+                "https://x.com/PoSciDonDAO",
+                "https://www.linkedin.com/company/poscidondao",
+                "https://discord.com/invite/75SrHpcNSZ",
+                "https://t.me/OfficialPoSciDonDAO"
+              ]
+            })
+          }}
         />
       </head>
-      <body
-        className={`            bg-seaBlue-1050
-            text-gray-300
-            ${proximaNova.variable}  
-            ${proximaNovaExtraBold.variable}  
-            ${proximaNovaSemiBold.variable}  
-            ${proximaNovaItalic.variable}  
-            mx-auto
-            w-[95%]
-            font-proxima 
-            sm:w-[90%] 
-            xl+:w-[80%]
-             `}
-      >
-        <NavBar />
-        {children}
-        <div className="w-full">
-          <Divider />
-          <Footer isNavBar={false} setIsOpen={false} />
-
-          <div
-            className=" 
-                  flex 
-                  h-20
-                  items-center
-                  justify-center
-                  text-sm
-                  text-gray-300 sm:text-base
-                  "
-          >
-            © PoSciDonDAO Foundation. All rights reserved.
-          </div>
-          <div
-            className=" 
-                  whitespace-wrap mb-8 flex flex-col
-                  items-center
-                  justify-center
-                  text-center
-                  text-sm
-                  text-gray-300
-                  sm:text-base md:flex-row
-                  "
-          >
-            PoSciDonDAO Token (SCI) contract address on Base:&nbsp;
-            <Link
-              className="text-steelBlue"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://basescan.org/token/0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3"
-            >
-              0x25E0A7767d03461EaF88b47cd9853722Fe05DFD3{' '}
-              <FontAwesomeIcon icon={faExternalLinkAlt} size="xs" />
-            </Link>
-          </div>
-        </div>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <RecaptchaProvider>
+          <MinimalCaptchaBadge />
+          {children}
+        </RecaptchaProvider>
+        </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

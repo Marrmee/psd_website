@@ -1,12 +1,27 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import sgMail from '@sendgrid/mail';
+import { validateRecaptcha } from '@/components/recaptcha-utils';
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY ?? '');
 
   try {
     const body = await req.json();
     console.log('body', body);
+
+    const { captchaToken } = body;
+
+    // Verify reCAPTCHA
+    const { verified, errorResponse } = await validateRecaptcha(captchaToken);
+
+    if (!verified) {
+      console.error('reCAPTCHA verification failed:', errorResponse?.error);
+      return NextResponse.json(
+        { error: errorResponse?.error || 'reCAPTCHA verification failed' },
+        { status: errorResponse?.status || 400 },
+      );
+    }
+    
     const {
       txId,
       title,
