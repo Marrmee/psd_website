@@ -1,10 +1,15 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 
 export function FloatingLightsAnimation() {
+  const [isMounted, setIsMounted] = useState(false)
+
   useEffect(() => {
+    // Set mounted to true after component mounts on client side
+    setIsMounted(true)
+    
     // This effect runs only on client-side
     const headers = document.querySelectorAll(".header")
     headers.forEach((header, index) => {
@@ -17,22 +22,26 @@ export function FloatingLightsAnimation() {
   return (
     <div className="animation-wrapper">
       <div className="animation-container">
-        {/* Animated text headers */}
-        <p id="head1" className="header">
-          Accelerating Personalized Medicine Research
-        </p>
-        <p id="head2" className="header">
-          Decentralized
-        </p>
-        <p id="head3" className="header">
-          Transparent
-        </p>
-        <p id="head4" className="header">
-          Funding research for life-altering diseases
-        </p>
-        <p id="head5" className="header">
-          Welcome to Poscidon
-        </p>
+        {/* Animated text headers - only render after client-side mount */}
+        {isMounted && (
+          <>
+            <p id="head1" className="header">
+              Accelerating Personalized Medicine Research
+            </p>
+            <p id="head2" className="header">
+              Decentralized
+            </p>
+            <p id="head3" className="header">
+              Transparent
+            </p>
+            <p id="head4" className="header">
+              Funding research for life-altering diseases
+            </p>
+            <p id="head5" className="header">
+              Welcome to Poscidon
+            </p>
+          </>
+        )}
 
         {/* Floating light particles */}
         <div className="light x1"></div>
@@ -165,6 +174,10 @@ export function FloatingLightsAnimation() {
           text-align: center;
           opacity: 0;
           pointer-events: none;
+        }
+
+        .header.visible {
+          opacity: 1;
         }
 
         #head1 {
