@@ -8,9 +8,9 @@ export function PartnersSection() {
     { name: "Cyberscope", logo: "/logo_cyberscope.svg", url: "https://www.cyberscope.io/" },
     { name: "Human.tech", logo: "/logo_humantech.svg", url: "https://human.tech/" },
     { name: "AxonDAO", logo: "/logo_axondao.svg", url: "https://axondao.io/" },
-    { name: "Lilypad", logo: "/logo_lilypad.svg", url: "https://lilypad.tech/" },
     { name: "QuillAudits", logo: "/logo_quillaudits.svg", url: "https://www.quillaudits.com/" },
     { name: "Rare Compute", logo: "/RCLOGO2.svg", url: "https://www.rarecompute.io/" },
+    { name: "Ulster University", logo: "/ulster-logo.svg", url: "https://www.ulster.ac.uk/personalised-medicine" },
   ];
 
   return (
