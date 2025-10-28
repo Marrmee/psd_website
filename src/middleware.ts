@@ -27,14 +27,14 @@ export async function middleware(req: NextRequest) {
 
   // Define different CSP for development and production
   const csp = isDev 
-    ? // Development CSP - more permissive
+    ? // Development CSP - more permissive (includes 'unsafe-eval' for Next.js hot reload)
       [
         `default-src 'self';`,
-        `script-src 'self' 'nonce-${nonce}' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/;`,
+        `script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://www.googletagmanager.com;`,
         `style-src 'self' 'unsafe-inline' https://www.gstatic.com/;`,
         `font-src 'self' data:;`,
-        `img-src 'self' data: blob:;`,
-        `connect-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/;`,
+        `img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com;`,
+        `connect-src 'self' ws: wss: https://www.google.com/recaptcha/ https://www.gstatic.com/ https://www.google-analytics.com https://analytics.google.com;`,
         `frame-src 'self' https://poscidondao.notion.site https://poscidon.notion.site https://www.google.com/ https://recaptcha.google.com/;`,
         `object-src 'none';`,
         `base-uri 'self';`,
@@ -45,11 +45,11 @@ export async function middleware(req: NextRequest) {
     : // Production CSP - more restrictive
       [
         `default-src 'self';`,
-        `script-src 'self' 'nonce-${nonce}' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/;`,
+        `script-src 'self' 'nonce-${nonce}' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://www.googletagmanager.com;`,
         `style-src 'self' 'unsafe-inline' https://www.gstatic.com/;`,
         `font-src 'self' data:;`,
-        `img-src 'self' data: https://www.gstatic.com/ blob:;`,
-        `connect-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/;`,
+        `img-src 'self' data: https://www.gstatic.com/ blob: https://www.google-analytics.com https://www.googletagmanager.com;`,
+        `connect-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com/ https://www.google-analytics.com https://analytics.google.com;`,
         `frame-src 'self' https://poscidondao.notion.site https://poscidon.notion.site https://www.google.com/ https://recaptcha.google.com/;`,
         `object-src 'none';`,
         `base-uri 'self';`,

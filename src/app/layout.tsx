@@ -69,7 +69,7 @@ export default async function RootLayout({
   const nonce = (await headers()).get('x-content-nonce') || undefined;
   
   return (
-    <html lang="en" className={acumin.className}>
+    <html lang="en" className={acumin.className} suppressHydrationWarning>
       <head>
       <Script
           nonce={nonce}
@@ -108,8 +108,8 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+      <body suppressHydrationWarning>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
         <RecaptchaProvider>
           <MinimalCaptchaBadge />
           {children}
