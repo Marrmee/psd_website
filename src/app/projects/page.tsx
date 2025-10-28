@@ -80,11 +80,26 @@ const projects = [
   },
   {
     id: 2,
-    title: "weCURA: Predictive Personalized Cancer Therapy Tool",
-    description: "This AI tool will allow clinicians to predict which cancer patients need existing anti-cancer treatments.",
+    title: "NephroNet",
+    description: "The team at Ulster University is building an AI-powered blood test that uses ageing signals (senescence biomarkers) to predict kidney failure before symptoms appear.",
+    funding: "$70,000",
+    readMoreLink: "https://dao.poscidon.com/governance/on-chain/proposals/5",
+    tags: ["Artificial Intelligence", "Kidney Diseases"],
+    gradientColors: {
+      from: "#A855F7",
+      to: "#EC4899"
+    },
+    iconPaths: [
+      { type: "polyline", props: { points: "22 12 18 12 15 21 9 3 6 12 2 12" } }
+    ]
+  },
+  {
+    id: 3,
+    title: "Motif: AI-powered scientist for biomarker discovery",
+    description: "This AI-scientist reduces 6 months of biomarker research to 6 minutes.",
     funding: null,
-    readMoreLink: "/wecura-whitepaper.pdf",
-    tags: ["Artificial Intelligence", "Cancer"],
+    readMoreLink: "https://motif.bio/",
+    tags: ["Artificial Intelligence"],
     gradientColors: {
       from: "#22D6C4",
       to: "#A1ECD6"
@@ -99,7 +114,7 @@ const projects = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Spark: On-chain Intellectual Property Framework",
     description: "Spark is an on-chain idea commitment engine built to outcompete closed innovation ecosystems, unlocking unstoppable collaboration, crypto-powered incentives, and shared upside for every contributor. It helps inventors bring bold ideas to life by connecting them with the people, tools, and capital they need to succeed.",
     funding: null,
@@ -147,13 +162,15 @@ export default function ProjectsPage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     className="text-white"
+                    aria-label={`${project.title} Icon`}
                   >
-                    <title>{project.title} Icon</title>
                     {project.iconPaths.map((path, pathIndex) => {
                        if (path.type === 'rect') {
                          return <rect key={pathIndex} {...path.props} />
                        } else if (path.type === 'line') {
                          return <line key={pathIndex} {...path.props} />
+                       } else if (path.type === 'polyline') {
+                         return <polyline key={pathIndex} {...path.props} />
                        } else if (path.type === 'path') {
                          return <path key={pathIndex} {...path.props} />
                        }
