@@ -118,12 +118,12 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://medium.com/@poscidondao"
+                  href="https://medium.com/@poscidon"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-white transition-colors"
                 >
-                  Blog
+                  Medium
                 </Link>
               </li>
             </ul>

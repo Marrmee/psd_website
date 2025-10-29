@@ -27,6 +27,12 @@ interface FormData {
   referralSource: string
   referrerName: string
   referrerEmail: string
+  reference1Name: string
+  reference1Email: string
+  reference2Name: string
+  reference2Email: string
+  reference3Name: string
+  reference3Email: string
   lastSaved: string
   currentStep: number
 }
@@ -47,6 +53,12 @@ export function ProjectForm() {
   const [referralSource, setReferralSource] = useState("")
   const [referrerName, setReferrerName] = useState("")
   const [referrerEmail, setReferrerEmail] = useState("")
+  const [reference1Name, setReference1Name] = useState("")
+  const [reference1Email, setReference1Email] = useState("")
+  const [reference2Name, setReference2Name] = useState("")
+  const [reference2Email, setReference2Email] = useState("")
+  const [reference3Name, setReference3Name] = useState("")
+  const [reference3Email, setReference3Email] = useState("")
   const [buttonText, setButtonText] = useState("Submit")
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
@@ -70,6 +82,12 @@ export function ProjectForm() {
     referralSource: false,
     referrerName: false,
     referrerEmail: false,
+    reference1Name: false,
+    reference1Email: false,
+    reference2Name: false,
+    reference2Email: false,
+    reference3Name: false,
+    reference3Email: false,
   })
 
   const [currentStep, setCurrentStep] = useState(1)
@@ -124,6 +142,12 @@ export function ProjectForm() {
         referralSource: false,
         referrerName: false,
         referrerEmail: false,
+        reference1Name: false,
+        reference1Email: false,
+        reference2Name: false,
+        reference2Email: false,
+        reference3Name: false,
+        reference3Email: false,
       })
     }, 12000)
   }
@@ -150,6 +174,12 @@ export function ProjectForm() {
       referralSource: false,
       referrerName: false,
       referrerEmail: false,
+      reference1Name: false,
+      reference1Email: false,
+      reference2Name: false,
+      reference2Email: false,
+      reference3Name: false,
+      reference3Email: false,
     }
     let isValid = true
 
@@ -211,6 +241,30 @@ export function ProjectForm() {
         isValid = false
       }
     }
+    if (reference1Name.length <= 0) {
+      tempErrors.reference1Name = true
+      isValid = false
+    }
+    if (reference1Email.length <= 0 || !reference1Email.includes("@")) {
+      tempErrors.reference1Email = true
+      isValid = false
+    }
+    if (reference2Name.length <= 0) {
+      tempErrors.reference2Name = true
+      isValid = false
+    }
+    if (reference2Email.length <= 0 || !reference2Email.includes("@")) {
+      tempErrors.reference2Email = true
+      isValid = false
+    }
+    if (reference3Name.length <= 0) {
+      tempErrors.reference3Name = true
+      isValid = false
+    }
+    if (reference3Email.length <= 0 || !reference3Email.includes("@")) {
+      tempErrors.reference3Email = true
+      isValid = false
+    }
 
     handleErrors(tempErrors)
     return isValid
@@ -261,7 +315,20 @@ export function ProjectForm() {
         }
         break
       case 3:
-        if (!funds || Number(funds) <= 0 || !country) {
+        if (
+          !funds ||
+          Number(funds) <= 0 ||
+          !country ||
+          !reference1Name ||
+          !reference1Email ||
+          !reference1Email.includes("@") ||
+          !reference2Name ||
+          !reference2Email ||
+          !reference2Email.includes("@") ||
+          !reference3Name ||
+          !reference3Email ||
+          !reference3Email.includes("@")
+        ) {
           isValid = false
         }
         break
@@ -442,6 +509,12 @@ export function ProjectForm() {
             referralSource: sourceLabel,
             referrerName,
             referrerEmail,
+            reference1Name,
+            reference1Email,
+            reference2Name,
+            reference2Email,
+            reference3Name,
+            reference3Email,
             captchaToken,
           }),
         })
@@ -483,6 +556,12 @@ export function ProjectForm() {
       setReferralSource(parsedData.referralSource || "")
       setReferrerName(parsedData.referrerName || "")
       setReferrerEmail(parsedData.referrerEmail || "")
+      setReference1Name(parsedData.reference1Name || "")
+      setReference1Email(parsedData.reference1Email || "")
+      setReference2Name(parsedData.reference2Name || "")
+      setReference2Email(parsedData.reference2Email || "")
+      setReference3Name(parsedData.reference3Name || "")
+      setReference3Email(parsedData.reference3Email || "")
       setCurrentStep(parsedData.currentStep || 1)
     }
   }, [])
@@ -503,6 +582,12 @@ export function ProjectForm() {
       referralSource,
       referrerName,
       referrerEmail,
+      reference1Name,
+      reference1Email,
+      reference2Name,
+      reference2Email,
+      reference3Name,
+      reference3Email,
       lastSaved: new Date().toISOString(),
       currentStep,
     }
@@ -531,6 +616,12 @@ export function ProjectForm() {
       setReferralSource("")
       setReferrerName("")
       setReferrerEmail("")
+      setReference1Name("")
+      setReference1Email("")
+      setReference2Name("")
+      setReference2Email("")
+      setReference3Name("")
+      setReference3Email("")
       setCurrentStep(1)
     }
   }
@@ -746,7 +837,7 @@ export function ProjectForm() {
               <label htmlFor="strategy" className="block text-sm font-medium mb-1">Commercialization Strategy *</label>
               <textarea
                 id="strategy"
-                placeholder="Your commercialization strategy"
+                placeholder="Your commercialization strategy. Specify your go-to-market strategy: to generate and potentially commercialize assets such as data and intellectual property from the conducted research."
                 value={strategy}
                 onChange={e => setStrategy(e.target.value)}
                 rows={5}
@@ -761,7 +852,7 @@ export function ProjectForm() {
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <p className="text-2xl font-semibold">Funding and Location</p>
+              <p className="text-2xl font-semibold">Funding, Location, and References</p>
               <p className="text-sm text-gray-500">
                 Provide funding and location details.
               </p>
@@ -794,6 +885,104 @@ export function ProjectForm() {
                   <option key={c.value} value={c.value} className="bg-[#010737]">{c.label}</option>
                 ))}
               </select>
+            </div>
+
+            <div className="pt-4">
+              <h3 className="text-lg font-semibold mb-4">Professional References *</h3>
+              <p className="text-sm text-gray-400 mb-4">Please provide 3 professional references who can vouch for your work.</p>
+              
+              {/* Reference 1 */}
+              <div className="space-y-4 mb-6 p-4 bg-white/5 rounded-lg">
+                <h4 className="text-sm font-medium text-white/90">Reference 1</h4>
+                <div>
+                  <label htmlFor="reference1Name" className="block text-sm font-medium mb-1">Full Name *</label>
+                  <input
+                    id="reference1Name"
+                    type="text"
+                    placeholder="Reference name"
+                    value={reference1Name}
+                    onChange={e => setReference1Name(e.target.value)}
+                    className={`w-full p-3 rounded-lg bg-white/10 border transition-all duration-300 ${
+                      errors.reference1Name ? "border-red-500" : "border-white/20"
+                    } focus:outline-none focus:ring-2 focus:ring-[#78DFEC]`}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="reference1Email" className="block text-sm font-medium mb-1">Email Address *</label>
+                  <input
+                    id="reference1Email"
+                    type="email"
+                    placeholder="reference@email.com"
+                    value={reference1Email}
+                    onChange={e => setReference1Email(e.target.value)}
+                    className={`w-full p-3 rounded-lg bg-white/10 border transition-all duration-300 ${
+                      errors.reference1Email ? "border-red-500" : "border-white/20"
+                    } focus:outline-none focus:ring-2 focus:ring-[#78DFEC]`}
+                  />
+                </div>
+              </div>
+
+              {/* Reference 2 */}
+              <div className="space-y-4 mb-6 p-4 bg-white/5 rounded-lg">
+                <h4 className="text-sm font-medium text-white/90">Reference 2</h4>
+                <div>
+                  <label htmlFor="reference2Name" className="block text-sm font-medium mb-1">Full Name *</label>
+                  <input
+                    id="reference2Name"
+                    type="text"
+                    placeholder="Reference name"
+                    value={reference2Name}
+                    onChange={e => setReference2Name(e.target.value)}
+                    className={`w-full p-3 rounded-lg bg-white/10 border transition-all duration-300 ${
+                      errors.reference2Name ? "border-red-500" : "border-white/20"
+                    } focus:outline-none focus:ring-2 focus:ring-[#78DFEC]`}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="reference2Email" className="block text-sm font-medium mb-1">Email Address *</label>
+                  <input
+                    id="reference2Email"
+                    type="email"
+                    placeholder="reference@email.com"
+                    value={reference2Email}
+                    onChange={e => setReference2Email(e.target.value)}
+                    className={`w-full p-3 rounded-lg bg-white/10 border transition-all duration-300 ${
+                      errors.reference2Email ? "border-red-500" : "border-white/20"
+                    } focus:outline-none focus:ring-2 focus:ring-[#78DFEC]`}
+                  />
+                </div>
+              </div>
+
+              {/* Reference 3 */}
+              <div className="space-y-4 mb-6 p-4 bg-white/5 rounded-lg">
+                <h4 className="text-sm font-medium text-white/90">Reference 3</h4>
+                <div>
+                  <label htmlFor="reference3Name" className="block text-sm font-medium mb-1">Full Name *</label>
+                  <input
+                    id="reference3Name"
+                    type="text"
+                    placeholder="Reference name"
+                    value={reference3Name}
+                    onChange={e => setReference3Name(e.target.value)}
+                    className={`w-full p-3 rounded-lg bg-white/10 border transition-all duration-300 ${
+                      errors.reference3Name ? "border-red-500" : "border-white/20"
+                    } focus:outline-none focus:ring-2 focus:ring-[#78DFEC]`}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="reference3Email" className="block text-sm font-medium mb-1">Email Address *</label>
+                  <input
+                    id="reference3Email"
+                    type="email"
+                    placeholder="reference@email.com"
+                    value={reference3Email}
+                    onChange={e => setReference3Email(e.target.value)}
+                    className={`w-full p-3 rounded-lg bg-white/10 border transition-all duration-300 ${
+                      errors.reference3Email ? "border-red-500" : "border-white/20"
+                    } focus:outline-none focus:ring-2 focus:ring-[#78DFEC]`}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         )
@@ -839,8 +1028,7 @@ export function ProjectForm() {
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Get Your Personalized Medicine Project Funded</h1>
           <p className="text-xl text-white/80">
-            In four easy steps, provide information about your project and specify how to generate and potentially
-            commercialize assets such as data and intellectual property from the conducted research.
+          In four easy steps, share your project in personalized medicine. Research that tailors treatments to each person’s unique biology using genes, biomarkers, and data to predict what works best.
           </p>
         </div>
 
