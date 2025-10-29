@@ -1,26 +1,61 @@
 import { NextRequest, NextResponse } from 'next/server';
-import sgMail from '@sendgrid/mail';
 import { validateRecaptcha } from '@/components/recaptcha-utils';
+import { pool } from '@/lib/db';
+
+interface ProjectSubmission {
+  txId?: string;
+  title: string;
+  stage: string;
+  description: string;
+  strategy: string;
+  country: string;
+  address?: string;
+  funds: string | number;
+  name: string;
+  email: string;
+  phone: string;
+  telegram: string;
+  referralSource: string;
+  referrerName?: string;
+  referrerEmail?: string;
+  reference1Name: string;
+  reference1Email: string;
+  reference2Name: string;
+  reference2Email: string;
+  reference3Name: string;
+  reference3Email: string;
+  captchaToken: string;
+}
 
 export async function POST(req: NextRequest) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY ?? '');
-
+  console.log('========================================');
+  console.log('[API] POST /api/project - Request received');
+  console.log('[API] Timestamp:', new Date().toISOString());
+  
   try {
-    const body = await req.json();
-    console.log('body', body);
+    console.log('[API] Step 1: Parsing request body...');
+    const body = await req.json() as ProjectSubmission;
+    console.log('[API] Body parsed successfully. Fields received:', Object.keys(body));
+    console.log('[API] Project title:', body.title);
+    console.log('[API] Full body:', JSON.stringify(body, null, 2));
 
     const { captchaToken } = body;
 
+    console.log('[API] Step 2: Verifying reCAPTCHA...');
+    console.log('[API] Captcha token present:', !!captchaToken);
+    
     // Verify reCAPTCHA
     const { verified, errorResponse } = await validateRecaptcha(captchaToken);
 
     if (!verified) {
-      console.error('reCAPTCHA verification failed:', errorResponse?.error);
+      console.error('[API] ❌ reCAPTCHA verification failed:', errorResponse?.error);
       return NextResponse.json(
         { error: errorResponse?.error || 'reCAPTCHA verification failed' },
         { status: errorResponse?.status || 400 },
       );
     }
+    
+    console.log('[API] ✅ reCAPTCHA verified successfully');
     
     const {
       txId,
@@ -38,73 +73,227 @@ export async function POST(req: NextRequest) {
       referralSource,
       referrerName,
       referrerEmail,
+      reference1Name,
+      reference1Email,
+      reference2Name,
+      reference2Email,
+      reference3Name,
+      reference3Email,
     } = body;
 
-    const emailHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #333; border-bottom: 2px solid #333; padding-bottom: 10px;">New Project Submission</h2>
-        
-        <div style="background-color: #f5f5f5; padding: 15px; margin: 20px 0; border-radius: 5px;">
-          <h3 style="color: #2c5282; margin-top: 0;">Transaction Details</h3>
-          <p style="margin: 5px 0;"><strong>Transaction ID:</strong> ${txId}</p>
-        </div>
+    console.log('[API] Step 3: Validating required fields...');
+    
+    // Validate required fields
+    const requiredFields = {
+      title,
+      stage,
+      description,
+      strategy,
+      country,
+      funds,
+      name,
+      email,
+      phone,
+      telegram,
+      referralSource,
+      reference1Name,
+      reference1Email,
+      reference2Name,
+      reference2Email,
+      reference3Name,
+      reference3Email,
+    };
 
-        <div style="background-color: #f5f5f5; padding: 15px; margin: 20px 0; border-radius: 5px;">
-          <h3 style="color: #2c5282; margin-top: 0;">Contact Information</h3>
-          <p style="margin: 5px 0;"><strong>Name:</strong> ${name}</p>
-          <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
-          <p style="margin: 5px 0;"><strong>Phone:</strong> ${phone}</p>
-          <p style="margin: 5px 0;"><strong>Telegram:</strong> ${telegram}</p>
-        </div>
+    const missingFields = Object.entries(requiredFields)
+      .filter(([_, value]) => !value)
+      .map(([key, _]) => key);
 
-        <div style="background-color: #f5f5f5; padding: 15px; margin: 20px 0; border-radius: 5px;">
-          <h3 style="color: #2c5282; margin-top: 0;">Referral Information</h3>
-          <p style="margin: 5px 0;"><strong>Source:</strong> ${referralSource}</p>
-          ${
-            referralSource === 'reference'
-              ? `
-          <p style="margin: 5px 0;"><strong>Referrer Name:</strong> ${referrerName}</p>
-          <p style="margin: 5px 0;"><strong>Referrer Email:</strong> ${referrerEmail}</p>
-          `
-              : ''
-          }
-        </div>
+    if (missingFields.length > 0) {
+      console.error('[API] ❌ Missing required fields:', missingFields);
+      return NextResponse.json(
+        { error: 'Missing required fields', fields: missingFields },
+        { status: 400 }
+      );
+    }
+    
+    console.log('[API] ✅ All required fields present');
 
-        <div style="background-color: #f5f5f5; padding: 15px; margin: 20px 0; border-radius: 5px;">
-          <h3 style="color: #2c5282; margin-top: 0;">Project Details</h3>
-          <p style="margin: 5px 0;"><strong>Title:</strong> ${title}</p>
-          <p style="margin: 5px 0;"><strong>Stage:</strong> ${stage}</p>
-          <p style="margin: 5px 0;"><strong>Country:</strong> ${country}</p>
-          <p style="margin: 5px 0;"><strong>Funding Amount:</strong> $${funds}</p>
-          <p style="margin: 5px 0;"><strong>Ethereum Address:</strong> ${address || 'Not provided'}</p>
-        </div>
+    console.log('[API] Step 4: Validating email formats...');
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      console.error('[API] ❌ Invalid email format:', email);
+      return NextResponse.json(
+        { error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
 
-        <div style="background-color: #f5f5f5; padding: 15px; margin: 20px 0; border-radius: 5px;">
-          <h3 style="color: #2c5282; margin-top: 0;">Project Description</h3>
-          <p style="margin: 5px 0; white-space: pre-wrap;">${description}</p>
-        </div>
+    // Validate reference emails
+    if (!emailRegex.test(reference1Email) || !emailRegex.test(reference2Email) || !emailRegex.test(reference3Email)) {
+      console.error('[API] ❌ Invalid reference email format');
+      return NextResponse.json(
+        { error: 'Invalid reference email format' },
+        { status: 400 }
+      );
+    }
+    
+    console.log('[API] ✅ All emails valid');
 
-        <div style="background-color: #f5f5f5; padding: 15px; margin: 20px 0; border-radius: 5px;">
-          <h3 style="color: #2c5282; margin-top: 0;">Go to Market Strategy</h3>
-          <p style="margin: 5px 0; white-space: pre-wrap;">${strategy}</p>
-        </div>
+    console.log('[API] Step 5: Validating funds...');
+    
+    // Validate funds is a positive number
+    const fundsNumber = typeof funds === 'string' ? parseFloat(funds) : funds;
+    if (isNaN(fundsNumber) || fundsNumber <= 0) {
+      console.error('[API] ❌ Invalid funds amount:', funds);
+      return NextResponse.json(
+        { error: 'Funds must be a positive number' },
+        { status: 400 }
+      );
+    }
+    
+    console.log('[API] ✅ Funds valid:', fundsNumber);
 
-        <div style="color: #666; font-size: 12px; margin-top: 30px; padding-top: 10px; border-top: 1px solid #eee;">
-          <p>This is an automated email from the Poscidon Project Submission System.</p>
-        </div>
-      </div>
+    console.log('[API] Step 6: Validating Ethereum address (if provided)...');
+    
+    // Validate Ethereum address if provided
+    if (address && !/^0x[a-fA-F0-9]{40}$/.test(address)) {
+      console.error('[API] ❌ Invalid Ethereum address format:', address);
+      return NextResponse.json(
+        { error: 'Invalid Ethereum address format' },
+        { status: 400 }
+      );
+    }
+    
+    if (address) {
+      console.log('[API] ✅ Ethereum address valid');
+    } else {
+      console.log('[API] ℹ️  No Ethereum address provided');
+    }
+
+    console.log('[API] Step 7: Attempting database insertion...');
+    console.log('[API] Database URL configured:', !!process.env.DATABASE_URL);
+    
+    // Insert into PostgreSQL database using Vercel Postgres
+    const result = await pool.sql`
+      INSERT INTO project_submissions (
+        tx_id,
+        title,
+        stage,
+        description,
+        strategy,
+        country,
+        address,
+        funds,
+        name,
+        email,
+        phone,
+        telegram,
+        referral_source,
+        referrer_name,
+        referrer_email,
+        reference1_name,
+        reference1_email,
+        reference2_name,
+        reference2_email,
+        reference3_name,
+        reference3_email
+      ) VALUES (
+        ${txId || 'N/A'},
+        ${title},
+        ${stage},
+        ${description},
+        ${strategy},
+        ${country},
+        ${address || null},
+        ${fundsNumber},
+        ${name},
+        ${email},
+        ${phone},
+        ${telegram},
+        ${referralSource},
+        ${referrerName || null},
+        ${referrerEmail || null},
+        ${reference1Name},
+        ${reference1Email},
+        ${reference2Name},
+        ${reference2Email},
+        ${reference3Name},
+        ${reference3Email}
+      )
+      RETURNING id, created_at
     `;
 
-    const send = await sgMail.sendMultiple({
-      from: 'marco@poscidon.com',
-      to: ['hello@poscidon.com', 'ayat@poscidon.com', 'marco@poscidon.com'],
-      subject: `New Project Submission: ${title}`,
-      html: emailHtml,
-      text: `New project submission received from ${name}. Transaction ID: ${txId}`, // Fallback plain text version
+    console.log('[API] ✅ Database query executed');
+    console.log('[API] Result rows count:', result.rows?.length);
+
+    // Verify we got a result
+    if (!result.rows || result.rows.length === 0) {
+      console.error('[API] ❌ Database insertion failed - no record returned');
+      throw new Error('Database insertion failed - no record returned');
+    }
+
+    const insertedRecord = result.rows[0];
+
+    console.log('[API] ✅ Project saved to database successfully!');
+    console.log('[API] Inserted record ID:', insertedRecord.id);
+    console.log('[API] Created at:', insertedRecord.created_at);
+    console.log('[API] Step 8: Sending success response...');
+    console.log('========================================');
+
+    return NextResponse.json({ 
+      success: true, 
+      id: insertedRecord.id,
+      createdAt: insertedRecord.created_at,
+      message: 'Project submitted successfully' 
     });
-    return NextResponse.json(send);
+
   } catch (error) {
-    // console.log(error);
-    return NextResponse.json({ error });
+    console.error('========================================');
+    console.error('[API] ❌ ERROR occurred during submission');
+    console.error('[API] Error type:', error instanceof Error ? error.constructor.name : typeof error);
+    console.error('[API] Error message:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('[API] Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+    console.error('[API] Full error object:', error);
+    console.error('========================================');
+    
+    // Provide more specific error messages
+    let errorMessage = 'Failed to submit project';
+    let statusCode = 500;
+
+    if (error instanceof Error) {
+      // Database connection errors
+      if (error.message.includes('connect') || error.message.includes('ECONNREFUSED')) {
+        errorMessage = 'Database connection failed';
+        console.error('[API] Database connection error detected');
+      }
+      // Database constraint violations
+      else if (error.message.includes('constraint') || error.message.includes('unique')) {
+        errorMessage = 'Data validation failed';
+        statusCode = 400;
+        console.error('[API] Database constraint violation detected');
+      }
+      // Table doesn't exist
+      else if (error.message.includes('does not exist') || error.message.includes('relation')) {
+        errorMessage = 'Database table not found';
+        console.error('[API] Database table not found');
+      }
+      // DATABASE_URL not set
+      else if (error.message.includes('DATABASE_URL')) {
+        errorMessage = 'Database not configured';
+        console.error('[API] DATABASE_URL environment variable not set');
+      }
+    }
+
+    console.error('[API] Returning error response:', { errorMessage, statusCode });
+
+    return NextResponse.json(
+      { 
+        error: errorMessage, 
+        details: error instanceof Error ? error.message : 'Unknown error' 
+      },
+      { status: statusCode }
+    );
   }
 }

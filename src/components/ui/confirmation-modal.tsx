@@ -24,13 +24,27 @@ export function ConfirmationModal({
   confirmText = "Confirm",
   cancelText = "Cancel",
 }: ConfirmationModalProps) {
+  console.log('[MODAL] ConfirmationModal rendered. isOpen:', isOpen);
+  
   const handleConfirm = () => {
+    console.log('[MODAL] Confirm button clicked in modal');
+    console.log('[MODAL] Calling onConfirm handler...');
     onConfirm()
-    onClose()
+    // Don't close the modal here - let the onConfirm handler decide when to close
+  }
+  
+  const handleClose = () => {
+    console.log('[MODAL] Close/Cancel button clicked');
+    onClose();
   }
 
   return (
-    <Dialog.Root open={isOpen} onOpenChange={onClose}>
+    <Dialog.Root open={isOpen} onOpenChange={(open) => {
+      console.log('[MODAL] Dialog state changed to:', open);
+      if (!open) {
+        handleClose();
+      }
+    }}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" />
         <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[90vw] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/20 bg-white/10 p-6 text-white shadow-lg backdrop-blur-xl">
@@ -52,7 +66,7 @@ export function ConfirmationModal({
             <Button
               type="button"
               variant="outline"
-              onClick={onClose}
+              onClick={handleClose}
               className="border-white/50 text-white hover:bg-white/10"
             >
               {cancelText}
