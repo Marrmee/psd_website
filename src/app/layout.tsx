@@ -3,10 +3,10 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import localFont from 'next/font/local'
+import { headers } from "next/headers"
 import Script from "next/script"
 import RecaptchaProvider from '@/components/recaptcha-provider';
 import MinimalCaptchaBadge from '@/components/minimal-captcha-badge';
-import { ANTI_CLICKJACK_SCRIPT } from '@/lib/inline-scripts'
 
 const acumin = localFont({
   src: './AcuminProMedium.otf',
@@ -58,32 +58,38 @@ export const metadata: Metadata = {
   },
 }
 
-export const dynamic = 'force-static'
-
 const GMT_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ?? '';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+
+  const nonce = (await headers()).get('x-content-nonce') || undefined;
+  
   return (
     <html lang="en" className={acumin.className} suppressHydrationWarning>
       <head>
-        <script
-          id="anti-clickjacking"
-          suppressHydrationWarning
+      <Script
+          nonce={nonce}
+          id="anti-clickjacking script"
           dangerouslySetInnerHTML={{
-            __html: ANTI_CLICKJACK_SCRIPT,
+            __html: `
+              if (window.top !== window.self) {
+                window.top.location = window.self.location;
+              }
+            `,
           }}
         />
-        {GMT_ID ? (
+      {GMT_ID && (
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GMT_ID}`}
             strategy="afterInteractive"
+            nonce={nonce}
           />
-        ) : null}
-        <script
+        )}
+        <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
